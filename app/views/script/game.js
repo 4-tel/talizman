@@ -3,8 +3,6 @@ class Game {
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 10000);
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
-        const axes = new THREE.AxesHelper(1000)
-        this.scene.add(axes)
         this.renderer.setClearColor(0x0fffff);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById("game").append(this.renderer.domElement);
