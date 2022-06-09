@@ -1,63 +1,102 @@
 class Ui {
 
-    constructor() {
-        this.loginBackgrounds = ['village.jpg', 'castle.jpg', 'catacombs.jpg', 'dragon.jpg', 'statue.jpg']
+    init() {
+        this.chooseMenuOption()
     }
 
-    //starts all methods required to login ui
-    //no input
-    //no output
+    //makes menu elements clickable
+    chooseMenuOption() {
 
-    loginUi() {
-        this.loginImages(0)
-        this.loginPanel()
-    }
+        let els = document.getElementById("menu").children
 
-    //login background images
-    //input: desired image index - integer
-    //no output
+        for (let el of els) {
 
-    loginImages(i) {
-
-        console.log(`textures/${this.loginBackgrounds[i]}`);
-
-        document.getElementById("image").setAttribute("src", `textures/${this.loginBackgrounds[i]}`)
-
-        i += 1
-        if (i > this.loginBackgrounds.length) { i = 0 }
-        let margin = 1
-
-        this.interval = setInterval(() => {
-            document.getElementById("image").style.marginTop = margin + "px"
-            margin -= 0.2
-
-            if (Math.abs(margin) > document.getElementById("image").offsetHeight - document.getElementById("background").offsetHeight) {
-                clearInterval(this.interval)
-                this.loginImages(i)
+            switch (el.innerText) {
+                case "join game":
+                    el.onclick = () => {
+                        console.log("join");
+                        this.clearChosen(el)
+                        this.joinGame()
+                    }
+                    break;
+                case "login":
+                    el.onclick = () => {
+                        console.log("login");
+                        this.clearChosen(el)
+                        this.login()
+                    }
+                    break;
+                case "register":
+                    el.onclick = () => {
+                        console.log("register");
+                        this.clearChosen(el)
+                        this.register()
+                    }
+                    break;
+                case "statistics":
+                    el.onclick = () => {
+                        console.log("stats");
+                        this.clearChosen(el)
+                        this.stats()
+                    }
+                    break;
             }
 
-        }, 10)
+        }
+    }
 
+    //click on menu option
+    clearChosen(el) {
+        let chosen = document.getElementsByClassName("chosen")
+        chosen.length > 0 ? chosen[0].classList.remove("chosen") : null
+        el.classList.add("chosen")
+    }
+
+    //creates game join ui
+    joinGame() {
+
+        document.getElementById("options").style.height = "40vh"
+        document.getElementById("options").innerHTML = `<h3>join game</h3>
+        <hr /><br />
+        <p>You play as guest</p>
+        <div style="position:relative">
+            <label for="idJoin">Join game by id: </label>
+            <input type="text" id="idJoin" name="idJoin">
+            <p>leave empty to join any available game</p>
+        </div>
+        <div style="position:relative">
+            <label for="guestName">Temporary name: </label>
+            <input type="text" id="guestName" name="guestName">
+            <p>leave empty for default guest name</p>
+        </div>
+        <hr style="margin-top:1vh;margin-bottom:1vh">
+        <button>search game</button>`
 
     }
 
-    //displays and handles login panel
-    //no input
-    //no output
+    //creates login ui
+    login() {
 
-    loginPanel() {
-
-        document.getElementById("unameSubmit").onclick = () => { net.joinGameRequest(document.getElementById("username").value, null) }
+        document.getElementById("options").style.height = "10vh"
+        document.getElementById("options").innerHTML = `<p style="color:white">Login:</p><hr>`
 
     }
 
-    //displays message in login window
-    //input is a message string
-    //no output
+    //creates register ui
+    register() {
 
-    loginMsg(message) {
-
-        document.getElementById("loginMsg").innerText = message
+        document.getElementById("options").style.height = "10vh"
+        document.getElementById("options").innerHTML = `<p style="color:white">Register:</p><hr>`
 
     }
+
+    //creates statistics ui
+    stats() {
+
+        document.getElementById("options").style.height = "10vh"
+        document.getElementById("options").innerHTML = `<p style="color:white">Statistics:</p><hr>`
+
+    }
+
+
 }

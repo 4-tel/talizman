@@ -5,30 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Talisman Might and Magic</title>
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/ui.css">
     <script src="script/ui.js"></script>
     <script src="script/net.js"></script>
+    <script src="script/global.js"></script>
 </head>
 
 <body>
-    <h1>Talisman might and magic the best project in the universe</h1>
-    <div id="background"><img id="image" src="textures/village.jpg" alt="background" width="100%"></div>
+    <img src="textures/statue.jpg" id="background">
 
-    <div id="loginPanel">
-        <input id="username" type="text">
-        <button id="unameSubmit">submit</button>
-        <p id="loginMsg"></p>
-    </div>
+    <h1>Talisman Might and Magic</h1>
+
+    <ul id="menu">
+        <li>join game</li>
+        <li>login</li>
+        <li>register</li>
+        <li>statistics</li>
+    </ul>
+    
+    <div id="options"></div>
 
     <script>
-        const ui = new Ui()
-        const net = new Net()
-
-
-        ui.loginUi()
-
+        let ui = new Ui();
+        ui.init()
     </script>
+
 </body>
 
 </html>

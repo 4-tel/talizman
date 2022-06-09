@@ -1,59 +1,16 @@
 * {
-    margin: 0;
+    margin: 0 auto;
+    padding: 0;
     overflow: hidden;
+    cursor: url('../textures/cursor.jpg'), auto;
+    font-family: Joan;
+}
+
+@font-face {
+    font-family: Joan;
+    src: url('../fonts/Joan-Regular.ttf');
 }
 
 body {
-    background-color: #000000;
-}
-
-@font-face {
-    font-family: Makondo;
-    src: url(../fonts/Macondo-Regular.ttf);
-}
-
-@font-face {
-    font-family: IndieFlower;
-    src: url(../fonts/IndieFlower-Regular.ttf);
-}
-
-@font-face {
-    font-family: Satisfy;
-    src: url(../fonts/Satisfy-Regular.ttf);
-}
-
-h1 {
-    font-family: Makondo;
-    text-align: center;
-    color: white;
-    margin: 5vh;
-}
-
-#background {
-    width: 100vw;
-    height: 45vh;
-    margin-top: 35vh;
-    background-color: white;
-    background-image: url(../textures/background1.jpg);
-    background-repeat: no-repeat;
-}
-
-#loginPanel {
-    position: absolute;
-    top: 10vh;
-    left: 50vw;
-    transform: translate(-50%);
-    width: 30vh;
-    height: 30vh;
-    border: 2px solid #ffffff;
-    background-color: #cfcfcf;
-}
-
-#loginPanel>* {
-    margin: 15px;
-}
-
-#loginMsg {
-    color: #aa2222;
-    font-weight: bold;
+    background-color: black;
 }

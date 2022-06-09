@@ -59,18 +59,18 @@ class gameController {
                     else {
                         if (wonAllFights()) { //czy pokonałeś wszystkich wrogów na lokacji?
                             specialLocation() //postępuj zgodznie z poleceniem obszaru
-                        collectGoods() //zbierz przedmioty, przyjaciół i złoto z danego obszaru
-                        if (haveToMove()) { //czy w wyniku spotkania zostałeś przesunięty na inny obszar?
-                            this.round() //zacznij ponownie rundę w nowym miejscu
+                            collectGoods() //zbierz przedmioty, przyjaciół i złoto z danego obszaru
+                            if (haveToMove()) { //czy w wyniku spotkania zostałeś przesunięty na inny obszar?
+                                this.round() //zacznij ponownie rundę w nowym miejscu
+                            }
+                            else {
+                                return (endOfRound()) //Twoja tura się kończy
+                            }
                         }
                         else {
                             return (endOfRound()) //Twoja tura się kończy
                         }
-                        }
-                        else {
-                            return (endOfRound()) //Twoja tura się kończy
-                        }
-                        
+
                     }
                 }
                 else {
@@ -83,11 +83,7 @@ class gameController {
                         return (endOfRound()) //Twoja tura się kończy
                     }
                 }
-
-
             }
-
         }
-
     }
 }
