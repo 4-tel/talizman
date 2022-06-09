@@ -106,20 +106,76 @@ class Ui {
         <div style="position:relative">
             <label for="username">Username: </label>
             <input type="text" id="username" name="username">
+            <p style="color:#995544"></p>
         </div>
         <div style="position:relative">
-            <label for="username">Email: </label>
+            <label for="email">Email: </label>
             <input type="email" id="email" name="email">
+            <p style="color:#995544"></p>
         </div>
         <div style="position:relative">
             <label for="passwd">Password: </label>
             <input type="password" id="passwd" name="passwd">
+            <p style="color:#995544"></p>
         </div>
         <div style="position:relative">
-            <label for="passwd">Confirm password: </label>
+            <label for="confPasswd">Confirm password: </label>
             <input type="password" id="confPasswd" name="passwd">
+            <p style="color:#995544"></p>
         </div>
-        <button id="register" onclick="">register</button>`
+        <button id="register" onclick="ui.handleRegister()">register</button>
+        <p style="color:#995544"></p>`
+
+    }
+
+    handleRegister() {
+
+        let pass = true
+
+        if (document.getElementById("username").value.trim().length == 0) {
+            document.getElementById("username").parentElement.children[2].innerText = 'this element must not be empty'
+            pass = false
+        }
+        else {
+            document.getElementById("username").parentElement.children[2].innerText = ''
+        }
+        if (document.getElementById("email").value.trim().length == 0) {
+            document.getElementById("email").parentElement.children[2].innerText = 'this element must not be empty'
+            pass = false
+        }
+        else {
+            document.getElementById("email").parentElement.children[2].innerText = ''
+        }
+        if (document.getElementById("passwd").value.trim().length == 0) {
+            document.getElementById("passwd").parentElement.children[2].innerText = 'this element must not be empty'
+            pass = false
+        }
+        else {
+            document.getElementById("passwd").parentElement.children[2].innerText = ''
+        }
+        if (document.getElementById("confPasswd").value.trim().length == 0) {
+            document.getElementById("confPasswd").parentElement.children[2].innerText = 'this element must not be empty'
+            pass = false
+        }
+        else {
+            document.getElementById("confPasswd").parentElement.children[2].innerText = ''
+        }
+
+        if (pass == false) {
+            return false
+        }
+
+        if (document.getElementById("passwd").value != document.getElementById("confPasswd").value) {
+            document.getElementById("confPasswd").parentElement.children[2].innerText = 'passwords are not the same'
+        }
+
+        let data = {
+            username: document.getElementById("username").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("passwd").value
+        }
+
+        console.log(data);
 
     }
 
