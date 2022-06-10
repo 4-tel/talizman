@@ -14,28 +14,24 @@ class Ui {
             switch (el.innerText) {
                 case "join game":
                     el.onclick = () => {
-                        console.log("join");
                         this.clearChosen(el)
                         this.joinGame()
                     }
                     break;
                 case "login":
                     el.onclick = () => {
-                        console.log("login");
                         this.clearChosen(el)
                         this.login()
                     }
                     break;
                 case "register":
                     el.onclick = () => {
-                        console.log("register");
                         this.clearChosen(el)
                         this.register()
                     }
                     break;
                 case "statistics":
                     el.onclick = () => {
-                        console.log("stats");
                         this.clearChosen(el)
                         this.stats()
                     }
@@ -81,7 +77,7 @@ class Ui {
 
     }
 
-    handleRegister() {
+    async handleRegister() {
 
         let pass = true
 
@@ -129,8 +125,14 @@ class Ui {
             password: document.getElementById("passwd").value
         }
 
-        console.log(data);
-        net.register(data)
+        let status = await net.register(data)
+        switch (status) {
+            case "accepted":
+                document.getElementById("options").innerHTML += '<p style="color:#995544;font-size:2vh;margin:0;">Request sent. Check your email to confirm your request (expires in 10 minutes)</p>'
+                document.getElementById("options").style.height = "50vh"
+                break;
+        }
+
 
     }
 

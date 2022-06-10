@@ -4,7 +4,7 @@ const logger = require('tracer').colorConsole()
 const nodemailer = require('nodemailer')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-require('dotenv')
+require('dotenv').config()
 
 //nodemailer auth and conf
 const config = {
@@ -12,6 +12,9 @@ const config = {
     auth: {
         user: process.env.YAHOO_LOGIN,
         pass: process.env.YAHOO_PASS
+    },
+    tls: {
+        rejectUnauthorized: false
     }
 }
 const transporter = nodemailer.createTransport(config)
@@ -137,7 +140,7 @@ const userController = {
                 {
                     email: data.email,
                     username: data.username,
-                    password: bcrypt.hash(data.password)
+                    password: await bcrypt.hash(data.password, 10)
                 },
                 process.env.TOKEN_PASSWD,
                 {
@@ -148,9 +151,9 @@ const userController = {
             //send email
             transporter.sendMail({
                 from: process.env.YAHOO_LOGIN,
-                to: user.email,
+                to: data.email,
                 subject: 'Talisman - confirm account',
-                html: `<p>klikij w poniższy link w celu potwierdzenia konta<br/>http://localhost:3000/user/confirm/${token}<br/>Uwaga: link jest ważny przez 10 minut</p>`
+                html: `<p>Click this link to confirm your account request:<br/>http://localhost:3000/user/confirm/${token}<br/>Warning: Link is valid for 10 minutes</p>`
             });
 
             logger.log("email sent")

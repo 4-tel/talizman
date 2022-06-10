@@ -15,7 +15,7 @@ const layout = {
         <input type="password" id="passwd" name="passwd">
     </div>
     <button id="login" onclick="ui.loginInvalid()">login</button>`,
-    joinGame:`<h3>join game</h3>
+    joinGame: `<h3>join game</h3>
     <hr /><br />
     <p style="color:#995544">You play as guest</p>
     <div style="position:relative">
@@ -27,10 +27,9 @@ const layout = {
         <label for="guestName">Temporary name: </label>
         <input type="text" id="guestName" name="guestName">
         <p>leave empty for default guest name</p>
-    </div>
-    <hr style="margin-top:1vh;margin-bottom:1vh">
+    </div><br/>
     <button id="joinGame">search game</button>`,
-    register:`<h3>register</h3>
+    register: `<h3>register</h3>
     <hr /><br />
     <div style="position:relative">
         <label for="username">Username: </label>
