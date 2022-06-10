@@ -12,10 +12,13 @@ class Game {
 
         this.tiles = new Models()
         this.board = new Board(0, this.tiles.get())
+        this.board.click()
         this.scene.add(this.board.create())
         this.render()
+        // temp code
         this.wireframe = document.getElementById("game")
         this.wireframe.setAttribute("onmousemove", "game.wire_frame()")
+        //  temp code \\
 
     }
     render = () => {
@@ -23,17 +26,18 @@ class Game {
         this.renderer.render(this.scene, this.camera);
         console.log("render leci")
     }
-    wire_frame = () => {
-        if (this.tiles.third_land.wireframe == false) {
-            this.tiles.third_land.wireframe = true
-            this.tiles.second_land.wireframe = true
-            this.tiles.first_land.wireframe = true
-        }
-        else {
-            this.tiles.third_land.wireframe = false
-            this.tiles.second_land.wireframe = false
-            this.tiles.first_land.wireframe = false
-        }
-    }
+    // temp code
+    // wire_frame = () => {
+    //     if (this.tiles.third_land.wireframe == false) {
+    //         this.tiles.third_land.wireframe = true
+    //         this.tiles.second_land.wireframe = true
+    //         this.tiles.first_land.wireframe = true
+    //     }
+    //     else {
+    //         this.tiles.third_land.wireframe = false
+    //         this.tiles.second_land.wireframe = false
+    //         this.tiles.first_land.wireframe = false
+    //     }
+    // }
 
 }

@@ -16,6 +16,26 @@ class Board {
         }
         return (this.board)
     }
+    click = () => {
+        this.raycaster = new THREE.Raycaster()
+        this.mouseVector = new THREE.Vector2()
+        document.getElementById("game").addEventListener("mousedown", (event) => {
 
+            this.mouseVector.x = (event.clientX / window.innerWidth) * 2 - 1
+            this.mouseVector.y = -(event.clientY / window.innerHeight) * 2 + 1
 
+            this.raycaster.setFromCamera(this.mouseVector, game.camera);
+            this.intersects = this.raycaster.intersectObjects(game.scene.children[0].children);
+
+            if (this.intersects.length > 0) {
+                console.log(this.intersects[0])
+                this.intersects[0].object.material = new THREE.MeshBasicMaterial({
+                    color: 0x0000ff,
+                    side: THREE.DoubleSide,
+                    wireframe: false
+                })
+            }
+
+        })
+    }
 }
