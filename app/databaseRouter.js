@@ -1,26 +1,20 @@
 const logger = require('tracer').colorConsole()
-const mongoose = require('mongoose')
-require('dotenv').config()
+const getRequestData = require('./getRequestData')
+const databaseController = require('./databaseController')
 
-const url = `mongodb+srv://${process.env.MONGO_LOGIN}:${process.env.MONGO_PASSWD}@cluster0.mdiwtkg.mongodb.net/?retryWrites=true&w=majority`
-const connectionParams = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}
-
-mongoose.connect(url, connectionParams)
-    .then(() => {
-        logger.log('Connected to the database ')
-    })
-    .catch((err) => {
-        logger.error(`Error connecting to the database. n${err}`);
-    })
 
 const databaseRouter = async (req, res) => {
 
-    if (req.url == "/database/adduser") {
+    if (req.method == "POST" && req.url == "/database/adduser") {
 
-        
+        let user = JSON.parse(await getRequestData(req))
+        let status = databaseController.adduser(user)
+
+    }
+
+    else if (req.method == "GET" && req.url == "/database") {
+
+        res.end(JSON.stringify(await databaseController.getRecords()))
 
     }
 

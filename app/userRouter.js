@@ -1,6 +1,7 @@
 const logger = require('tracer').colorConsole()
 const userController = require('./userController')
 const getRequestData = require('./getRequestData')
+const databaseController = require('./databaseController')
 
 const userRouter = async (req, res) => {
 
@@ -22,9 +23,10 @@ const userRouter = async (req, res) => {
 
         let token = req.url.split("/")[req.url.split("/").length - 1]
 
-        let status = await userController.verifyAccount(token)
+        let output = await userController.verifyAccount(token)
 
-        if (status == "success") {
+        if (output.status == "success") {
+            databaseController.adduser(output.user)
             res.writeHead(200, { 'Content-Type': 'text/html' })
             res.end('<p style="margin:3vh;text-align:center">Account verified!</p>')
         } else {

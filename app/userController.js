@@ -177,11 +177,11 @@ const userController = {
             let decoded = jwt.verify(token, process.env.TOKEN_PASSWD)
 
             console.log(decoded);
-            return "success"
+            return { status: "success", user: decoded }
 
         } catch (err) {
             logger.error(err.message)
-            return "invalid token"
+            return { status: "invalid token" }
         }
 
     }
