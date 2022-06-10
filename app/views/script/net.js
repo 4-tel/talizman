@@ -35,7 +35,7 @@ class Net {
 
     //register request
     //input: {email:string,username:string,password:string}
-    //output: register status - (accepted/userExists/serverFailure)
+    //output: register status - (accepted/usernameTaken/emailTaken/fatalError)
 
     async register(data) {
 

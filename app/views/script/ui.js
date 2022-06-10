@@ -131,6 +131,18 @@ class Ui {
                 document.getElementById("options").innerHTML += '<p style="color:#995544;font-size:2vh;margin:0;">Request sent. Check your email to confirm your request (expires in 10 minutes)</p>'
                 document.getElementById("options").style.height = "50vh"
                 break;
+            case "usernameTaken":
+                document.getElementById("options").innerHTML += '<p style="color:#995544;font-size:2vh;margin:0;">Given username is taken. Try to login or come up with something else</p>'
+                document.getElementById("options").style.height = "50vh"
+                break;
+            case "emailTaken":
+                document.getElementById("options").innerHTML += '<p style="color:#995544;font-size:2vh;margin:0;">User with given emial already exists. Try to login or type different email</p>'
+                document.getElementById("options").style.height = "50vh"
+                break;
+            case "fatalError":
+                document.getElementById("options").innerHTML += '<p style="color:#995544;font-size:2vh;margin:0;">Some unexpected error occured :/</p>'
+                document.getElementById("options").style.height = "50vh"
+                break;
         }
 
 

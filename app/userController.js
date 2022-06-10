@@ -165,6 +165,21 @@ const userController = {
             return false
 
         }
+    },
+
+    async verifyAccount(token) {
+
+        try {
+            let decoded = jwt.verify(token, process.env.TOKEN_PASSWD)
+
+            console.log(decoded);
+            return "success"
+
+        } catch (err) {
+            logger.error(err.message)
+            return "invalid token"
+        }
+
     }
 
 }
