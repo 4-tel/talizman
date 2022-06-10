@@ -19,71 +19,71 @@ class Models {
         this.tile_table = [
             {
                 position: {
-                    x: 0,
-                    y: 0
+                    x: -2000,
+                    y: -1500
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 300,
-                    y: 0
+                    x: -1430,
+                    y: -1500
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 600,
-                    y: 0
+                    x: -860,
+                    y: -1500
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 900,
-                    y: 0
+                    x: -290,
+                    y: -1500
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 1200,
-                    y: 0
+                    x: 280,
+                    y: -1500
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 1500,
-                    y: 0
+                    x: 850,
+                    y: -1500
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 1800,
-                    y: 0
+                    x: 1420,
+                    y: -1500
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },

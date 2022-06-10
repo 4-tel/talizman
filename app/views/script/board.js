@@ -6,14 +6,16 @@ class Board {
 
 
     }
+
     create() {
         for (let i = 0; i < 49; i++) {
-            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].height, 50, this.instruction[i].width), this.instruction[i].material)
+            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, 50, this.instruction[i].height), this.instruction[i].material)
             tile.name = `${i}`
             tile.position.set(this.instruction[i].position.x, 0, this.instruction[i].position.y)
             this.board.add(tile)
         }
-        console.log(this.board)
         return (this.board)
     }
+
+
 }
