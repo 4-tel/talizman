@@ -1,0 +1,20 @@
+a#token {
+    transition: all 0.5s;
+    cursor: url('http://localhost:3000/textures/cursor.jpg'), auto;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 200%;
+    border: 2px solid black;
+    padding: 2%;
+    text-decoration: none;
+    background-color: #666666;
+    color: #cfcfcf"
+
+}
+
+a#token:hover {
+    background-color: #999999;
+    color: #000000
+}

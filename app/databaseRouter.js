@@ -1,23 +1,29 @@
-// const logger = require('tracer').colorConsole()
-// const mongoClient = require('mongodb').MongoClient
-// const objectID = require('mongodb').ObjectId
+const logger = require('tracer').colorConsole()
+const mongoose = require('mongoose')
+require('dotenv').config()
 
-// mongoClient.connect("mongodb://localhost/magicdb", (err, db) => {
-//     if (err) console.log(err)
-//     else {
-//         console.log("connected to mongodb!");
-//         console.log(db)
-//     }
-// })
+const url = `mongodb+srv://${process.env.MONGO_LOGIN}:${process.env.MONGO_PASSWD}@cluster0.mdiwtkg.mongodb.net/?retryWrites=true&w=majority`
+const connectionParams = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
 
-// const databaseRouter = async (req, res) => {
+mongoose.connect(url, connectionParams)
+    .then(() => {
+        logger.log('Connected to the database ')
+    })
+    .catch((err) => {
+        logger.error(`Error connecting to the database. n${err}`);
+    })
 
-//     if (req.url == "/database/adduser") {
+const databaseRouter = async (req, res) => {
 
+    if (req.url == "/database/adduser") {
 
+        
 
-//     }
+    }
 
-// }
+}
 
-// module.exports = databaseRouter
+module.exports = databaseRouter
