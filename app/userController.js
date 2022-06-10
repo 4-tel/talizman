@@ -153,11 +153,10 @@ const userController = {
                 from: process.env.YAHOO_LOGIN,
                 to: data.email,
                 subject: 'Talisman - confirm account',
-                html: `<div style="width: 100%;height:fit-content;position: absolute;">
+                html: `<div style="width: 100%;height:100%;position: absolute;">
+                <link rel="stylesheet" href="http://localhost:3000/style/mail.css">
                 <p style="text-align: center;font-size: 200%;">click to verify your account!</p>
-                <a id="abc" href="http://localhost:3000/user/confirm/${token}"
-                    style="transition: all 0.5s;cursor:url('http://localhost:3000/textures/cursor.jpg'), auto;text-align: center;position:absolute;left: 50%;transform: translate(-50%);font-size: 200%;border:2px solid black;padding:1%;text-decoration: none;background-color: #666666;color:#cfcfcf">verify
-                    account</a>
+                <a id="token" href="http://localhost:3000/user/confirm/${token}">verify account</a>
             </div>`
             });
 
