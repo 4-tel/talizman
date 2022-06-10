@@ -89,421 +89,421 @@ class Models {
             },
             {
                 position: {
-                    x: 0,
-                    y: 300
+                    x: -2000,
+                    y: -1130
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 300,
-                    y: 300
+                    x: -1430,
+                    y: -1130
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 600,
-                    y: 300
+                    x: -860,
+                    y: -1130
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 900,
-                    y: 300
+                    x: -290,
+                    y: -1130
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 1200,
-                    y: 300
+                    x: 280,
+                    y: -1130
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 1500,
-                    y: 300
+                    x: 850,
+                    y: -1130
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 1800,
-                    y: 300
+                    x: 1420,
+                    y: -1130
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 0,
-                    y: 600
+                    x: -2000,
+                    y: -760
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 300,
-                    y: 600
+                    x: -1430,
+                    y: -760
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 600,
-                    y: 600
+                    x: -860,
+                    y: -760
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 900,
-                    y: 600
+                    x: -290,
+                    y: -760
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 1200,
-                    y: 600
+                    x: 280,
+                    y: -760
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 1500,
-                    y: 600
+                    x: 850,
+                    y: -760
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 1800,
-                    y: 600
+                    x: 1420,
+                    y: -760
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 0,
-                    y: 900
+                    x: -2000,
+                    y: -390
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 300,
-                    y: 900
+                    x: -1430,
+                    y: -390
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 600,
-                    y: 900
+                    x: -860,
+                    y: -390
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 900,
-                    y: 900
+                    x: -290,
+                    y: -390
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 1200,
-                    y: 900
+                    x: 280,
+                    y: -390
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 1500,
-                    y: 900
+                    x: 850,
+                    y: -390
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 1800,
-                    y: 900
+                    x: 1420,
+                    y: -390
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 0,
-                    y: 1200
+                    x: -2000,
+                    y: -20
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 300,
-                    y: 1200
+                    x: -1430,
+                    y: -20
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 600,
-                    y: 1200
+                    x: -860,
+                    y: -20
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 900,
-                    y: 1200
+                    x: -290,
+                    y: -20
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 1200,
-                    y: 1200
+                    x: 280,
+                    y: -20
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 1500,
-                    y: 1200
+                    x: 850,
+                    y: -20
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 1800,
-                    y: 1200
+                    x: 1420,
+                    y: -20
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 0,
-                    y: 1500
+                    x: -2000,
+                    y: 350
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 300,
-                    y: 1500
+                    x: -1430,
+                    y: 350
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 600,
-                    y: 1500
+                    x: -860,
+                    y: 350
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 900,
-                    y: 1500
+                    x: -290,
+                    y: 350
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 1200,
-                    y: 1500
+                    x: 280,
+                    y: 350
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 1500,
-                    y: 1500
+                    x: 850,
+                    y: 350
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 1800,
-                    y: 1500
+                    x: 1420,
+                    y: 350
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 0,
-                    y: 1800
+                    x: -2000,
+                    y: 720
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 300,
-                    y: 1800
+                    x: -1430,
+                    y: 720
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 600,
-                    y: 1800
+                    x: -860,
+                    y: 720
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 900,
-                    y: 1800
+                    x: -290,
+                    y: 720
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 1200,
-                    y: 1800
+                    x: 280,
+                    y: 720
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 1500,
-                    y: 1800
+                    x: 850,
+                    y: 720
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             },
             {
                 position: {
-                    x: 1800,
-                    y: 1800
+                    x: 1420,
+                    y: 720
                 },
-                height: 300,
-                width: 300,
+                height: 370,
+                width: 570,
                 material: this.first_land
 
             }
