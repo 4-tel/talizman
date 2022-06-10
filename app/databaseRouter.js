@@ -1,9 +1,23 @@
-const logger = require('tracer').colorConsole()
+// const logger = require('tracer').colorConsole()
+// const mongoClient = require('mongodb').MongoClient
+// const objectID = require('mongodb').ObjectId
 
-const databaseRouter = async (req, res) => {
+// mongoClient.connect("mongodb://localhost/magicdb", (err, db) => {
+//     if (err) console.log(err)
+//     else {
+//         console.log("connected to mongodb!");
+//         console.log(db)
+//     }
+// })
 
-    logger.log("database")
-    res.end("0")
-}
+// const databaseRouter = async (req, res) => {
 
-module.exports = databaseRouter
+//     if (req.url == "/database/adduser") {
+
+
+
+//     }
+
+// }
+
+// module.exports = databaseRouter

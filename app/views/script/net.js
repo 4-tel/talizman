@@ -35,7 +35,7 @@ class Net {
 
     //register request
     //input: {email:string,username:string,password:string}
-    //output: boolean - register success
+    //output: register status - (accepted/usernameTaken/emailTaken/fatalError)
 
     async register(data) {
 
@@ -44,11 +44,15 @@ class Net {
         this.data = JSON.stringify(data)
         this.options = {
             method: "POST",
-            body: data
+            body: this.data
         }
 
         let response = await fetch("/user/register", this.options)
-        console.log(response);
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
 
     }
 

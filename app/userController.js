@@ -1,5 +1,26 @@
 //user controller controls users and sessions
 
+const logger = require('tracer').colorConsole()
+const nodemailer = require('nodemailer')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
+
+//nodemailer auth and conf
+const config = {
+    service: 'Yahoo',
+    auth: {
+        user: process.env.YAHOO_LOGIN,
+        pass: process.env.YAHOO_PASS
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+}
+const transporter = nodemailer.createTransport(config)
+
+
+
 const sessions = new Array()
 
 const userController = {
@@ -103,7 +124,69 @@ const userController = {
 
         return null
 
+    },
+
+    //attempts to register an user
+    //input: {email:string,username:string,password:string}
+    //output: boolean - register success
+
+    async register(data) {
+
+        console.log(data);
+
+        //create token
+        try {
+            let token = jwt.sign(
+                {
+                    email: data.email,
+                    username: data.username,
+                    password: await bcrypt.hash(data.password, 10)
+                },
+                process.env.TOKEN_PASSWD,
+                {
+                    expiresIn: "10m"
+                }
+            )
+
+            //send email
+            transporter.sendMail({
+                from: process.env.YAHOO_LOGIN,
+                to: data.email,
+                subject: 'Talisman - confirm account',
+                html: `<div style="width: 100%;height:fit-content;position: absolute;">
+                <p style="text-align: center;font-size: 200%;">click to verify your account!</p>
+                <a id="abc" href="http://localhost:3000/user/confirm/${token}"
+                    style="transition: all 0.5s;cursor:url('http://localhost:3000/textures/cursor.jpg'), auto;text-align: center;position:absolute;left: 50%;transform: translate(-50%);font-size: 200%;border:2px solid black;padding:1%;text-decoration: none;background-color: #666666;color:#cfcfcf">verify
+                    account</a>
+            </div>`
+            });
+
+            logger.log("email sent")
+            return true
+
+        } catch (e) {
+
+            logger.error(e.message)
+            return false
+
+        }
+    },
+
+    async verifyAccount(token) {
+
+        try {
+            let decoded = jwt.verify(token, process.env.TOKEN_PASSWD)
+
+            console.log(decoded);
+            return "success"
+
+        } catch (err) {
+            logger.error(err.message)
+            return "invalid token"
+        }
+
     }
+
 }
 
 module.exports = userController

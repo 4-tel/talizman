@@ -18,11 +18,6 @@
     src: url('../fonts/Cardinal.ttf');
 }
 
-@font-face {
-    font-family: title;
-    src: url('../fonts/bloodandblade_outilne.ttf');
-}
-
 body {
     background-color: black;
 }
