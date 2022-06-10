@@ -20,7 +20,8 @@ class Models {
             {
                 position: {
                     x: -2000,
-                    y: -1500
+                    y: 0,
+                    z: -1500
                 },
                 height: 370,
                 width: 570,
@@ -30,7 +31,8 @@ class Models {
             {
                 position: {
                     x: -1430,
-                    y: -1500
+                    y: 0,
+                    z: -1500
                 },
                 height: 370,
                 width: 570,
@@ -40,7 +42,8 @@ class Models {
             {
                 position: {
                     x: -860,
-                    y: -1500
+                    y: 0,
+                    z: -1500
                 },
                 height: 370,
                 width: 570,
@@ -50,7 +53,8 @@ class Models {
             {
                 position: {
                     x: -290,
-                    y: -1500
+                    y: 0,
+                    z: -1500
                 },
                 height: 370,
                 width: 570,
@@ -60,7 +64,8 @@ class Models {
             {
                 position: {
                     x: 280,
-                    y: -1500
+                    y: 0,
+                    z: -1500
                 },
                 height: 370,
                 width: 570,
@@ -70,7 +75,8 @@ class Models {
             {
                 position: {
                     x: 850,
-                    y: -1500
+                    y: 0,
+                    z: -1500
                 },
                 height: 370,
                 width: 570,
@@ -80,7 +86,8 @@ class Models {
             {
                 position: {
                     x: 1420,
-                    y: -1500
+                    y: 0,
+                    z: -1500
                 },
                 height: 370,
                 width: 570,
@@ -90,7 +97,8 @@ class Models {
             {
                 position: {
                     x: -2050,
-                    y: -1130
+                    y: 0,
+                    z: -1130
                 },
                 height: 370,
                 width: 470,
@@ -100,7 +108,8 @@ class Models {
             {
                 position: {
                     x: -1510,
-                    y: -1130
+                    y: 50,
+                    z: -1130
                 },
                 height: 370,
                 width: 610,
@@ -110,7 +119,8 @@ class Models {
             {
                 position: {
                     x: -900,
-                    y: -1130
+                    y: 50,
+                    z: -1130
                 },
                 height: 370,
                 width: 610,
@@ -120,7 +130,8 @@ class Models {
             {
                 position: {
                     x: -290,
-                    y: -1130
+                    y: 50,
+                    z: -1130
                 },
                 height: 370,
                 width: 610,
@@ -130,7 +141,8 @@ class Models {
             {
                 position: {
                     x: 320,
-                    y: -1130
+                    y: 50,
+                    z: -1130
                 },
                 height: 370,
                 width: 610,
@@ -140,7 +152,8 @@ class Models {
             {
                 position: {
                     x: 930,
-                    y: -1130
+                    y: 50,
+                    z: -1130
                 },
                 height: 370,
                 width: 610,
@@ -150,7 +163,8 @@ class Models {
             {
                 position: {
                     x: 1470,
-                    y: -1130
+                    y: 0,
+                    z: -1130
                 },
                 height: 370,
                 width: 470,
@@ -160,7 +174,8 @@ class Models {
             {
                 position: {
                     x: -2050,
-                    y: -760
+                    y: 0,
+                    z: -760
                 },
                 height: 370,
                 width: 470,
@@ -170,7 +185,8 @@ class Models {
             {
                 position: {
                     x: -1605,
-                    y: -760
+                    y: 50,
+                    z: -760
                 },
                 height: 370,
                 width: 420,
@@ -180,7 +196,8 @@ class Models {
             {
                 position: {
                     x: -1025,
-                    y: -760
+                    y: 100,
+                    z: -760
                 },
                 height: 370,
                 width: 736,
@@ -190,7 +207,8 @@ class Models {
             {
                 position: {
                     x: -290,
-                    y: -760
+                    y: 100,
+                    z: -760
                 },
                 height: 370,
                 width: 738,
@@ -200,7 +218,8 @@ class Models {
             {
                 position: {
                     x: 445,
-                    y: -760
+                    y: 100,
+                    z: -760
                 },
                 height: 370,
                 width: 736,
@@ -210,7 +229,8 @@ class Models {
             {
                 position: {
                     x: 1025,
-                    y: -760
+                    y: 50,
+                    z: -760
                 },
                 height: 370,
                 width: 420,
@@ -220,7 +240,8 @@ class Models {
             {
                 position: {
                     x: 1470,
-                    y: -760
+                    y: 0,
+                    z: -760
                 },
                 height: 370,
                 width: 470,
@@ -230,7 +251,8 @@ class Models {
             {
                 position: {
                     x: -2050,
-                    y: -390
+                    y: 0,
+                    z: -390
                 },
                 height: 370,
                 width: 470,
@@ -240,7 +262,8 @@ class Models {
             {
                 position: {
                     x: -1605,
-                    y: -390
+                    y: 50,
+                    z: -390
                 },
                 height: 370,
                 width: 420,
@@ -250,7 +273,8 @@ class Models {
             {
                 position: {
                     x: -1125,
-                    y: -390
+                    y: 100,
+                    z: -390
                 },
                 height: 370,
                 width: 536,
@@ -260,7 +284,8 @@ class Models {
             {
                 position: {
                     x: -290,
-                    y: -390
+                    y: 150,
+                    z: -390
                 },
                 height: 370,
                 width: 1138,
@@ -270,7 +295,8 @@ class Models {
             {
                 position: {
                     x: 545,
-                    y: -390
+                    y: 100,
+                    z: -390
                 },
                 height: 370,
                 width: 536,
@@ -280,7 +306,8 @@ class Models {
             {
                 position: {
                     x: 1025,
-                    y: -390
+                    y: 50,
+                    z: -390
                 },
                 height: 370,
                 width: 420,
@@ -290,7 +317,8 @@ class Models {
             {
                 position: {
                     x: 1470,
-                    y: -390
+                    y: 0,
+                    z: -390
                 },
                 height: 370,
                 width: 470,
@@ -300,7 +328,8 @@ class Models {
             {
                 position: {
                     x: -2050,
-                    y: -20
+                    y: 0,
+                    z: -20
                 },
                 height: 370,
                 width: 470,
@@ -310,7 +339,8 @@ class Models {
             {
                 position: {
                     x: -1605,
-                    y: -20
+                    y: 50,
+                    z: -20
                 },
                 height: 370,
                 width: 420,
@@ -320,7 +350,8 @@ class Models {
             {
                 position: {
                     x: -1025,
-                    y: -20
+                    y: 100,
+                    z: -20
                 },
                 height: 370,
                 width: 736,
@@ -330,7 +361,8 @@ class Models {
             {
                 position: {
                     x: -290,
-                    y: -20
+                    y: 100,
+                    z: -20
                 },
                 height: 370,
                 width: 738,
@@ -340,7 +372,8 @@ class Models {
             {
                 position: {
                     x: 445,
-                    y: -20
+                    y: 100,
+                    z: -20
                 },
                 height: 370,
                 width: 736,
@@ -350,7 +383,8 @@ class Models {
             {
                 position: {
                     x: 1025,
-                    y: -20
+                    y: 50,
+                    z: -20
                 },
                 height: 370,
                 width: 420,
@@ -360,7 +394,8 @@ class Models {
             {
                 position: {
                     x: 1470,
-                    y: -20
+                    y: 0,
+                    z: -20
                 },
                 height: 370,
                 width: 470,
@@ -370,7 +405,8 @@ class Models {
             {
                 position: {
                     x: -2050,
-                    y: 350
+                    y: 0,
+                    z: 350
                 },
                 height: 370,
                 width: 470,
@@ -380,7 +416,8 @@ class Models {
             {
                 position: {
                     x: -1510,
-                    y: 350
+                    y: 50,
+                    z: 350
                 },
                 height: 370,
                 width: 610,
@@ -390,7 +427,8 @@ class Models {
             {
                 position: {
                     x: -900,
-                    y: 350
+                    y: 50,
+                    z: 350
                 },
                 height: 370,
                 width: 610,
@@ -400,7 +438,8 @@ class Models {
             {
                 position: {
                     x: -290,
-                    y: 350
+                    y: 50,
+                    z: 350
                 },
                 height: 370,
                 width: 610,
@@ -410,7 +449,8 @@ class Models {
             {
                 position: {
                     x: 320,
-                    y: 350
+                    y: 50,
+                    z: 350
                 },
                 height: 370,
                 width: 610,
@@ -420,7 +460,8 @@ class Models {
             {
                 position: {
                     x: 930,
-                    y: 350
+                    y: 50,
+                    z: 350
                 },
                 height: 370,
                 width: 610,
@@ -430,7 +471,8 @@ class Models {
             {
                 position: {
                     x: 1470,
-                    y: 350
+                    y: 0,
+                    z: 350
                 },
                 height: 370,
                 width: 470,
@@ -440,7 +482,8 @@ class Models {
             {
                 position: {
                     x: -2000,
-                    y: 720
+                    y: 0,
+                    z: 720
                 },
                 height: 370,
                 width: 570,
@@ -450,7 +493,8 @@ class Models {
             {
                 position: {
                     x: -1430,
-                    y: 720
+                    y: 0,
+                    z: 720
                 },
                 height: 370,
                 width: 570,
@@ -460,7 +504,8 @@ class Models {
             {
                 position: {
                     x: -860,
-                    y: 720
+                    y: 0,
+                    z: 720
                 },
                 height: 370,
                 width: 570,
@@ -470,7 +515,8 @@ class Models {
             {
                 position: {
                     x: -290,
-                    y: 720
+                    y: 0,
+                    z: 720
                 },
                 height: 370,
                 width: 570,
@@ -480,7 +526,8 @@ class Models {
             {
                 position: {
                     x: 280,
-                    y: 720
+                    y: 0,
+                    z: 720
                 },
                 height: 370,
                 width: 570,
@@ -490,7 +537,8 @@ class Models {
             {
                 position: {
                     x: 850,
-                    y: 720
+                    y: 0,
+                    z: 720
                 },
                 height: 370,
                 width: 570,
@@ -500,7 +548,8 @@ class Models {
             {
                 position: {
                     x: 1420,
-                    y: 720
+                    y: 0,
+                    z: 720
                 },
                 height: 370,
                 width: 570,
