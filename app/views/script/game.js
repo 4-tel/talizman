@@ -7,7 +7,7 @@ class Game {
         this.renderer.setClearColor(0xffffff);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById("game").append(this.renderer.domElement);
-        this.camera.position.set(0, 7000, 0)
+        this.camera.position.set(0, 5000, 0)
         this.camera.lookAt(this.scene.position)
 
         this.tiles = new Models()

@@ -109,7 +109,7 @@ class Models {
             },
             {
                 position: {
-                    x: -910,
+                    x: -900,
                     y: -1130
                 },
                 height: 370,
@@ -119,7 +119,7 @@ class Models {
             },
             {
                 position: {
-                    x: -300,
+                    x: -290,
                     y: -1130
                 },
                 height: 370,
@@ -129,7 +129,7 @@ class Models {
             },
             {
                 position: {
-                    x: 310,
+                    x: 320,
                     y: -1130
                 },
                 height: 370,
@@ -139,7 +139,7 @@ class Models {
             },
             {
                 position: {
-                    x: 920,
+                    x: 930,
                     y: -1130
                 },
                 height: 370,
@@ -169,21 +169,21 @@ class Models {
             },
             {
                 position: {
-                    x: -1430,
+                    x: -1605,
                     y: -760
                 },
                 height: 370,
-                width: 570,
+                width: 420,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: -860,
+                    x: -1025,
                     y: -760
                 },
                 height: 370,
-                width: 570,
+                width: 736,
                 material: this.third_land
 
             },
@@ -193,27 +193,27 @@ class Models {
                     y: -760
                 },
                 height: 370,
-                width: 570,
+                width: 738,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 280,
+                    x: 445,
                     y: -760
                 },
                 height: 370,
-                width: 570,
+                width: 736,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 850,
+                    x: 1025,
                     y: -760
                 },
                 height: 370,
-                width: 570,
+                width: 420,
                 material: this.second_land
 
             },
@@ -239,21 +239,21 @@ class Models {
             },
             {
                 position: {
-                    x: -1430,
+                    x: -1605,
                     y: -390
                 },
                 height: 370,
-                width: 570,
+                width: 420,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: -860,
+                    x: -1125,
                     y: -390
                 },
                 height: 370,
-                width: 570,
+                width: 536,
                 material: this.third_land
 
             },
@@ -263,27 +263,27 @@ class Models {
                     y: -390
                 },
                 height: 370,
-                width: 570,
+                width: 1138,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 280,
+                    x: 545,
                     y: -390
                 },
                 height: 370,
-                width: 570,
+                width: 536,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 850,
+                    x: 1025,
                     y: -390
                 },
                 height: 370,
-                width: 570,
+                width: 420,
                 material: this.second_land
 
             },
@@ -309,21 +309,21 @@ class Models {
             },
             {
                 position: {
-                    x: -1430,
+                    x: -1605,
                     y: -20
                 },
                 height: 370,
-                width: 570,
+                width: 420,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: -860,
+                    x: -1025,
                     y: -20
                 },
                 height: 370,
-                width: 570,
+                width: 736,
                 material: this.third_land
 
             },
@@ -333,27 +333,27 @@ class Models {
                     y: -20
                 },
                 height: 370,
-                width: 570,
+                width: 738,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 280,
+                    x: 445,
                     y: -20
                 },
                 height: 370,
-                width: 570,
+                width: 736,
                 material: this.third_land
 
             },
             {
                 position: {
-                    x: 850,
+                    x: 1025,
                     y: -20
                 },
                 height: 370,
-                width: 570,
+                width: 420,
                 material: this.second_land
 
             },
@@ -379,21 +379,21 @@ class Models {
             },
             {
                 position: {
-                    x: -1430,
+                    x: -1510,
                     y: 350
                 },
                 height: 370,
-                width: 570,
+                width: 610,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: -860,
+                    x: -900,
                     y: 350
                 },
                 height: 370,
-                width: 570,
+                width: 610,
                 material: this.second_land
 
             },
@@ -403,27 +403,27 @@ class Models {
                     y: 350
                 },
                 height: 370,
-                width: 570,
+                width: 610,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 280,
+                    x: 320,
                     y: 350
                 },
                 height: 370,
-                width: 570,
+                width: 610,
                 material: this.second_land
 
             },
             {
                 position: {
-                    x: 850,
+                    x: 930,
                     y: 350
                 },
                 height: 370,
-                width: 570,
+                width: 610,
                 material: this.second_land
 
             },
