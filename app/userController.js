@@ -1,5 +1,23 @@
 //user controller controls users and sessions
 
+const logger = require('tracer').colorConsole()
+const nodemailer = require('nodemailer')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+require('dotenv')
+
+//nodemailer auth and conf
+const config = {
+    service: 'Yahoo',
+    auth: {
+        user: process.env.YAHOO_LOGIN,
+        pass: process.env.YAHOO_PASS
+    }
+}
+const transporter = nodemailer.createTransport(config)
+
+
+
 const sessions = new Array()
 
 const userController = {
@@ -103,7 +121,49 @@ const userController = {
 
         return null
 
+    },
+
+    //attempts to register an user
+    //input: {email:string,username:string,password:string}
+    //output: boolean - register success
+
+    async register(data) {
+
+        console.log(data);
+
+        //create token
+        try {
+            let token = jwt.sign(
+                {
+                    email: data.email,
+                    username: data.username,
+                    password: bcrypt.hash(data.password)
+                },
+                process.env.TOKEN_PASSWD,
+                {
+                    expiresIn: "10m"
+                }
+            )
+
+            //send email
+            transporter.sendMail({
+                from: process.env.YAHOO_LOGIN,
+                to: user.email,
+                subject: 'Talisman - confirm account',
+                html: `<p>klikij w poniższy link w celu potwierdzenia konta<br/>http://localhost:3000/user/confirm/${token}<br/>Uwaga: link jest ważny przez 10 minut</p>`
+            });
+
+            logger.log("email sent")
+            return true
+
+        } catch (e) {
+
+            logger.error(e.message)
+            return false
+
+        }
     }
+
 }
 
 module.exports = userController

@@ -1,6 +1,5 @@
 const fs = require("fs")
 const logger = require("tracer").colorConsole()
-const userController = require("./usersController")
 
 const fileServer = (req, res) => {
 
