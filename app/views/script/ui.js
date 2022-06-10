@@ -177,6 +177,10 @@ class Ui {
 
         console.log(data);
 
+        net.register(data)
+
+
+
     }
 
     //creates statistics ui

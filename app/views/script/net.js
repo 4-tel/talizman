@@ -33,4 +33,23 @@ class Net {
 
     }
 
+    //register request
+    //input: {email:string,username:string,password:string}
+    //output: boolean - register success
+
+    async register(data) {
+
+        console.log("próba logowania");
+
+        this.data = JSON.stringify(data)
+        this.options = {
+            method: "POST",
+            body: data
+        }
+
+        let response = await fetch("/user/register", this.options)
+        console.log(response);
+
+    }
+
 }

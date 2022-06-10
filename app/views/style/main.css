@@ -4,6 +4,8 @@
     overflow: hidden;
     cursor: url('../textures/cursor.jpg'), auto;
     font-family: Joan;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 @font-face {
@@ -11,6 +13,20 @@
     src: url('../fonts/Joan-Regular.ttf');
 }
 
+@font-face {
+    font-family: Cardinal;
+    src: url('../fonts/Cardinal.ttf');
+}
+
+@font-face {
+    font-family: title;
+    src: url('../fonts/bloodandblade_outilne.ttf');
+}
+
 body {
     background-color: black;
+}
+
+::selection {
+    background-color: #ffffff50;
 }
