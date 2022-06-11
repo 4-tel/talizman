@@ -14,7 +14,21 @@ const databaseRouter = async (req, res) => {
 
     else if (req.method == "GET" && req.url == "/database") {
 
-        res.end(JSON.stringify(await databaseController.getRecords()))
+        res.end(JSON.stringify(await databaseController.getRecords(), null, 5))
+
+    }
+
+    else if (req.url.match(/\/database\/remove\/([A-Za-z0-9]+)/)) {
+
+        let username = req.url.split('/')[req.url.split('/').length - 1]
+
+        let status = databaseController.removeUser(username)
+
+        if (status) {
+            res.end('user succesfully removed')
+        } else {
+            res.end('error')
+        }
 
     }
 
