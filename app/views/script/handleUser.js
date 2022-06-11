@@ -131,9 +131,39 @@ class HandleUser {
         }
     }
 
-    async joinGame() {
+    async joinGame(guest) {
 
-        
+        let output = { username: null, session_id: null }
+
+        if (document.getElementById('idJoin').value.trim() == "") {
+            output.session_id = await net.findGame()
+        } else {
+            output.session_id = document.getElementById('idJoin').value
+        }
+
+        if (guest) {
+            if (document.getElementById("guestName").value.trim() != "") {
+                output.username = document.getElementById("guestName").value
+            } else {
+                output.username = 'guest' + JSON.stringify(JSON.parse(await net.sessionInfo(output.session_id)).users.length)
+            }
+        }
+        else {
+            output.username = await net.getUsername(user.token)
+        }
+
+        let response = await net.joinGame(output)
+
+        if (response.status == 'joined session') {
+
+            user.session_id = output.session_id
+            net.moveToGameplay()
+
+        } else {
+
+            ui.joinFail()
+
+        }
 
     }
 

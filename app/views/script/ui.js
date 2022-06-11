@@ -107,4 +107,11 @@ class Ui {
 
     }
 
+    joinFail() {
+
+        document.getElementById('options').innerHTML += "unexpected problem with session join occured :/"
+        document.getElementById('options').style.height = '32vh'
+
+    }
+
 }

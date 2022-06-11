@@ -1,3 +1,7 @@
+const logger = require('tracer').colorConsole()
+
+const sessions = new Array()
+
 const sessionController = {
     //creates a unique random id
     //input: length of an id; amount of characters
@@ -49,7 +53,7 @@ const sessionController = {
 
         //if non found
 
-        output = this.idGenerator(8)
+        output = sessionController.idGenerator(8)
         sessions.push({ id: output, users: new Array() })
 
         return output
@@ -59,7 +63,7 @@ const sessionController = {
 
     //logs in new users to session by id (max 14 users) or creates a new one
     //input: {username:username, id:id}
-    //output: login check - boolean
+    //output: {status:string,id:id}
 
     joinGame: (data) => {
 
@@ -68,11 +72,11 @@ const sessionController = {
         for (let i = 0; i < sessions.length; i++) {
             if (sessions[i].id == data.id) {
                 if (sessions[i].users.length > 14) {
-                    return false
+                    return { status: "session full" }
                 }
                 else {
                     sessions[i].users.push(data.username)
-                    return true
+                    return { status: 'joined session', id: sessions[i].id }
                 }
             }
         }
@@ -80,7 +84,7 @@ const sessionController = {
         //if not found
 
         sessions.push({ id: data.id, users: new Array().push(data.username) })
-        return true
+        return { status: 'joined session', id: data.id }
 
     },
 
@@ -99,6 +103,12 @@ const sessionController = {
         return null
 
     },
+
+    viewSessions: () => {
+
+        return sessions
+
+    }
 }
 
 module.exports = sessionController

@@ -120,4 +120,67 @@ class Net {
         }
 
     }
+
+    //find empty session
+    //no input
+    //output: empty session id
+    async findGame() {
+
+        let response = await fetch("/session/find", { method: "GET" })
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
+
+    }
+
+    //join session
+    //input: id - optional
+    //output: status
+    async joinGame(id) {
+
+        console.log('join game');
+
+        this.data = JSON.stringify(id)
+        this.options = {
+            method: "POST",
+            body: this.data
+        }
+
+        let response = await fetch("/session/join", this.options)
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
+
+    }
+
+    //get session info
+    //input: session id
+    //output: session info
+    async sessionInfo(id) {
+
+        console.log('session info');
+
+        let response = await fetch(`/session/${id}`, { method: "GET" })
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
+
+    }
+
+    async moveToGameplay() {
+
+        console.log("move to gameplay");
+
+        let response = await fetch('/mainGame.html', { method: "GET" })
+        if (!response.ok) {
+            return response.status
+        }
+
+    }
 }
