@@ -12,12 +12,22 @@ const connect = async () => {
     mongoose.connect(url, connectionParams)
         .then(() => {
             logger.info('Connected to the database ')
-            return 0
+            return true
         })
         .catch((err) => {
             logger.error(`Error connecting to the database. n${err}`);
+            return false
         })
 }
+
+const userSchema = new mongoose.Schema({
+    email: String,
+    username: String,
+    password: String,
+    statistics: [{}]
+})
+
+const userModel = mongoose.model("User", userSchema)
 
 const databaseController = {
 
@@ -27,17 +37,11 @@ const databaseController = {
 
     adduser: async (user) => {
 
-        connect()
+        if (await connect() == false) {
+            return 'error'
+        }
 
-        let userSchema = new mongoose.Schema({
-            email: String,
-            username: String,
-            password: String
-        })
-
-        let userModel = mongoose.model("User", userSchema)
-
-        this.user = new userModel({ email: user.email, username: user.username, password: user.password })
+        this.user = new userModel({ email: user.email, username: user.username, password: user.password, statistics: [{ games_played: 0 }, { games_won: 0 }, { games_lost: 0 }] })
         this.user.save()
 
     },
@@ -45,8 +49,28 @@ const databaseController = {
     //returns all records from collection
     getRecords: async () => {
 
-        connect()
+        if (await connect() == false) {
+            return 'error'
+        }
 
+        let docs = await userModel.find()
+
+        return docs
+
+    },
+
+    //removes one user from collection by username
+    //input: username - string
+    //output: status - boolean
+    removeUser: async (username) => {
+
+        try {
+            await userModel.remove({ username: username })
+            return true
+        } catch (err) {
+            logger.error(err.message)
+            return false
+        }
     }
 
 }
