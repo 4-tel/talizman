@@ -17,6 +17,7 @@ class Game {
         this.scene.add(this.board.create())
         this.board.playerPlacement(this.tiles, this.scene)
         this.render()
+        console.log(this.scene)
 
     }
     render = () => {
@@ -25,11 +26,19 @@ class Game {
         TWEEN.update();
         console.log("render leci")
     }
-    roll = () => {
-        let outcome = Math.floor(Math.random() * 6) + 1
-        let display = document.getElementById("die")
-        display.innerHTML = `<button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
+
+    //temp code
+    sleep = async (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    roll = async () => {
+        for (let i = 0; i < 50; i++) {
+            let outcome = Math.floor(Math.random() * 6) + 1
+            let display = document.getElementById("die")
+            display.innerHTML = `<button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
         <h1 style="position: relative; left: 30%;">${outcome}</h1>`
+            await this.sleep(20)
+        }
     }
 
 }
