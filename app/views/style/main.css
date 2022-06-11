@@ -25,3 +25,22 @@ body {
 ::selection {
     background-color: #ffffff50;
 }
+
+h1 {
+    font-family: Cardinal;
+    position: relative;
+    width: 100vw;
+    text-align: center;
+    z-index: 2;
+    color: #999999;
+    background-color: #00000080;
+    font-size: 8vh;
+    padding: 1vh;
+    transition: all 0.5s;
+}
+
+h1:hover {
+    transition: all 5s;
+    color: #903030;
+    background-color: #00000099;
+}

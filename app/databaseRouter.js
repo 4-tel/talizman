@@ -35,8 +35,14 @@ const databaseRouter = async (req, res) => {
     else if (req.method == "GET" && req.url.match(/\/database\/([A-Za-z0-9]+)/)) {
 
         let username = req.url.split('/')[req.url.split('/').length - 1]
-
         res.end(JSON.stringify(await databaseController.getRecordByUsername(username)))
+
+    }
+
+    else if (req.method == "POST" && req.url == "/database/statistics") {
+
+        let username = JSON.parse(await getRequestData(req))
+        res.end(JSON.stringify((await databaseController.getRecordByUsername(username)).statistics, null, 5))
 
     }
 

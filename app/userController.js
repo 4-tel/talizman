@@ -214,6 +214,16 @@ const userController = {
         }
         return { status: 'noUserFound' }
 
+    },
+
+    //read token
+    //input: token
+    //output: {} - token encrypted 
+    readToken: (token) => {
+
+        let decoded = jwt.verify(token, process.env.TOKEN_PASSWD)
+        return decoded
+
     }
 
 }

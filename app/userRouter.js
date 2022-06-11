@@ -68,6 +68,13 @@ const userRouter = async (req, res) => {
 
     }
 
+    else if (req.method == "POST" && req.url == "/user/getUsername") {
+
+        let token = JSON.parse(await getRequestData(req))
+        res.end(JSON.stringify(await userController.readToken(token)))
+
+    }
+
 }
 
 module.exports = userRouter

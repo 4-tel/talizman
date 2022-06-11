@@ -18,7 +18,7 @@ const layout = {
     </div>
     <button id="login" onclick="ui.handleLogin()">login</button>
     <p style="color:#995544"></p>`,
-    joinGame: `<h3>join game</h3>
+    joinGame_guest: `<h3>join game</h3>
     <hr /><br />
     <p style="color:#995544">You play as guest</p>
     <div style="position:relative">
@@ -32,6 +32,16 @@ const layout = {
         <p>leave empty for default guest name</p>
     </div><br/>
     <button id="joinGame">search game</button>`,
+    joinGame_user: `<h3>join game</h3>
+    <hr /><br />
+    <p style="color:#995544">You play as guest</p>
+    <div style="position:relative">
+        <label for="idJoin">Join game by id: </label>
+        <input type="text" id="idJoin" name="idJoin">
+        <p>leave empty to join any available game</p>
+    </div>
+    <button id="joinGame">search game</button>`
+    ,
     register: `<h3>register</h3>
     <hr /><br />
     <div style="position:relative">

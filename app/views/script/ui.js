@@ -36,6 +36,11 @@ class Ui {
                         this.stats()
                     }
                     break;
+                case "account":
+                    el.onclick = () => {
+                        this.clearChosen(el)
+                    }
+                    break;
             }
 
         }
@@ -50,9 +55,15 @@ class Ui {
     }
 
     //creates game join ui
-    joinGame() {
-        document.getElementById("options").style.height = "37vh"
-        document.getElementById("options").innerHTML = layout.joinGame
+    async joinGame() {
+        if (user.logged == false) {
+            document.getElementById("options").style.height = "37vh"
+            document.getElementById("options").innerHTML = layout.joinGame_guest
+        } else {
+            document.getElementById("options").style.height = "30vh"
+            document.getElementById("options").innerHTML = layout.joinGame_user
+            document.getElementById("options").children[3].innerText = `You plan as ${JSON.parse(await net.getUsername(user.token)).username}`
+        }
 
     }
 
@@ -95,11 +106,15 @@ class Ui {
         document.getElementById("options").children[document.getElementById("options").children.length - 1].innerText = ''
         document.getElementById("options").style.height = "30vh"
 
-        let status = JSON.parse(await net.login(data)).status
-        switch (status) {
+        let response = JSON.parse(await net.login(data))
+        switch (response.status) {
             case 'success':
                 document.getElementById("options").innerHTML = '<p style="color:#995544; margin:2vh">Successfully logged in!</p>'
                 document.getElementById("options").style.height = "10vh"
+                document.getElementById("menu").innerHTML = "<li>join game</li><li>account</li><li>statistics</li>"
+                this.chooseMenuOption()
+                user.logged = true
+                user.token = response.token
                 break;
             case 'passwordIncorrect':
                 document.getElementById("options").children[document.getElementById("options").children.length - 1].innerText = 'Password incorrect'
@@ -202,12 +217,18 @@ class Ui {
     }
 
     //creates statistics ui
-    stats() {
-
-        document.getElementById("options").style.height = "15vh"
-        document.getElementById("options").innerHTML = `<h3>statistics</h3>
-        <hr /><br />
-        <p style="color:#995544">Login to view personal statistics</p>`
+    async stats() {
+        if (user.logged == false) {
+            document.getElementById("options").style.height = "15vh"
+            document.getElementById("options").innerHTML = `<h3>statistics</h3>
+            <hr /><br />
+            <p style="color:#995544">Login to view personal statistics</p>`
+        } else {
+            document.getElementById("options").style.height = "fit-content"
+            document.getElementById("options").innerHTML = `<h3>statistics</h3>
+            <hr /><br />
+            <p style="margin:1vh">${await net.getStats()}</p>`
+        }
 
     }
 

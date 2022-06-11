@@ -68,7 +68,7 @@ const databaseController = {
 
         let docs = await userModel.find({ username: username })
 
-        return docs
+        return docs[0]
 
     },
 

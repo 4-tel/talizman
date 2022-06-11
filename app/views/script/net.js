@@ -78,4 +78,46 @@ class Net {
 
     }
 
+    //get username from session token
+    //input: token
+    //output: username (or any decoded token)
+    async getUsername(token) {
+
+        console.log('token fetch');
+
+        this.data = JSON.stringify(token)
+        this.options = {
+            method: "POST",
+            body: this.data
+        }
+
+        let response = await fetch("/user/getUsername", this.options)
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
+    }
+
+    //get statistics from server
+    //no input
+    //output: statistics of logged user
+    async getStats() {
+
+        console.log('stats fetch');
+
+        this.data = JSON.stringify(JSON.parse(await this.getUsername(user.token)).username)
+        this.options = {
+            method: "POST",
+            body: this.data
+        }
+
+        let response = await fetch("/database/statistics", this.options)
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
+
+    }
 }
