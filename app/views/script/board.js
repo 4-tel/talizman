@@ -24,9 +24,6 @@ class Board {
             game.add(player)
         }
     }
-    funkcja = () => {
-        console.log("aaa")
-    }
     click = () => {
         this.raycaster = new THREE.Raycaster()
         this.mouseVector = new THREE.Vector2()
@@ -41,11 +38,6 @@ class Board {
                 case 1:
                     if (this.intersects.length > 0) {
                         console.log(this.intersects[0])
-                        this.intersects[0].object.material = new THREE.MeshBasicMaterial({
-                            color: 0x0000ff,
-                            side: THREE.DoubleSide,
-                            wireframe: false
-                        })
                     }
                     break
                 case 2:
@@ -60,8 +52,6 @@ class Board {
                             .onUpdate(() => { game.camera.lookAt(game.camera.position.x, game.camera.position.y - 100, game.camera.position.z) })
                             .onComplete(() => { game.camera.lookAt(this.intersects[0].object.position) })
                             .start()
-                        //game.camera.position.set(this.intersects[0].object.position.x, 1000, this.intersects[0].object.position.z)
-
                     }
                     break
                 default:

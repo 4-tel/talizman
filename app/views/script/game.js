@@ -25,5 +25,11 @@ class Game {
         TWEEN.update();
         console.log("render leci")
     }
+    roll = () => {
+        let outcome = Math.floor(Math.random() * 6) + 1
+        let display = document.getElementById("die")
+        display.innerHTML = `<button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
+        <h1 style="position: relative; left: 30%;">${outcome}</h1>`
+    }
 
 }

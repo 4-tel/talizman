@@ -17,11 +17,14 @@
 </head>
 
 <body id="game">
+    <div id="die" style="height: 70px; width: 40px; background-color:aqua; position: absolute;">
+        <button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
+    </div>
     <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
         let game = new Game()
-        
     </script>
+
 </body>
 
 </html>

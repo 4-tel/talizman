@@ -4,12 +4,14 @@ class Temp {
             {
                 "hero": "zabójca",
                 "starting_location": 0,
-                "color": "0xff00ff"
+                "username": "samle_text",
+                "sesion_id": 999
             },
             {
                 "hero": "wróżka",
                 "starting_location": 48,
-                "color": "0xffaa00"
+                "username": "samle_text",
+                "sesion_id": 999
             }
         ]
     }
