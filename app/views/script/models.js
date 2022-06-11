@@ -25,7 +25,8 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "corner"
 
             },
             {
@@ -36,7 +37,8 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "up"
 
             },
             {
@@ -47,7 +49,8 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "up"
 
             },
             {
@@ -58,7 +61,8 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "up"
 
             },
             {
@@ -69,7 +73,8 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "up"
 
             },
             {
@@ -80,7 +85,8 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "up"
 
             },
             {
@@ -91,7 +97,8 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "up"
 
             },
             {
@@ -102,7 +109,8 @@ class Models {
                 },
                 height: 370,
                 width: 470,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "left"
 
             },
             {
@@ -113,7 +121,8 @@ class Models {
                 },
                 height: 370,
                 width: 610,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "corner"
 
             },
             {
@@ -124,7 +133,8 @@ class Models {
                 },
                 height: 370,
                 width: 610,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "up"
 
             },
             {
@@ -135,7 +145,8 @@ class Models {
                 },
                 height: 370,
                 width: 610,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "up"
 
             },
             {
@@ -146,7 +157,8 @@ class Models {
                 },
                 height: 370,
                 width: 610,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "up"
 
             },
             {
@@ -157,7 +169,8 @@ class Models {
                 },
                 height: 370,
                 width: 610,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "corner"
 
             },
             {
@@ -168,7 +181,8 @@ class Models {
                 },
                 height: 370,
                 width: 470,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right"
 
             },
             {
@@ -179,7 +193,8 @@ class Models {
                 },
                 height: 370,
                 width: 470,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "left"
 
             },
             {
@@ -190,7 +205,8 @@ class Models {
                 },
                 height: 370,
                 width: 420,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "left"
 
             },
             {
@@ -201,7 +217,8 @@ class Models {
                 },
                 height: 370,
                 width: 736,
-                material: this.third_land
+                material: this.third_land,
+                orientation: "corner"
 
             },
             {
@@ -212,7 +229,8 @@ class Models {
                 },
                 height: 370,
                 width: 738,
-                material: this.third_land
+                material: this.third_land,
+                orientation: "up"
 
             },
             {
@@ -223,7 +241,8 @@ class Models {
                 },
                 height: 370,
                 width: 736,
-                material: this.third_land
+                material: this.third_land,
+                orientation: "corner"
 
             },
             {
@@ -234,7 +253,8 @@ class Models {
                 },
                 height: 370,
                 width: 420,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "right"
 
             },
             {
@@ -245,7 +265,8 @@ class Models {
                 },
                 height: 370,
                 width: 470,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right"
 
             },
             {

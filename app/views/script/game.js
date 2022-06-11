@@ -7,7 +7,7 @@ class Game {
         this.renderer.setClearColor(0xffffff);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById("game").append(this.renderer.domElement);
-        this.camera.position.set(0, 4000, 3000)
+        this.camera.position.set(0, 4000, 2000)
         this.camera.lookAt(this.scene.position)
 
         this.tiles = new Models()
@@ -16,8 +16,8 @@ class Game {
         this.scene.add(this.board.create())
         this.render()
         // temp code
-        this.wireframe = document.getElementById("game")
-        this.wireframe.setAttribute("onmousemove", "game.wire_frame()")
+        // this.wireframe = document.getElementById("game")
+        // this.wireframe.setAttribute("onmousemove", "game.wire_frame()")
         //  temp code \\
 
     }
