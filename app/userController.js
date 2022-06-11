@@ -191,12 +191,28 @@ const userController = {
     },
 
     //attempts to login an user
-    //input: {username:string,password:string}
-    //output: status - string
+    //input: {username:string,password:string}, database
+    //output: {status:string,token}
 
-    login: async () => {
+    login: async (user, database) => {
 
-        
+        for (let record of database) {
+            if (record.username == user.username) {
+                if (await bcrypt.compare(user.password, record.password)) {
+
+                    let token = jwt.sign({
+                        username: record.username,
+                    },
+                        process.env.TOKEN_PASSWD)
+
+                    return { status: "success", token: token }
+
+                } else {
+                    return { status: 'passwordIncorrect' }
+                }
+            }
+        }
+        return { status: 'noUserFound' }
 
     }
 

@@ -16,7 +16,8 @@ const layout = {
         <input type="password" id="passwd" name="passwd">
         <p style="color:#995544"></p>
     </div>
-    <button id="login" onclick="ui.handleLogin()">login</button>`,
+    <button id="login" onclick="ui.handleLogin()">login</button>
+    <p style="color:#995544"></p>`,
     joinGame: `<h3>join game</h3>
     <hr /><br />
     <p style="color:#995544">You play as guest</p>

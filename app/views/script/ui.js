@@ -43,6 +43,7 @@ class Ui {
 
     //click on menu option
     clearChosen(el) {
+        document.getElementById("options").style.border = '0.2vh solid black'
         let chosen = document.getElementsByClassName("chosen")
         chosen.length > 0 ? chosen[0].classList.remove("chosen") : null
         el.classList.add("chosen")
@@ -50,7 +51,6 @@ class Ui {
 
     //creates game join ui
     joinGame() {
-
         document.getElementById("options").style.height = "37vh"
         document.getElementById("options").innerHTML = layout.joinGame
 
@@ -58,15 +58,9 @@ class Ui {
 
     //creates login ui
     login() {
-
         document.getElementById("options").style.height = "30vh"
         document.getElementById("options").innerHTML = layout.login
 
-    }
-
-    loginInvalid() {
-        document.getElementById("options").innerHTML += `<p style="color:#995544;font-size:2vh">Invalid login<br/>if you don't have an account yet, register first</p>`
-        document.getElementById("options").style.height = "37vh"
     }
 
     //handles login inputs
@@ -91,6 +85,34 @@ class Ui {
 
         if (pass == false) {
             return false
+        }
+
+        let data = {
+            username: document.getElementById("username").value,
+            password: document.getElementById("passwd").value
+        }
+
+        document.getElementById("options").children[document.getElementById("options").children.length - 1].innerText = ''
+        document.getElementById("options").style.height = "30vh"
+
+        let status = JSON.parse(await net.login(data)).status
+        switch (status) {
+            case 'success':
+                document.getElementById("options").innerHTML = '<p style="color:#995544; margin:2vh">Successfully logged in!</p>'
+                document.getElementById("options").style.height = "10vh"
+                break;
+            case 'passwordIncorrect':
+                document.getElementById("options").children[document.getElementById("options").children.length - 1].innerText = 'Password incorrect'
+                document.getElementById("options").style.height = "36vh"
+                break;
+            case 'noUserFound':
+                document.getElementById("options").children[document.getElementById("options").children.length - 1].innerText = 'User not found - create account first'
+                document.getElementById("options").style.height = "36vh"
+                break;
+            case 'fatalError':
+                document.getElementById("options").children[document.getElementById("options").children.length - 1].innerText = 'Some unexpected error occured :/'
+                document.getElementById("options").style.height = "36vh"
+                break;
         }
 
     }
@@ -153,22 +175,25 @@ class Ui {
             password: document.getElementById("passwd").value
         }
 
+        document.getElementById("options").children[document.getElementById("options").children.length - 1].innerText = ''
+        document.getElementById("options").style.height = "44vh"
+
         let status = await net.register(data)
         switch (status) {
             case "accepted":
-                document.getElementById("options").innerHTML += '<p style="color:#995544;font-size:2vh;margin:0;">Request sent. Check your email to confirm your request (expires in 10 minutes)</p>'
-                document.getElementById("options").style.height = "50vh"
+                document.getElementById("options").innerHTML = '<p style="color:#995544; margin:2vh">Request sent. Check your email to confirm your request (expires in 10 minutes)</p>'
+                document.getElementById("options").style.height = "13vh"
                 break;
             case "usernameTaken":
-                document.getElementById("options").innerHTML += '<p style="color:#995544;font-size:2vh;margin:0;">Given username is taken. Try to login or come up with something else</p>'
+                document.getElementById("options").children[document.getElementById("options").children.length - 1].innerText = 'Given username is taken. Try to login or come up with something else'
                 document.getElementById("options").style.height = "50vh"
                 break;
             case "emailTaken":
-                document.getElementById("options").innerHTML += '<p style="color:#995544;font-size:2vh;margin:0;">User with given email already exists. Try to login or type different email</p>'
+                document.getElementById("options").children[document.getElementById("options").children.length - 1].innerText = 'User with given email already exists. Try to login or type different email'
                 document.getElementById("options").style.height = "50vh"
                 break;
             case "fatalError":
-                document.getElementById("options").innerHTML += '<p style="color:#995544;font-size:2vh;margin:0;">Some unexpected error occured :/</p>'
+                document.getElementById("options").children[document.getElementById("options").children.length - 1].innerText = 'Some unexpected error occured :/'
                 document.getElementById("options").style.height = "50vh"
                 break;
         }

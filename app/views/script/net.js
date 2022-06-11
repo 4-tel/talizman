@@ -39,7 +39,7 @@ class Net {
 
     async register(data) {
 
-        console.log("próba logowania");
+        console.log("register");
 
         this.data = JSON.stringify(data)
         this.options = {
@@ -48,6 +48,28 @@ class Net {
         }
 
         let response = await fetch("/user/register", this.options)
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
+
+    }
+
+    //login request
+    //input: {username:string,password:string}
+    //output: login status - (success/noUserFound/passwordIncorrect/fatalError)
+    async login(data) {
+
+        console.log('login');
+
+        this.data = JSON.stringify(data)
+        this.options = {
+            method: "POST",
+            body: this.data
+        }
+
+        let response = await fetch("/user/login", this.options)
         if (!response.ok) {
             return response.status
         } else {

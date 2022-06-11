@@ -9,10 +9,20 @@ const userRouter = async (req, res) => {
 
         let data = JSON.parse(await getRequestData(req))
 
+        let databaseUsers = await databaseController.getRecords()
+
+        for (let record of databaseUsers) {
+            if (record.username == data.username) {
+                res.end("usernameTaken")
+            }
+            else if (record.email == data.email) {
+                res.end("emailTaken")
+            }
+        }
+
         let output = await userController.register(data)
 
         if (output == true) {
-            res.writeHead(201, { 'Content-Type': 'application/json' });
             res.end("accepted")
         } else {
             res.end("fataError")
@@ -40,7 +50,21 @@ const userRouter = async (req, res) => {
 
         let data = JSON.parse(await getRequestData(req))
 
-        let status = userController.login(data)
+        let databaseUsers = await databaseController.getRecords()
+        let output = await userController.login(data, databaseUsers)
+
+        if (output.status == 'success') {
+            res.end(JSON.stringify(output))
+        }
+        else if (output.status == 'passwordIncorrect') {
+            res.end(JSON.stringify({ status: 'passwordIncorrect' }))
+        }
+        else if (output.status == 'noUserFound') {
+            res.end(JSON.stringify({ status: 'noUserFound' }))
+        }
+        else {
+            res.end(JSON.stringify({ status: 'fatalError' }))
+        }
 
     }
 
