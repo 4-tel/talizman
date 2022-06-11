@@ -1,8 +1,10 @@
 const logger = require('tracer').colorConsole()
+const sessionController = require('./sessionController')
 
 const sessionRouter = async (req, res) => {
-    logger.log("session")
-    res.end("0")
+
+    
+
 }
 
 module.exports = sessionRouter
