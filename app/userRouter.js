@@ -15,7 +15,7 @@ const userRouter = async (req, res) => {
             res.writeHead(201, { 'Content-Type': 'application/json' });
             res.end("accepted")
         } else {
-            res.end("failure")
+            res.end("fataError")
         }
     }
 
@@ -33,6 +33,14 @@ const userRouter = async (req, res) => {
             res.writeHead(200, { 'Content-Type': 'text/html' })
             res.end('<p style="margin:3vh;text-align:center">Token expired</p>')
         }
+
+    }
+
+    else if (req.url == "/user/login") {
+
+        let data = JSON.parse(await getRequestData(req))
+
+        let status = userController.login(data)
 
     }
 

@@ -9,12 +9,14 @@ const layout = {
     <div style="position:relative">
         <label for="username">Username: </label>
         <input type="text" id="username" name="username">
+        <p style="color:#995544"></p>
     </div>
     <div style="position:relative">
         <label for="passwd">Password: </label>
         <input type="password" id="passwd" name="passwd">
+        <p style="color:#995544"></p>
     </div>
-    <button id="login" onclick="ui.loginInvalid()">login</button>`,
+    <button id="login" onclick="ui.handleLogin()">login</button>`,
     joinGame: `<h3>join game</h3>
     <hr /><br />
     <p style="color:#995544">You play as guest</p>

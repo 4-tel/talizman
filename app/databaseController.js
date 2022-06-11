@@ -59,6 +59,19 @@ const databaseController = {
 
     },
 
+    //returns one record from collection by username
+    getRecordByUsername: async (username) => {
+
+        if (await connect() == false) {
+            return 'error'
+        }
+
+        let docs = await userModel.find({ username: username })
+
+        return docs
+
+    },
+
     //removes one user from collection by username
     //input: username - string
     //output: status - boolean

@@ -69,6 +69,33 @@ class Ui {
         document.getElementById("options").style.height = "37vh"
     }
 
+    //handles login inputs
+    async handleLogin() {
+
+        let pass = true
+
+        if (document.getElementById("username").value.trim().length == 0) {
+            document.getElementById("username").parentElement.children[2].innerText = 'this element must not be empty'
+            pass = false
+        }
+        else {
+            document.getElementById("username").parentElement.children[2].innerText = ''
+        }
+        if (document.getElementById("passwd").value.trim().length == 0) {
+            document.getElementById("passwd").parentElement.children[2].innerText = 'this element must not be empty'
+            pass = false
+        }
+        else {
+            document.getElementById("passwd").parentElement.children[2].innerText = ''
+        }
+
+        if (pass == false) {
+            return false
+        }
+
+    }
+
+
     //creates register ui
     register() {
 
@@ -77,6 +104,7 @@ class Ui {
 
     }
 
+    //handles register inputs
     async handleRegister() {
 
         let pass = true
@@ -136,7 +164,7 @@ class Ui {
                 document.getElementById("options").style.height = "50vh"
                 break;
             case "emailTaken":
-                document.getElementById("options").innerHTML += '<p style="color:#995544;font-size:2vh;margin:0;">User with given emial already exists. Try to login or type different email</p>'
+                document.getElementById("options").innerHTML += '<p style="color:#995544;font-size:2vh;margin:0;">User with given email already exists. Try to login or type different email</p>'
                 document.getElementById("options").style.height = "50vh"
                 break;
             case "fatalError":

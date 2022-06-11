@@ -29,7 +29,7 @@ const userController = {
     //input: length of an id; amount of characters
     //output: pseudo random unique id (string)
 
-    idGenerator(length) {
+    idGenerator: (length) => {
 
         let output = ""
         let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'w', 'x', 'y', 'z']
@@ -60,7 +60,7 @@ const userController = {
     //no input
     //output: the empty game id
 
-    findGame() {
+    findGame: () => {
 
         let output = ""
 
@@ -87,7 +87,7 @@ const userController = {
     //input: {username:username, id:id}
     //output: login check - boolean
 
-    joinGame(data) {
+    joinGame: (data) => {
 
         let output
 
@@ -114,7 +114,7 @@ const userController = {
     //input: session id
     //output: {id:id, users:[]}
 
-    getInformation(id) {
+    getInformation: (id) => {
 
         for (let i = 0; i < sessions.length; i++) {
             if (sessions[i].id == id) {
@@ -130,7 +130,7 @@ const userController = {
     //input: {email:string,username:string,password:string}
     //output: boolean - register success
 
-    async register(data) {
+    register: async (data) => {
 
         console.log(data);
 
@@ -171,7 +171,11 @@ const userController = {
         }
     },
 
-    async verifyAccount(token) {
+    //verifies account by user personal token
+    //input: token
+    //output: status - string
+
+    verifyAccount: async (token) => {
 
         try {
             let decoded = jwt.verify(token, process.env.TOKEN_PASSWD)
@@ -183,6 +187,16 @@ const userController = {
             logger.error(err.message)
             return { status: "invalid token" }
         }
+
+    },
+
+    //attempts to login an user
+    //input: {username:string,password:string}
+    //output: status - string
+
+    login: async () => {
+
+        
 
     }
 
