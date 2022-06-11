@@ -16,7 +16,7 @@ const layout = {
         <input type="password" id="passwd" name="passwd">
         <p style="color:#995544"></p>
     </div>
-    <button id="login" onclick="ui.handleLogin()">login</button>
+    <button id="login" onclick="handleUser.login()">login</button>
     <p style="color:#995544"></p>`,
     joinGame_guest: `<h3>join game</h3>
     <hr /><br />
@@ -40,7 +40,7 @@ const layout = {
         <input type="text" id="idJoin" name="idJoin">
         <p>leave empty to join any available game</p>
     </div>
-    <button id="joinGame">search game</button>`
+    <button id="joinGame" style="margin-top:2vh">search game</button>`
     ,
     register: `<h3>register</h3>
     <hr /><br />
@@ -64,6 +64,10 @@ const layout = {
         <input type="password" id="confPasswd" name="passwd">
         <p style="color:#995544"></p>
     </div>
-    <button id="register" onclick="ui.handleRegister()">register</button>
-    <p style="color:#995544"></p>`
+    <button id="register" onclick="handleUser.register()">register</button>
+    <p style="color:#995544"></p>`,
+    account: `<h3>account</h3>
+    <hr /><br />
+    <p style="color:#995544">Hello user!</p>
+    <p style="font-size:2vh">nothing to do here... Don't waste your time</p>`
 }
