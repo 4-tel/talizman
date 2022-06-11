@@ -8,7 +8,7 @@ class Temp {
             },
             {
                 "hero": "wróżka",
-                "starting_location": 47,
+                "starting_location": 48,
                 "color": "0xffaa00"
             }
         ]
