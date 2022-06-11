@@ -24,6 +24,9 @@ class Board {
             game.add(player)
         }
     }
+    funkcja = () => {
+        console.log("aaa")
+    }
     click = () => {
         this.raycaster = new THREE.Raycaster()
         this.mouseVector = new THREE.Vector2()
@@ -51,8 +54,14 @@ class Board {
                     break
                 case 3:
                     if (this.intersects.length > 0) {
-                        game.camera.position.set(this.intersects[0].object.position.x, 1000, this.intersects[0].object.position.z)
-                        game.camera.lookAt(this.intersects[0].object.position)
+                        new TWEEN.Tween(game.camera.position)
+                            .to({ x: this.intersects[0].object.position.x, y: game.camera.position.y, z: this.intersects[0].object.position.z }, 1000)
+                            .easing(TWEEN.Easing.Linear.None)
+                            .onUpdate(() => { game.camera.lookAt(game.camera.position.x, game.camera.position.y - 100, game.camera.position.z) })
+                            .onComplete(() => { game.camera.lookAt(this.intersects[0].object.position) })
+                            .start()
+                        //game.camera.position.set(this.intersects[0].object.position.x, 1000, this.intersects[0].object.position.z)
+
                     }
                     break
                 default:

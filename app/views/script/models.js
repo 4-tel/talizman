@@ -20,9 +20,10 @@ class Models {
             map: new THREE.TextureLoader().load("textures/hell.jpg")
         })
         this.player_temp = new THREE.MeshBasicMaterial({
-            color: 0xff00ff,
+            color: 0xffffff,
             side: THREE.DoubleSide,
             wireframe: false,
+            map: new THREE.TextureLoader().load("textures/player.jpg")
         })
         this.tile_table = [
             {
