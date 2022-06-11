@@ -1,20 +1,28 @@
 class Models {
     constructor() {
-        //materiały krain
+        //materiały
         this.first_land = new THREE.MeshBasicMaterial({
             color: 0x00ff00,
             side: THREE.DoubleSide,
-            wireframe: false
+            wireframe: false,
+            map: new THREE.TextureLoader().load("textures/hill.jpg")
         })
         this.second_land = new THREE.MeshBasicMaterial({
             color: 0x995544,
             side: THREE.DoubleSide,
-            wireframe: false
+            wireframe: false,
+            map: new THREE.TextureLoader().load("textures/desert.jpg")
         })
         this.third_land = new THREE.MeshBasicMaterial({
             color: 0xff0000,
             side: THREE.DoubleSide,
-            wireframe: false
+            wireframe: false,
+            map: new THREE.TextureLoader().load("textures/hell.jpg")
+        })
+        this.player_temp = new THREE.MeshBasicMaterial({
+            color: 0xff00ff,
+            side: THREE.DoubleSide,
+            wireframe: false,
         })
         this.tile_table = [
             {
