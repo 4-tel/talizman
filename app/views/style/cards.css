@@ -9,6 +9,11 @@
     height: 80vh;
 }
 
+#cardsMenu p {
+    color: #550000;
+    
+}
+
 #cardsMenu div {
 
     background-image: url('../textures/card_back.jpg');
@@ -19,5 +24,4 @@
     margin: 5%;
     text-align: center;
     font-size: 5vh;
-    color: #995555;
 }
