@@ -18,6 +18,16 @@
     src: url('../fonts/Cardinal.ttf');
 }
 
+@font-face {
+    font-family: Rune;
+    src: url('../fonts/Rune.ttf');
+}
+
+@font-face {
+    font-family: Celtic;
+    src: url('../fonts/Celtic.ttf');
+}
+
 body {
     background-color: black;
 }

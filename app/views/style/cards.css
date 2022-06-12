@@ -1,27 +1,57 @@
+@font-face {
+    font-family: Joan;
+    src: url('../fonts/Joan-Regular.ttf');
+}
+
+@font-face {
+    font-family: Cardinal;
+    src: url('../fonts/Cardinal.ttf');
+}
+
 #cardsMenu {
 
-    background-color: antiquewhite;
+    background-color: bisque;
     border: 2px solid black;
     position: absolute;
     top: 10vh;
     left: 10vw;
     width: 80vw;
     height: 80vh;
+    z-index: 1;
 }
 
 #cardsMenu p {
+    font-family: Cardinal;
+    font-weight: bold;
+    text-decoration: underline;
     color: #550000;
-    
+    font-size: 8vh;
+    margin: 1vh;
+    text-align: center;
 }
 
-#cardsMenu div {
+#cards {
+    width: 60vw;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2;
+}
+
+#cards div {
 
     background-image: url('../textures/card_back.jpg');
-    background-size: contain;
-    width: 20%;
-    height: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #cfcfcf;
+    width: 13.9vw;
+    height: 19.5vw;
     float: left;
     margin: 5%;
     text-align: center;
     font-size: 5vh;
+    border-radius: 2%;
+    transition: all 0.2s;
+    z-index: 3;
 }
