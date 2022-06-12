@@ -135,3 +135,27 @@ ul {
     background-color: #999999;
     color: #000000;
 }
+
+#vol {
+    overflow: visible;
+    position: absolute;
+    bottom: 3vh;
+    left: 7vh;
+    z-index: 2;
+}
+
+#vol img {
+    color: white;
+    background-color: #cfcfcf;
+    height: 3vh;
+    width: 3vh;
+}
+
+#vol input {
+    width: 8vh;
+    position: relative;
+    bottom: 1.5vh;
+    transform: translateY(50%);
+    left: 1vh;
+    background-color: #666666;
+}

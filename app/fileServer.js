@@ -8,15 +8,16 @@ const fileServer = (req, res) => {
     if (req.method == "GET") {
 
         var url = req.url == "/" ? "/index.html" : req.url
-        var extention = url.split(".")[url.split(".").length - 1]
+        var extension = url.split(".")[url.split(".").length - 1]
         var contentType
-        extention == "html" ? contentType = 'text/html' : null
-        extention == "css" ? contentType = 'text/css' : null
-        extention == "js" ? contentType = 'application/javascript' : null
-        extention == "ico" ? contentType = 'image/x-icon' : null
-        extention == "ttf" ? contentType = 'application/octet-stream' : null
-        extention == "jpg" ? contentType = 'image/jpeg' : null
-        extention == "svg" ? contentType = 'image/svg+xml' : null
+        extension == "html" ? contentType = 'text/html' : null
+        extension == "css" ? contentType = 'text/css' : null
+        extension == "js" ? contentType = 'application/javascript' : null
+        extension == "ico" ? contentType = 'image/x-icon' : null
+        extension == "ttf" ? contentType = 'application/octet-stream' : null
+        extension == "jpg" ? contentType = 'image/jpeg' : null
+        extension == "svg" ? contentType = 'image/svg+xml' : null
+        extension == "mp3" ? contentType = 'audio/mpeg' : null
 
         // logger.log("requested url: ", url)
 
