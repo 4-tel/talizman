@@ -38,7 +38,7 @@
 
     <script>
         let audio = new Audio("music/menu.mp3")
-        document.body.onclick = () => { audio.play() }
+        document.body.onload = () => { audio.play() }
 
         let ui = new Ui();
         ui.init()
