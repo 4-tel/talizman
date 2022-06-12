@@ -18,6 +18,7 @@ const fileServer = (req, res) => {
         extension == "jpg" ? contentType = 'image/jpeg' : null
         extension == "svg" ? contentType = 'image/svg+xml' : null
         extension == "mp3" ? contentType = 'audio/mpeg' : null
+        extension == "png" ? contentType = 'image/png' : null
 
         // logger.log("requested url: ", url)
 

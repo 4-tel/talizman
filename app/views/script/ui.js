@@ -2,6 +2,42 @@ class Ui {
 
     init() {
         this.chooseMenuOption()
+        this.volume()
+    }
+
+    //clear volume
+    volume() {
+
+        this.state = ["down", "mute", "up"]
+        this.stateIndex = 0
+
+        document.getElementById("volume").onclick = () => {
+
+            switch (this.state[this.stateIndex]) {
+                case "down":
+                    console.log("down");
+                    document.getElementById("volume").src = '/textures/volume_down.png'
+                    audio.volume = 0.5
+                    break;
+                case "mute":
+                    console.log("mute");
+                    document.getElementById("volume").src = '/textures/volume_mute.png'
+                    audio.volume = 0
+                    break;
+                case "up":
+                    console.log("up");
+                    document.getElementById("volume").src = '/textures/volume_up.png'
+                    audio.volume = 1
+                    break;
+            }
+
+            this.stateIndex += 1
+            if (this.stateIndex > 2) {
+                this.stateIndex = 0
+            }
+
+        }
+
     }
 
     //makes menu elements clickable
