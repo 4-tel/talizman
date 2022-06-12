@@ -2,6 +2,42 @@ class Ui {
 
     init() {
         this.chooseMenuOption()
+        this.volume()
+    }
+
+    //clear volume
+    volume() {
+
+        this.state = ["down", "mute", "up"]
+        this.stateIndex = 0
+
+        document.getElementById("volume").onclick = () => {
+
+            switch (this.state[this.stateIndex]) {
+                case "down":
+                    console.log("down");
+                    document.getElementById("volume").src = '/textures/volume_down.png'
+                    audio.volume = 0.5
+                    break;
+                case "mute":
+                    console.log("mute");
+                    document.getElementById("volume").src = '/textures/volume_mute.png'
+                    audio.volume = 0
+                    break;
+                case "up":
+                    console.log("up");
+                    document.getElementById("volume").src = '/textures/volume_up.png'
+                    audio.volume = 1
+                    break;
+            }
+
+            this.stateIndex += 1
+            if (this.stateIndex > 2) {
+                this.stateIndex = 0
+            }
+
+        }
+
     }
 
     //makes menu elements clickable
@@ -91,10 +127,13 @@ class Ui {
             <hr /><br />
             <p style="color:#995544">Login to view personal statistics</p>`
         } else {
-            document.getElementById("options").style.height = "fit-content"
+
+            let stats = JSON.parse(await net.getStats())
+            console.log(stats);
+            document.getElementById("options").style.height = "25vh"
             document.getElementById("options").innerHTML = `<h3>statistics</h3>
             <hr /><br />
-            <p style="margin:1vh">${await net.getStats()}</p>`
+            <p style="margin:1vh;">Games played: ${Object.values(stats[0])[0]}<br/>Games won: ${Object.values(stats[1])[0]}<br/>Games lost: ${Object.values(stats[2])[0]}<br/></p>`
         }
 
     }

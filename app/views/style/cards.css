@@ -1,0 +1,23 @@
+#cardsMenu {
+
+    background-color: antiquewhite;
+    border: 2px solid black;
+    position: absolute;
+    top: 10vh;
+    left: 10vw;
+    width: 80vw;
+    height: 80vh;
+}
+
+#cardsMenu div {
+
+    background-image: url('../textures/card_back.jpg');
+    background-size: contain;
+    width: 20%;
+    height: 50%;
+    float: left;
+    margin: 5%;
+    text-align: center;
+    font-size: 5vh;
+    color: #995555;
+}
