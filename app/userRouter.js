@@ -5,7 +5,8 @@ const databaseController = require('./databaseController')
 
 const userRouter = async (req, res) => {
 
-    if (req.url == "/user/register") {
+    //method POST, attempt to register user
+    if (req.method == "POST" && req.url == "/user/register") {
 
         let data = JSON.parse(await getRequestData(req))
 
@@ -29,6 +30,7 @@ const userRouter = async (req, res) => {
         }
     }
 
+    //method GET, confirm user account
     else if (req.url.match(/\/user\/confirm\/([A-Za-z0-9]+)/)) {
 
         let token = req.url.split("/")[req.url.split("/").length - 1]
@@ -46,7 +48,8 @@ const userRouter = async (req, res) => {
 
     }
 
-    else if (req.url == "/user/login") {
+    //method POST, attempts to login an user
+    else if (req.method == "POST" && req.url == "/user/login") {
 
         let data = JSON.parse(await getRequestData(req))
 
@@ -68,6 +71,7 @@ const userRouter = async (req, res) => {
 
     }
 
+    //method POST, get username by decoding token
     else if (req.method == "POST" && req.url == "/user/getUsername") {
 
         let token = JSON.parse(await getRequestData(req))

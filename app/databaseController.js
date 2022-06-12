@@ -25,16 +25,22 @@ const userSchema = new mongoose.Schema({
     username: String,
     password: String,
     statistics: [{}]
-})
+}, { collection: 'users' })
+
+const sessionSchema = new mongoose.Schema({
+    id: String,
+    users: []
+}, { collection: 'sessions' })
 
 const userModel = mongoose.model("User", userSchema)
+
+const sessionModel = mongoose.model("Session", sessionSchema)
 
 const databaseController = {
 
     //adds a new user to database
     //input: {email:email,username:string,password:hash}
     //output: success message
-
     adduser: async (user) => {
 
         if (await connect() == false) {
@@ -84,6 +90,66 @@ const databaseController = {
             logger.error(err.message)
             return false
         }
+    },
+
+    //add session to database
+    //input: {id:id,users:[username]}
+    //output: status
+    addSession: async (session) => {
+
+        if (await connect() == false) {
+            return 'error'
+        }
+
+        this.session = new sessionModel({ id: session.id, users: session.users })
+        this.session.save()
+
+    },
+
+    //get sessions
+    //no input
+    //output: session array
+    getSessions: async () => {
+
+        if (await connect() == false) {
+            return 'error'
+        }
+
+        let docs = await sessionModel.find({})
+        return docs
+
+    },
+
+    //get session by id
+    //input: id
+    //output: session
+    getSession: async (id) => {
+
+        if (await connect() == false) {
+            return 'error'
+        }
+
+        let docs = await sessionModel.find({ id: id })
+        return docs[0]
+
+    },
+
+    //add user to session
+    //input: username:string, sessionID:string
+    //output: status
+    addToSession: async (username, session) => {
+        return new Promise(async (resolve) => {
+
+            if (await connect() == false) {
+                resolve(false)
+            }
+
+            session.users.push(username)
+            await session.save()
+            resolve(true)
+        })
+
+
     }
 
 }

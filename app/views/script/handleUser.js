@@ -131,37 +131,73 @@ class HandleUser {
         }
     }
 
-    async joinGame(guest) {
+    //attempts to join player to the session
+    //no input
+    //no output
+    async joinGame() {
 
-        let output = { username: null, session_id: null }
+        let id = await this.getSessionId()
+        let username = await this.getSessionUsername(id)
 
-        if (document.getElementById('idJoin').value.trim() == "") {
-            output.session_id = await net.findGame()
+        let status = await net.joinGame(id, username)
+        if (status == "success") {
+            user.session_id = id
+            document.location.href = '/mainGame.html'
         } else {
-            output.session_id = document.getElementById('idJoin').value
-        }
-
-        if (guest) {
-            if (document.getElementById("guestName").value.trim() != "") {
-                output.username = document.getElementById("guestName").value
-            } else {
-                output.username = 'guest' + JSON.stringify(JSON.parse(await net.sessionInfo(output.session_id)).users.length)
-            }
-        }
-        else {
-            output.username = await net.getUsername(user.token)
-        }
-
-        let response = await net.joinGame(output)
-
-        if (response.status == 'joined session') {
-
-            user.session_id = output.session_id
-            net.moveToGameplay()
-
-        } else {
-
             ui.joinFail()
+        }
+
+    }
+
+    //returns session id from ui or server
+    async getSessionId() {
+
+        //check if session id given by user
+        if (document.getElementById("idJoin").value.trim() == "") {
+            return JSON.parse(await net.findGame())
+        } else {
+            return document.getElementById("idJoin").value
+        }
+
+    }
+
+    //returns users name for session foin
+    async getSessionUsername(id) {
+
+        console.log('usercheck');
+
+        //check if user is logged in
+        if (user.logged) {
+            return JSON.parse(await net.getUsername(user.token)).username
+        } else {
+
+            let session
+
+            try {
+                session = JSON.parse(await net.sessionInfo(id))
+            } catch (e) {
+                console.log("thissss");
+                await net.createSession({ id: id, users: [] })
+                session = JSON.parse(await net.sessionInfo(id))
+            }
+
+            //if guest has given a username
+            if (document.getElementById('guestName').value.trim() != "") {
+
+                for (let user of session.users) {
+                    //if username is taken
+                    if (user == document.getElementById('guestName').value.trim()) {
+                        return 'guest' + session.users.length
+                    }
+                }
+                //if username is unique
+                return document.getElementById('guestName').value.trim()
+            }
+            else {
+
+                return 'guest' + session.users.length
+
+            }
 
         }
 

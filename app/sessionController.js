@@ -1,12 +1,10 @@
 const logger = require('tracer').colorConsole()
 
-const sessions = new Array()
-
 const sessionController = {
+
     //creates a unique random id
     //input: length of an id; amount of characters
     //output: pseudo random unique id (string)
-
     idGenerator: (length) => {
 
         let output = ""
@@ -36,77 +34,26 @@ const sessionController = {
 
     //either finds the first non full session or creates a new one
     //no input
-    //output: the empty game id
+    //output: non-full game id
+    findGame: (sessions) => {
 
-    findGame: () => {
-
-        let output = ""
+        let output = { status: null, id: null, session: null }
 
         //search for empty game
         for (let i = 0; i < sessions.length; i++) {
             if (sessions[i].users.length < 14) {
 
-                output = sessions[i].id
+                output.status = "found"
+                output.id = sessions[i].id
                 return output
             }
         }
 
         //if non found
-
-        output = sessionController.idGenerator(8)
-        sessions.push({ id: output, users: new Array() })
-
+        output.status = "created"
+        output.id = sessionController.idGenerator(8)
+        output.session = { id: output.id, users: new Array() }
         return output
-
-    },
-
-
-    //logs in new users to session by id (max 14 users) or creates a new one
-    //input: {username:username, id:id}
-    //output: {status:string,id:id}
-
-    joinGame: (data) => {
-
-        let output
-
-        for (let i = 0; i < sessions.length; i++) {
-            if (sessions[i].id == data.id) {
-                if (sessions[i].users.length > 14) {
-                    return { status: "session full" }
-                }
-                else {
-                    sessions[i].users.push(data.username)
-                    return { status: 'joined session', id: sessions[i].id }
-                }
-            }
-        }
-
-        //if not found
-
-        sessions.push({ id: data.id, users: new Array().push(data.username) })
-        return { status: 'joined session', id: data.id }
-
-    },
-
-    //returns info about desired session by id
-    //input: session id
-    //output: {id:id, users:[]}
-
-    getInformation: (id) => {
-
-        for (let i = 0; i < sessions.length; i++) {
-            if (sessions[i].id == id) {
-                return sessions[i]
-            }
-        }
-
-        return null
-
-    },
-
-    viewSessions: () => {
-
-        return sessions
 
     }
 }

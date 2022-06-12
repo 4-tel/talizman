@@ -32,7 +32,7 @@ const layout = {
         <input type="text" id="guestName" name="guestName">
         <p>leave empty for default guest name</p>
     </div><br/>
-    <button id="joinGame" onclick="handleUser.joinGame(true)">search game</button>`,
+    <button id="joinGame" onclick="handleUser.joinGame()">search game</button>`,
     joinGame_user: `<h3>join game</h3>
     <hr /><br />
     <p style="color:#995544">You play as guest</p>
@@ -41,7 +41,7 @@ const layout = {
         <input type="text" id="idJoin" name="idJoin">
         <p>leave empty to join any available game</p>
     </div>
-    <button id="joinGame" onclick="handleUser.joinGame(false)" style="margin-top:2vh">search game</button>`
+    <button id="joinGame" onclick="handleUser.joinGame()" style="margin-top:2vh">search game</button>`
     ,
     register: `<h3>register</h3>
     <hr /><br />

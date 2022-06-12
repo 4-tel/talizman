@@ -106,13 +106,9 @@ class Net {
 
         console.log('stats fetch');
 
-        this.data = JSON.stringify(JSON.parse(await this.getUsername(user.token)).username)
-        this.options = {
-            method: "POST",
-            body: this.data
-        }
+        let username = JSON.parse(await this.getUsername(user.token)).username
 
-        let response = await fetch("/database/statistics", this.options)
+        let response = await fetch(`/database/statistics/${username}`, { method: "GET" })
         if (!response.ok) {
             return response.status
         } else {
@@ -125,28 +121,33 @@ class Net {
     //no input
     //output: empty session id
     async findGame() {
+        return new Promise(async (resolve, reject) => {
 
-        let response = await fetch("/session/find", { method: "GET" })
-        if (!response.ok) {
-            return response.status
-        } else {
-            return await response.text()
-        }
+            let response = await fetch("/session/find", { method: "GET" })
+            if (!response.ok) {
+                resolve(response.status)
+            } else {
+                resolve(await response.text())
+            }
+        })
+
 
     }
 
     //join session
-    //input: id - optional
+    //input: id
     //output: status
-    async joinGame(id) {
+    async joinGame(id, username) {
 
         console.log('join game');
 
-        this.data = JSON.stringify(id)
+        this.data = JSON.stringify({ id: id, username: username })
         this.options = {
             method: "POST",
             body: this.data
         }
+
+        console.log(this.options);
 
         let response = await fetch("/session/join", this.options)
         if (!response.ok) {
@@ -164,7 +165,7 @@ class Net {
 
         console.log('session info');
 
-        let response = await fetch(`/session/${id}`, { method: "GET" })
+        let response = await fetch(`/database/sessions/${id}`, { method: "GET" })
         if (!response.ok) {
             return response.status
         } else {
@@ -173,14 +174,26 @@ class Net {
 
     }
 
-    async moveToGameplay() {
+    //create new session
+    //input: {id:id,users:[]}
+    //output: status
+    async createSession(session) {
 
-        console.log("move to gameplay");
-
-        let response = await fetch('/mainGame.html', { method: "GET" })
-        if (!response.ok) {
-            return response.status
+        this.data = JSON.stringify(session)
+        this.options = {
+            method: "POST",
+            body: this.data
         }
 
+        console.log(this.options);
+
+        let response = await fetch('/session/create', this.options)
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
     }
+
+
 }

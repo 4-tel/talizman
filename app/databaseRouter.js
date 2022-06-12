@@ -5,6 +5,7 @@ const databaseController = require('./databaseController')
 
 const databaseRouter = async (req, res) => {
 
+    //method POST, add a new user record to database
     if (req.method == "POST" && req.url == "/database/adduser") {
 
         let user = JSON.parse(await getRequestData(req))
@@ -12,12 +13,14 @@ const databaseRouter = async (req, res) => {
 
     }
 
-    else if (req.method == "GET" && req.url == "/database") {
+    //method GET, returns users collecion 
+    else if (req.method == "GET" && req.url == "/database/users") {
 
         res.end(JSON.stringify(await databaseController.getRecords(), null, 5))
 
     }
 
+    //remove an user by username
     else if (req.url.match(/\/database\/remove\/([A-Za-z0-9]+)/)) {
 
         let username = req.url.split('/')[req.url.split('/').length - 1]
@@ -32,19 +35,37 @@ const databaseRouter = async (req, res) => {
 
     }
 
-    else if (req.method == "GET" && req.url.match(/\/database\/([A-Za-z0-9]+)/)) {
+    //method GET, get user's statistics by username
+    else if (req.method == "GET" && req.url.match(/\/database\/statistics\/([A-Za-z0-9]+)/)) {
+
+        let username = req.url.split("/")[req.url.split("/").length - 1]
+        res.end(JSON.stringify((await databaseController.getRecordByUsername(username)).statistics, null, 5))
+
+    }
+
+    //method GET, returns one record by username
+    else if (req.method == "GET" && req.url.match(/\/database\/users\/([A-Za-z0-9]+)/)) {
 
         let username = req.url.split('/')[req.url.split('/').length - 1]
         res.end(JSON.stringify(await databaseController.getRecordByUsername(username)))
 
     }
 
-    else if (req.method == "POST" && req.url == "/database/statistics") {
+    //method GET, returns sessions collection
+    else if (req.method == "GET" && req.url == "/database/sessions") {
 
-        let username = JSON.parse(await getRequestData(req))
-        res.end(JSON.stringify((await databaseController.getRecordByUsername(username)).statistics, null, 5))
+        res.end(JSON.stringify(await databaseController.getSessions(), null, 5))
 
     }
+
+    //method GET, return session by id
+    else if (req.method == "GET" && req.url.match(/\/database\/sessions\/([A-Za-z0-9]+)/)) {
+
+        let id = req.url.split("/")[req.url.split("/").length - 1]
+        res.end(JSON.stringify(await databaseController.getSession(id)), null, 5)
+
+    }
+
 
 }
 
