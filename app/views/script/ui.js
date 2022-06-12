@@ -127,10 +127,13 @@ class Ui {
             <hr /><br />
             <p style="color:#995544">Login to view personal statistics</p>`
         } else {
-            document.getElementById("options").style.height = "fit-content"
+
+            let stats = JSON.parse(await net.getStats())
+            console.log(stats);
+            document.getElementById("options").style.height = "25vh"
             document.getElementById("options").innerHTML = `<h3>statistics</h3>
             <hr /><br />
-            <p style="margin:1vh">${await net.getStats()}</p>`
+            <p style="margin:1vh;">Games played: ${Object.values(stats[0])[0]}<br/>Games won: ${Object.values(stats[1])[0]}<br/>Games lost: ${Object.values(stats[2])[0]}<br/></p>`
         }
 
     }

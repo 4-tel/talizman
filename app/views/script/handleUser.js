@@ -187,14 +187,17 @@ class HandleUser {
                 for (let user of session.users) {
                     //if username is taken
                     if (user == document.getElementById('guestName').value.trim()) {
+                        user.guestName = 'guest' + session.users.length
                         return 'guest' + session.users.length
                     }
                 }
                 //if username is unique
+                user.guestName = document.getElementById('guestName').value.trim()
                 return document.getElementById('guestName').value.trim()
             }
             else {
 
+                user.guestName = 'guest' + session.users.length
                 return 'guest' + session.users.length
 
             }
