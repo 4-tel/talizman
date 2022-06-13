@@ -2,16 +2,16 @@ class Temp {
     constructor() {
         this.tabela = [
             {
-                "hero": "zabójca",
-                "starting_location": 0,
-                "username": "samle_text",
-                "sesion_id": 999
+                token: "sifuygasfiuasyfiuas",
+                logged: true,
+                session_id: 124214124,
+                current_hero: null
             },
             {
-                "hero": "wróżka",
-                "starting_location": 48,
-                "username": "samle_text",
-                "sesion_id": 999
+                token: "sifuyg42asfiuyfiuas",
+                logged: true,
+                session_id: 124214124,
+                current_hero: null
             }
         ]
     }

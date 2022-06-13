@@ -22,8 +22,9 @@ class Board {
         for (let i = 0; i < this.players.tabela.length; i++) {
 
             let player = new THREE.Mesh(new THREE.CylinderGeometry(100, 100, 100, 100), tiles.player_temp)
-            player.name = `${this.players.tabela[i].hero}`
-            player.position.set(this.instruction[this.players.tabela[i].starting_location].position.x, this.instruction[this.players.tabela[i].starting_location].position.y + 100, this.instruction[this.players.tabela[i].starting_location].position.z)
+            player.name = `${this.players.tabela[i].token}`//tymczasowa
+            //player.name = `${await new Net().getUsername(this.players.tabela[i].token)}`
+            player.position.set(this.instruction[this.players.tabela[i].current_hero.starting_tile].position.x, this.instruction[this.players.tabela[i].current_hero.starting_tile].position.y + 100, this.instruction[this.players.tabela[i].current_hero.starting_tile].position.z)
             game.add(player)
 
         }
