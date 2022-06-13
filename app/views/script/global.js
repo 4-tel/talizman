@@ -1,7 +1,8 @@
 let user = {
     token: null,
     logged: false,
-    session_id: null
+    session_id: null,
+    current_hero: null
 }
 
 const layout = {
