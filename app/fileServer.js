@@ -3,6 +3,9 @@ const logger = require("tracer").colorConsole()
 
 const fileServer = (req, res) => {
 
+    
+
+
     //load files requested by application
 
     if (req.method == "GET") {

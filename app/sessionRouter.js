@@ -42,8 +42,6 @@ const sessionRouter = async (req, res) => {
         else {
             let add = await databaseController.addToSession(data.username, session)
 
-            console.log(add);
-
             if (add) {
                 res.end("success")
             } else {
@@ -83,8 +81,6 @@ const sessionRouter = async (req, res) => {
     if (req.method == "DELETE" && req.url.match(/\/session\/remove\/([A-Za-z0-9]+)/)) {
 
         let id = req.url.split('/')[req.url.split('/').length - 1]
-
-        console.log(id);
 
         let status = await databaseController.removeSession(id)
         if (status) {

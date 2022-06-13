@@ -31,8 +31,6 @@ const userController = {
 
     register: async (data) => {
 
-        console.log(data);
-
         //create token
         try {
             let token = jwt.sign(
@@ -79,7 +77,6 @@ const userController = {
         try {
             let decoded = jwt.verify(token, process.env.TOKEN_PASSWD)
 
-            console.log(decoded);
             return { status: "success", user: decoded }
 
         } catch (err) {
