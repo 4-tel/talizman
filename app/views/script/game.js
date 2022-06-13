@@ -15,7 +15,7 @@ class Game {
         this.board = new Board(this.tiles.get())
         this.board.click()
         this.scene.add(this.board.create())
-        this.board.playerPlacement(this.tiles, this.scene)
+        //this.board.playerPlacement(this.tiles, this.scene)
         this.render()
         console.log(this.scene)
 
