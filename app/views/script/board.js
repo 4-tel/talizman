@@ -1,6 +1,5 @@
 class Board {
-    constructor(players, instruction) { //players rozmieszcza graczy na pozycjach startowych
-        this.players = players
+    constructor(instruction) { //players rozmieszcza graczy na pozycjach startowych
         this.instruction = instruction
         this.board = new THREE.Object3D()
 
@@ -17,12 +16,18 @@ class Board {
         return (this.board)
     }
     playerPlacement = (tiles, game) => {
+
+        this.players = new Temp()
+
         for (let i = 0; i < this.players.tabela.length; i++) {
+
             let player = new THREE.Mesh(new THREE.CylinderGeometry(100, 100, 100, 100), tiles.player_temp)
             player.name = `${this.players.tabela[i].hero}`
             player.position.set(this.instruction[this.players.tabela[i].starting_location].position.x, this.instruction[this.players.tabela[i].starting_location].position.y + 100, this.instruction[this.players.tabela[i].starting_location].position.z)
             game.add(player)
+
         }
+
     }
     click = () => {
         this.raycaster = new THREE.Raycaster()

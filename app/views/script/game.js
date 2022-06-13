@@ -11,9 +11,8 @@ class Game {
         this.camera.lookAt(this.scene.position)
 
         this.tiles = new Models()
-        this.players = new Temp()
-        // this.start = new StartGame("maciek")
-        this.board = new Board(this.players, this.tiles.get())
+        this.start = new StartGame("maciek")
+        this.board = new Board(this.tiles.get())
         this.board.click()
         this.scene.add(this.board.create())
         this.board.playerPlacement(this.tiles, this.scene)
@@ -25,7 +24,6 @@ class Game {
         requestAnimationFrame(this.render);
         this.renderer.render(this.scene, this.camera);
         TWEEN.update();
-        // console.log("render leci")
     }
 
     //temp code
