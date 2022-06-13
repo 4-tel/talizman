@@ -8,6 +8,7 @@
     <title>Talizman</title>
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/cards.css">
+    <link rel="stylesheet" href="style/waitingRoom.css">
     <script src="script/temp.js"></script>
     <script src="script/board.js"></script>
     <script src="script/game.js"></script>
@@ -16,18 +17,20 @@
     <script src="script/tween.umd.js"></script>
     <script src="script/heroes.js"></script>
     <script src="script/startGame.js"></script>
+    <script src="script/waitingRoom.js"></script>
 
 </head>
 
 <body>
     <div id="game">
-        <div id="die" style="height: 70px; width: 40px; background-color:aqua; position: absolute;">
-            <button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
-        </div>
+    </div>
+    <div id="die" style="height: 70px; width: 40px; background-color:aqua; position: absolute;">
+        <button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
     </div>
     <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
-        let game = new Game()
+        const game = new Game()
+        const waitingRoom = new WaitingRoom()
     </script>
 
 </body>

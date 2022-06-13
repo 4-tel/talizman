@@ -4,7 +4,7 @@ class Game {
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 10000);
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
-        this.renderer.setClearColor(0xffffff);
+        this.renderer.setClearColor(0x333333);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById("game").append(this.renderer.domElement);
         this.camera.position.set(0, 4000, 2000)

@@ -42,11 +42,11 @@ class StartGame {
             document.getElementById("cards").children[nr].innerHTML = `<div id="card${nr}" style="background-color:white;border:1px solid black;height:100%;width:0vw;position:absolute;left:50%;transform:translate(-50%);transition: all 0.2s;"></div>`
             setTimeout(() => {
                 document.getElementById("cards").children[nr].children[0].style.width = "13.8vw"
+                document.getElementById(`card${nr}`).innerHTML = Object.keys(this.champion_pool.get())[nr]
             }, 50)
 
         }, 250)
 
-        document.getElementById(`card${nr}`).innerHTML = Object.keys(this.champion_pool.get())[nr]
         await game.sleep(3000)
         document.getElementById("cardsMenu").parentNode.removeChild(document.getElementById("cardsMenu"))
         let hero = Object.values(this.champion_pool.get())[nr].name
