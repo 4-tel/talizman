@@ -1,8 +1,13 @@
+const clearCookie = () => {
+
+    console.log('clear');
+    document.cookie = 'session_token=;expires:Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+
+}
+
 let user = {
     token: null,
     logged: false,
-    session_id: null,
-    current_hero: null
 }
 
 const layout = {
@@ -71,5 +76,6 @@ const layout = {
     account: `<h3>account</h3>
     <hr /><br />
     <p style="color:#995544">Hello user!</p>
-    <p style="font-size:2vh">nothing to do here... Don't waste your time</p>`
+    <p>choose nickname color: </p><br/><div><input type="color" style="float:left;top:0.5vh;left:48%;transform:translate(-100%);width:15%;height:3vh">
+    <button style="position:relative;float:right;right:48%;transform:translate(100%)">apply</button></div>`
 }

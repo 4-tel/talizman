@@ -11,7 +11,6 @@ class Game {
         this.camera.lookAt(this.scene.position)
 
         this.tiles = new Models()
-        this.start = new StartGame("maciek")
         this.board = new Board(this.tiles.get())
         this.board.click()
         this.scene.add(this.board.create())

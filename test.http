@@ -7,7 +7,7 @@ DELETE http://localhost:3000/session/empty/remove HTTP/1.1
 
 ###
 
-DELETE http://localhost:3000/session/remove/12345 HTTP/1.1
+DELETE http://localhost:3000/session/remove/g55fcmxt HTTP/1.1
 
 
 ###

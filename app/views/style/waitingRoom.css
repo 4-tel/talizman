@@ -1,5 +1,5 @@
 #waitingRoom {
-    width: 40vw;
+    width: 60vh;
     height: 80vh;
     position: absolute;
     top: 5vh;
@@ -11,6 +11,7 @@
 }
 
 #waitingRoom h2 {
+    font-size: 3vh;
     font-weight: lighter;
     padding: 2vh;
     color: white;
@@ -39,5 +40,44 @@ span {
     left: 50%;
     transform: translate(-50%);
     height: 50%;
-    width: 50%;
+    width: 60%;
+}
+
+#players div {
+    overflow: auto;
+    height: 100%;
+}
+
+#players p {
+    font-size: 2.5vh;
+    margin: 0.1vh;
+    background-color: #00000050;
+}
+
+#waitingRoom button {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 0.5vh;
+    font-size: 2vh;
+    font-weight: lighter;
+    color: white;
+    background-color: #666666;
+    width: 25%;
+    transition: all 1s;
+}
+
+#waitingRoom button:hover {
+    background-color: #999999;
+    color: #000000;
+}
+
+#waitingRoom img {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 7%;
+    height: 7%;
 }

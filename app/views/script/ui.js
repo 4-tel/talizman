@@ -140,7 +140,7 @@ class Ui {
 
     //creates an account ui
     async account() {
-        document.getElementById("options").style.height = '20vh'
+        document.getElementById("options").style.height = '28vh'
         document.getElementById("options").innerHTML = layout.account
         document.getElementById("options").children[3].innerText = `Hello ${JSON.parse(await net.getUsername(user.token)).username}!`
 

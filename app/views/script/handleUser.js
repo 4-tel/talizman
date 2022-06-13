@@ -142,7 +142,9 @@ class HandleUser {
         let status = await net.joinGame(id, username)
         if (status == "success") {
             let token = JSON.parse(await net.createSessionToken(username, id))
-            document.location.href = `game/${token}`
+            let expires = new Date().setTime(new Date().getTime() + (60 * 60 * 1000));
+            document.cookie = `session_token=${token};expires=${expires}`
+            document.location.href = '/game'
         } else {
             ui.joinFail()
         }

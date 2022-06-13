@@ -17,7 +17,7 @@
     <script src="script/tween.umd.js"></script>
     <script src="script/heroes.js"></script>
     <script src="script/startGame.js"></script>
-    <!-- <script src="script/waitingRoom.js"></script> -->
+    <script src="script/waitingRoom.js"></script>
     <script src="script/global.js"></script>
     <script src="script/net.js"></script>
 
@@ -29,13 +29,12 @@
         <button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
     </div>
     <script>
-
-        console.log(user);
-
         document.addEventListener('contextmenu', event => event.preventDefault());
+
         const game = new Game()
         const net = new Net();
         const waitingRoom = new WaitingRoom()
+
         waitingRoom.init()
     </script>
 

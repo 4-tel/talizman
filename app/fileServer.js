@@ -4,16 +4,12 @@ const logger = require("tracer").colorConsole()
 const fileServer = (req, res) => {
 
 
-
-
     //load files requested by application
 
     if (req.method == "GET") {
 
         var url = req.url == "/" ? "/index.html" : req.url
-        if (req.url.match(/\/game\/([A-Za-z0-9]+)/)) {
-            url = "/mainGame.html"
-        }
+        url == "/game" ? url = "/mainGame.html" : null
         var extension = url.split(".")[url.split(".").length - 1]
         var contentType
         extension == "html" ? contentType = 'text/html' : null
@@ -26,7 +22,7 @@ const fileServer = (req, res) => {
         extension == "mp3" ? contentType = 'audio/mpeg' : null
         extension == "png" ? contentType = 'image/png' : null
 
-        logger.log("requested url: ", url)
+        // logger.log("requested url: ", url)
 
         fs.readFile("./app/views" + url, (error, data) => {
 
