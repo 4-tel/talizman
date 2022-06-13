@@ -55,6 +55,24 @@ const sessionController = {
         output.session = { id: output.id, users: new Array() }
         return output
 
+    },
+
+    //find empty sessions
+    //input: sessions from database
+    //output: empty sessions
+    findEmpty: (sessions) => {
+        return new Promise((resolve) => {
+
+            let output = new Array()
+            for (let el of sessions) {
+                if (el.users.length == 0) {
+                    output.push(el)
+                }
+            }
+
+            resolve(output)
+        })
+
     }
 }
 

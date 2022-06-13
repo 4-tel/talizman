@@ -17,7 +17,7 @@ class StartGame {
         cards.id = "cards"
         time_To_Pick.append(cards)
         for (let i = 0; i < Object.keys(champions).length; i++) {
-            let card = `<div onclick="game.start.reveal(${i})"id="card${i}">`
+            let card = `<div><img src="textures/card_back.jpg" onclick="game.start.reveal(${i})"></div>`
             cards.innerHTML += (card)
         }
         document.getElementById("game").appendChild(time_To_Pick)
@@ -33,17 +33,16 @@ class StartGame {
 
     reveal = async (nr) => {
 
-        document.getElementById("cards").children[nr].style.width = '0vw'
-        document.getElementById("cards").children[nr].style.marginLeft = '15%'
-        document.getElementById("cards").children[nr].style.marginRight = '15%'
+        document.getElementById("cards").children[nr].children[0].style.width = '0%'
+        document.getElementById("cards").children[nr].children[0].style.marginLeft = '15%'
+        document.getElementById("cards").children[nr].children[0].style.marginRight = '15%'
 
         setTimeout(() => {
 
-            document.getElementById("cards").children[nr].style.marginLeft = '5%'
-            document.getElementById("cards").children[nr].style.marginRight = '5%'
-            document.getElementById("cards").children[nr].style.backgroundImage = 'none'
-            document.getElementById("cards").children[nr].style.width = '13.9vw'
-            document.getElementById("cards").children[nr].style.border = '1px solid black'
+            document.getElementById("cards").children[nr].innerHTML = `<div id="card${nr}" style="background-color:white;border:1px solid black;height:100%;width:0vw;position:absolute;left:50%;transform:translate(-50%);transition: all 0.2s;"></div>`
+            setTimeout(() => {
+                document.getElementById("cards").children[nr].children[0].style.width = "13.8vw"
+            }, 50)
 
         }, 250)
 

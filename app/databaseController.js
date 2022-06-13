@@ -83,6 +83,10 @@ const databaseController = {
     //output: status - boolean
     removeUser: async (username) => {
 
+        if (await connect() == false) {
+            return false
+        }
+
         try {
             await userModel.remove({ username: username })
             return true
@@ -110,14 +114,16 @@ const databaseController = {
     //no input
     //output: session array
     getSessions: async () => {
+        return new Promise(async (resolve) => {
 
-        if (await connect() == false) {
-            return 'error'
-        }
+            if (await connect() == false) {
+                resolve('error')
+            }
 
-        let docs = await sessionModel.find({})
-        return docs
+            let docs = await sessionModel.find({})
+            resolve(docs)
 
+        })
     },
 
     //get session by id
@@ -149,6 +155,25 @@ const databaseController = {
             resolve(true)
         })
 
+
+    },
+
+    //removes session
+    //input: session id
+    //output: status - boolean
+    removeSession: async (id) => {
+
+        if (await connect() == false) {
+            return false
+        }
+
+        try {
+            await sessionModel.remove({ id: id })
+            return true
+        } catch (err) {
+            logger.error(err.message)
+            return false
+        }
 
     }
 

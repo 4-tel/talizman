@@ -1,1 +1,15 @@
 POST http://localhost:3000/user/register
+
+
+###
+
+DELETE http://localhost:3000/session/empty/remove HTTP/1.1
+
+###
+
+DELETE http://localhost:3000/session/remove/12345 HTTP/1.1
+
+
+###
+
+GET http://localhost:3000/database/sessions HTTP/1.1
