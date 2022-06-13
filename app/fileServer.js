@@ -3,7 +3,7 @@ const logger = require("tracer").colorConsole()
 
 const fileServer = (req, res) => {
 
-    
+
 
 
     //load files requested by application
@@ -26,7 +26,7 @@ const fileServer = (req, res) => {
         extension == "mp3" ? contentType = 'audio/mpeg' : null
         extension == "png" ? contentType = 'image/png' : null
 
-        // logger.log("requested url: ", url)
+        logger.log("requested url: ", url)
 
         fs.readFile("./app/views" + url, (error, data) => {
 
