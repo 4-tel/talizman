@@ -141,10 +141,8 @@ class HandleUser {
 
         let status = await net.joinGame(id, username)
         if (status == "success") {
-            user.session_id = id
-            setTimeout(() => {
-                document.location.href = '/mainGame.html'
-            }, 100)
+            let token = JSON.parse(await net.createSessionToken(username, id))
+            document.location.href = `game/${token}`
         } else {
             ui.joinFail()
         }

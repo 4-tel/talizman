@@ -1,4 +1,5 @@
 const logger = require('tracer').colorConsole()
+const jwt = require('jsonwebtoken')
 
 const sessionController = {
 
@@ -73,7 +74,29 @@ const sessionController = {
             resolve(output)
         })
 
+    },
+
+    //create a new session token
+    //input: {username:username,session_id:session_id}
+    //output: token
+    createToken: async (username, session_id) => {
+
+        try {
+            let token = jwt.sign(
+                {
+                    username: username,
+                    session: session_id
+                },
+                process.env.TOKEN_PASSWD
+            )
+
+            return token
+        } catch (e) {
+            return 'error'
+        }
+
     }
+
 }
 
 module.exports = sessionController

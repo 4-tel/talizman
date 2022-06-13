@@ -198,7 +198,9 @@ class Net {
     //create a session token
     //no input
     //output: status
-    async sessionToken(username, session_id) {
+    async createSessionToken(username, session_id) {
+
+        console.log('token create');
 
         this.data = JSON.stringify({ username: username, session_id: session_id })
         this.options = {
@@ -212,7 +214,6 @@ class Net {
         } else {
             return await response.text()
         }
-
     }
 
 

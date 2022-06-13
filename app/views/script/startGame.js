@@ -1,6 +1,5 @@
 class StartGame {
 
-
     constructor(player) {
         this.player = player
         this.username = this.player

@@ -2,6 +2,7 @@ const logger = require('tracer').colorConsole()
 const sessionController = require('./sessionController')
 const getRequestData = require('./getRequestData')
 const databaseController = require('./databaseController')
+const fs = require("fs")
 
 const sessionRouter = async (req, res) => {
 
@@ -121,7 +122,19 @@ const sessionRouter = async (req, res) => {
 
     }
 
-    //POST method
+    //POST method; create session token
+    if (req.method == "POST" && req.url == "/session/token") {
+
+        let data = JSON.parse(await getRequestData(req))
+
+        let token = await sessionController.createToken(data.username, data.session_id)
+
+        if (token == 'error') {
+            res.end('error')
+        } else {
+            res.end(JSON.stringify(token))
+        }
+    }
 
 }
 

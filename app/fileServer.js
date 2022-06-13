@@ -8,6 +8,9 @@ const fileServer = (req, res) => {
     if (req.method == "GET") {
 
         var url = req.url == "/" ? "/index.html" : req.url
+        if (req.url.match(/\/game\/([A-Za-z0-9]+)/)) {
+            url = "/mainGame.html"
+        }
         var extension = url.split(".")[url.split(".").length - 1]
         var contentType
         extension == "html" ? contentType = 'text/html' : null
