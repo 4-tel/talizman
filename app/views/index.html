@@ -34,14 +34,13 @@
     <img src="textures/volume_up.png" id="volume">
 
     <script>
-        let audio = new Audio("music/menu.mp3")
+        const audio = new Audio("music/menu.mp3")
         document.body.onclick = () => { audio.play() }
 
-        let ui = new Ui();
+        const ui = new Ui();
         ui.init()
-
-        let net = new Net();
-        let handleUser = new HandleUser();
+        const net = new Net();
+        const handleUser = new HandleUser();
     </script>
 
 </body>

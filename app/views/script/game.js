@@ -12,7 +12,7 @@ class Game {
 
         this.tiles = new Models()
         this.players = new Temp()
-        this.start = new StartGame("maciek")
+        // this.start = new StartGame("maciek")
         this.board = new Board(this.players, this.tiles.get())
         this.board.click()
         this.scene.add(this.board.create())
@@ -25,7 +25,7 @@ class Game {
         requestAnimationFrame(this.render);
         this.renderer.render(this.scene, this.camera);
         TWEEN.update();
-        console.log("render leci")
+        // console.log("render leci")
     }
 
     //temp code

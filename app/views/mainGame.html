@@ -18,19 +18,25 @@
     <script src="script/heroes.js"></script>
     <script src="script/startGame.js"></script>
     <script src="script/waitingRoom.js"></script>
+    <script src="script/global.js"></script>
+    <script src="script/net.js"></script>
 
 </head>
 
 <body>
-    <div id="game">
-    </div>
+    <div id="game" style="width:100vw;height:100vh;position:absolute"></div>
     <div id="die" style="height: 70px; width: 40px; background-color:aqua; position: absolute;">
         <button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
     </div>
     <script>
+
+        console.log(user);
+
         document.addEventListener('contextmenu', event => event.preventDefault());
         const game = new Game()
+        const net = new Net();
         const waitingRoom = new WaitingRoom()
+        waitingRoom.init()
     </script>
 
 </body>

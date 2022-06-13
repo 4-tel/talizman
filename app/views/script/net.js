@@ -195,5 +195,25 @@ class Net {
         }
     }
 
+    //create a session token
+    //no input
+    //output: status
+    async sessionToken(username, session_id) {
+
+        this.data = JSON.stringify({ username: username, session_id: session_id })
+        this.options = {
+            method: "POST",
+            body: this.data
+        }
+
+        let response = await fetch('/session/token', this.options)
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
+
+    }
+
 
 }

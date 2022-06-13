@@ -142,7 +142,9 @@ class HandleUser {
         let status = await net.joinGame(id, username)
         if (status == "success") {
             user.session_id = id
-            document.location.href = '/mainGame.html'
+            setTimeout(() => {
+                document.location.href = '/mainGame.html'
+            }, 100)
         } else {
             ui.joinFail()
         }
@@ -161,7 +163,7 @@ class HandleUser {
 
     }
 
-    //returns users name for session foin
+    //returns user's name for session join
     async getSessionUsername(id) {
 
         console.log('usercheck');

@@ -121,6 +121,8 @@ const sessionRouter = async (req, res) => {
 
     }
 
+    //POST method
+
 }
 
 module.exports = sessionRouter
