@@ -3,6 +3,7 @@ class Communication {
     constructor() {
 
         this.usersReq = false
+        this.cardsReq = false
 
     }
 
@@ -36,6 +37,29 @@ class Communication {
                 }
 
             }
+
+
+            //get users 
+            if (this.cardsReq == true) {
+
+                let users = await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).users
+
+                console.log(users);
+
+                for (let el of users) {
+
+                    if (el.hero != null) {
+
+                        if (document.getElementById(el.hero).chosen == false) {
+
+                            document.getElementById(el.hero).chosen = true
+                            cards.revealCard(document.getElementById(el.hero), el.user)
+
+                        }
+                    }
+                }
+            }
+
 
         }, 500)
 

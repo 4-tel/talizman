@@ -38,6 +38,8 @@ class CardsDeck {
     //displays cards on deck
     async displayCards() {
 
+        communication.cardsReq = true
+
         let characters = Object.keys(heroes)
 
         while (characters.length > 0) {
@@ -49,18 +51,19 @@ class CardsDeck {
             characters[index] = characters[characters.length - 1]
             characters.pop()
 
-            let clicked = false
+            card.chosen = false
 
             card.onclick = async () => {
-                if (clicked == false) {
+
+                if (card.chosen == false) {
 
                     //assigning hero in server
                     let data = JSON.parse(await net.getUsername(document.cookie.split('=')[1]))
 
                     if (await net.asignHero(data.username, hero, data.session) == 'success') {
 
-                        this.revealCard(card)
-                        clicked = true
+                        this.revealCard(card, data.username)
+                        card.chosen = true
 
                     }
 
