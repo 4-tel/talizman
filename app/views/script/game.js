@@ -7,7 +7,7 @@ class Game {
 
         //renderer
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
-        this.renderer.setClearColor(0x333333);
+        this.renderer.setClearColor(0x000000);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById("game").append(this.renderer.domElement);
 
@@ -29,12 +29,12 @@ class Game {
 
         //axes 
         this.axes = new THREE.AxesHelper(10000)
-        this.scene.add(this.axes)
+        // this.scene.add(this.axes)
 
 
         //graphics controller
         this.graphics = new Graphics(this.scene)
-        this.graphics.createFloor()
+        this.graphics.createFloor('/textures/cobblestone.jpg')
         this.graphics.createLightSource(100, 1000, 100)
 
 

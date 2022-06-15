@@ -1,25 +1,25 @@
 class Models {
     constructor() {
         //materiały
-        this.first_land = new THREE.MeshBasicMaterial({
+        this.first_land = new THREE.MeshStandardMaterial({
             color: 0x00ff00,
             side: THREE.DoubleSide,
             wireframe: false,
             map: new THREE.TextureLoader().load("textures/hill.jpg")
         })
-        this.second_land = new THREE.MeshBasicMaterial({
+        this.second_land = new THREE.MeshStandardMaterial({
             color: 0x995544,
             side: THREE.DoubleSide,
             wireframe: false,
             map: new THREE.TextureLoader().load("textures/desert.jpg")
         })
-        this.third_land = new THREE.MeshBasicMaterial({
+        this.third_land = new THREE.MeshStandardMaterial({
             color: 0xff0000,
             side: THREE.DoubleSide,
             wireframe: false,
             map: new THREE.TextureLoader().load("textures/hell.jpg")
         })
-        this.player_temp = new THREE.MeshBasicMaterial({
+        this.player_temp = new THREE.MeshStandardMaterial({
             color: 0xffffff,
             side: THREE.DoubleSide,
             wireframe: false,
