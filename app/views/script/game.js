@@ -17,13 +17,29 @@ class Game {
         this.board.playerPlacement(this.tiles, this.scene)
         this.move = new Move(this.board, this.scene)
         this.render()
-        console.log(this.scene)
+        // console.log(this.scene)
+
+        this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+        console.log(this.controls);
+
+        // document.getElementById('game').onresize = () => {
+        //     this.camera.aspect = window.innerWidth / window.innerHeight;
+        //     this.camera.updateProjectionMatrix();
+        //     this.renderer.setSize(window.innerWidth, window.innerHeight);
+        // }
+
+        window.onresize = () => {
+            this.camera.aspect = window.innerWidth / window.innerHeight;
+            this.camera.updateProjectionMatrix();
+            this.renderer.setSize(window.innerWidth, window.innerHeight);
+        }
 
     }
     render = () => {
         requestAnimationFrame(this.render);
         this.renderer.render(this.scene, this.camera);
         TWEEN.update();
+        // this.controls.update()
     }
 
     //temp code

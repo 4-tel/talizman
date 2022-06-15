@@ -1,33 +1,24 @@
 #waitingRoom {
-    width: 60vh;
-    height: 80vh;
+    width: 20vw;
+    height: 100vh;
     position: absolute;
-    top: 5vh;
-    left: 50%;
-    transform: translate(-50%);
+    left: 0;
     border: 2px solid black;
-    background-color: #00000090;
+    background-color: #000000;
     z-index: 5;
 }
 
-#waitingRoom h2 {
-    font-size: 3vh;
-    font-weight: lighter;
-    padding: 2vh;
-    color: white;
-    text-align: center;
-    font-size: 5vh;
-}
-
 p {
-    margin: 2vh;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
     color: #999999;
+    background-color: #99999920;
     font-size: 3vh;
     text-align: center;
 }
 
-span {
-    margin-left: 2vh;
+#session_id {
+    background-color: #000000;
     -moz-user-select: element;
     user-select: text;
     font-family: 'Times New Roman', Times, serif;
@@ -36,11 +27,8 @@ span {
 #players {
     background-color: #ffffff20;
     margin-top: 2vh;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    height: 50%;
-    width: 60%;
+    height: 70%;
+    width: 80%;
 }
 
 #players div {
@@ -55,9 +43,7 @@ span {
 }
 
 #waitingRoom button {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
+    margin-left: 50%;
     transform: translate(-50%);
     padding: 0.5vh;
     font-size: 2vh;
@@ -80,4 +66,33 @@ span {
     transform: translate(-50%);
     width: 7%;
     height: 7%;
+}
+
+#curtain {
+
+    position: absolute;
+    top: 0;
+    left: 20vw;
+    width: 80vw;
+    height: 100vh;
+    background-color: #00000090;
+
+}
+
+#curtain img {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 3vh;
+    height: 3vh;
+    top: 40%;
+}
+
+#curtain p {
+    background-color: #ffffff00;
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%);
+
 }
