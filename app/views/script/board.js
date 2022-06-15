@@ -2,9 +2,7 @@ class Board {
     constructor(instruction) { //players rozmieszcza graczy na pozycjach startowych
         this.instruction = instruction
         this.board = new THREE.Object3D()
-        this.first_land = [
-            "0,0", "0,1", "0,2", "0,3", "0,4", "0,5", "0,6", "1,0", "1,6"
-        ]
+        this.first_land = ["0,0", "0,1", "0,2", "0,3", "0,4", "0,5", "0,6", "1,6", "2,6", "3,6", "4,6", "5,6", "6,6", "6,5", "6,4", "6,3", "6,2", "6,1", "6,0", "5,0", "4,0", "3,0", "2,0", "1,0"]
         this.second_land = [
             [0, 0, 0, 0, 0, 0, 0],
             [0, 18, 19, 20, 21, 22, 0],

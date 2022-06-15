@@ -12,19 +12,21 @@ class Move {
             if (this.scene.children[i].name == await this.getUsername()) {
                 for (let j = 0; j < this.scene.children[0].children.length; j++) {
                     if (this.scene.children[0].children[j].position.x == this.scene.children[i].position.x && this.scene.children[0].children[j].position.z == this.scene.children[i].position.z) {
+                        let current_tile = this.getTile(this.scene.children[0].children[j].name)
+                        console.log(current_tile)
+                        let left = current_tile - number >= 0 ? this.board.first_land[current_tile - number] : this.board.first_land[24 - Math.abs(current_tile - number)]
+                        let right = current_tile + number <= 23 ? this.board.first_land[current_tile + number] : this.board.first_land[-1 + Math.abs(24 - (current_tile + number))]
 
-                        let x = parseInt((this.scene.children[0].children[j].name).slice(2))
-                        let y = parseInt((this.scene.children[0].children[j].name).slice(2))
-
-                        for (let v = 0; v < number; v++) {
-                            if (this.board.first_land[x - 1][y] != 0 && x - 1 >= 0) {
-                                console.log(this.board.first_land[y][x - 1])
-                                this.scene.children[i].position.x = this.instruction[this.board.first_land[y][x - 1]].position.x
-                                this.scene.children[i].position.z = this.instruction[this.board.first_land[y][x - 1]].position.z
-                            }
-                        }
-
-
+                        this.getTileReverse(left).material = this.first_land = new THREE.MeshStandardMaterial({
+                            color: 0xffff00,
+                            side: THREE.DoubleSide,
+                            wireframe: false,
+                        })
+                        this.getTileReverse(right).material = this.first_land = new THREE.MeshStandardMaterial({
+                            color: 0xffff00,
+                            side: THREE.DoubleSide,
+                            wireframe: false,
+                        })
 
 
 
@@ -42,5 +44,19 @@ class Move {
             }
         }
 
+    }
+    getTile(name) {
+        for (let i = 0; i < this.board.first_land.length; i++) {
+            if (this.board.first_land[i] == name) {
+                return i
+            }
+        }
+    }
+    getTileReverse(name) {
+        for (let i = 0; i < this.scene.children[0].children.length; i++) {
+            if (this.scene.children[0].children[i].name == name) {
+                return this.scene.children[0].children[i]
+            }
+        }
     }
 }
