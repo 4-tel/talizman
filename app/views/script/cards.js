@@ -45,13 +45,14 @@ class CardsDeck {
             let card = document.createElement('div')
             let index = Math.floor(Math.random() * characters.length)
             let hero = characters[index]
+            card.id = hero
             characters[index] = characters[characters.length - 1]
             characters.pop()
 
             card.onclick = async () => {
-                card.innerHTML = `<p>${hero}</p>`
-                await game.sleep(1000)
-                game.start.assignHero(hero)
+                // game.start.assignHero(hero) - game starting function
+                this.revealCard(card)
+
             }
 
             document.getElementById('deck').append(card)
@@ -62,6 +63,20 @@ class CardsDeck {
             await game.sleep(100)
             document.getElementById('deck').children[i].style.top = '0vh'
         }
+
+    }
+
+    async revealCard(card, player) {
+
+        card.style.width = '0vw'
+
+        await game.sleep(300)
+
+        card.style.backgroundImage = 'none'
+
+        card.innerHTML = `<p style="margin:0px;font-size:2vh;background-color:#542a8750">${player} plays as: </p>
+        <p style="margin:0px;font-size:2.5vh">${card.id}</p><img src="${heroes[card.id].img}" width="100%">`
+        card.style.width = '15vw'
 
     }
 }

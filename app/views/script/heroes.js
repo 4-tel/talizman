@@ -1,6 +1,7 @@
 const heroes = {
 
     example: {
+
         name: "#######",
         stats: {
             strength: 999,
@@ -31,6 +32,7 @@ const heroes = {
     },
 
     troll: {
+        img: '/textures/troll.jpg',
         name: "Troll",
         stats: {
             strength: 6,
