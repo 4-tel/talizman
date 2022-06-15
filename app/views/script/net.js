@@ -241,5 +241,31 @@ class Net {
 
     }
 
+    //asigns given hero to given player
+    //input: username, hero, session id
+    //output: status
+    async asignHero(user, hero, id) {
+
+        console.log('asign hero');
+
+        this.data = JSON.stringify({
+            user: user,
+            hero: hero,
+            id: id
+        })
+        this.opitons = {
+            method: "POST",
+            body: this.data
+        }
+
+        let response = await fetch('/session/assignhero', this.opitons)
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
+
+    }
+
 
 }

@@ -49,9 +49,18 @@ class CardsDeck {
             characters[index] = characters[characters.length - 1]
             characters.pop()
 
+            let clicked = false
+
             card.onclick = async () => {
+                if (clicked == false) {
+
+                    net.asignHero(await net.getUsername())
+
+                    this.revealCard(card)
+                    
+                    clicked = true
+                }
                 // game.start.assignHero(hero) - game starting function
-                this.revealCard(card)
 
             }
 

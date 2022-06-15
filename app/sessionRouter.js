@@ -138,8 +138,6 @@ const sessionRouter = async (req, res) => {
 
         let data = JSON.parse(await getRequestData(req))
 
-        console.log(data);
-
         let session = await databaseController.getSession(data.id)
 
         if (await databaseController.changeStatus(data.status, session)) {
@@ -147,6 +145,23 @@ const sessionRouter = async (req, res) => {
         } else {
             res.end('error')
         }
+
+    }
+
+    //method POST; choose hero as player
+    //input: {user, hero, id}
+    if (req.method == "POST" && req.url == "session/assignhero") {
+
+        let data = JSON.parse(await getRequestData(req))
+
+        let session = await databaseController.getSession(data.id)
+
+        if (await databaseController.asignHero(data.hero, data.user, session)) {
+            res.end('success')
+        } else {
+            res.end('error')
+        }
+
 
     }
 

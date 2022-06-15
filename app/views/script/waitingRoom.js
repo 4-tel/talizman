@@ -46,7 +46,7 @@ class WaitingRoom {
             let users = JSON.parse(await net.sessionInfo(await this.get_session_data())).users
 
             for (let el of users) {
-                output += `<p style="font-size:2vh;margin-top:1vh;">${el}</p>`
+                output += `<p style="font-size:2vh;margin-top:1vh;">${el.name}</p>`
             }
 
             return output

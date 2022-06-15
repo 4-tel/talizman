@@ -155,7 +155,12 @@ const databaseController = {
                 resolve(false)
             }
 
-            session.users.push(username)
+            let user = {
+                name: username,
+                attribs: { hero: null }
+            }
+
+            session.users.push(user)
             await session.save()
             resolve(true)
         })
@@ -194,6 +199,29 @@ const databaseController = {
             logger.error(err.message)
             return false
         }
+
+    },
+
+    //asigns hero to player
+    //input: hero, player, session
+    //output: status
+    asignHero: async (hero, player, session) => {
+        return new Promise(async (resolve) => {
+
+            if (await connect() == false) {
+                resolve(false)
+            }
+
+            for (let el of session.users) {
+                if (el.name == player) {
+                    el.hero = hero
+                }
+            }
+
+            await session.save()
+            resolve(true)
+        })
+
 
     }
 
