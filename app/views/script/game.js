@@ -16,7 +16,8 @@ class Game {
         this.camera.position.set(0, 4000, 2000)
         this.camera.lookAt(this.scene.position)
         this.cameraManager = new Camera(this.camera, this.scene) //custom camera managment
-        console.log(this.cameraManager);
+
+        this.cameraManager.rotation = true //change to false to stop rotation
 
         //axes 
         this.axes = new THREE.AxesHelper(10000)
@@ -29,6 +30,10 @@ class Game {
         this.scene.add(this.board.create())
         this.board.playerPlacement(this.tiles, this.scene)
         this.move = new Move(this.board, this.scene, this.tiles.get())
+
+        //graphics controller
+        this.graphics = new Graphics(this.scene)
+        this.graphics.createFloor()
 
 
         //change aspect on window resize
@@ -46,7 +51,9 @@ class Game {
         requestAnimationFrame(this.render);
         this.renderer.render(this.scene, this.camera);
         TWEEN.update();
-        this.cameraManager.moveAround()
+        if (this.cameraManager.rotation == true) {
+            this.cameraManager.moveAround(1) //argument: speed
+        }
     }
 
     //temp code

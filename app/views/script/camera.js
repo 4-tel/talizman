@@ -4,6 +4,8 @@ class Camera {
 
         this.scene = scene
         this.camera = camera
+
+        this.rotation = false
         this.mouseDown = false
         this.mouseY = null
         this.mouseX = null
@@ -11,12 +13,12 @@ class Camera {
 
     }
 
-    moveAround() {
+    moveAround(speed) {
 
         this.camera.position.set(3000 * Math.sin(this.value), 1500, 3000 * Math.cos(this.value))
         this.camera.lookAt(this.scene.position)
 
-        this.value += 0.005
+        this.value += 0.005 * speed
 
     }
 
