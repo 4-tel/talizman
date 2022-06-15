@@ -13,7 +13,8 @@ class WaitingRoom {
         div.id = "waitingRoom"
         div.innerHTML = `
         <p>session id:</p><p id="session_id">${await this.get_session_data()}</p>
-        <div id="players"><p style="font-size:2.5vh">users in session:</p><hr /><div>${await this.get_users_html()}</div></div><p style="font-size:1.5vh">You can press tab to view player in game</p><button onclick="waitingRoom.leave()">start game</button>`
+        <div id="players"><p style="font-size:2.5vh">users in session:</p><hr /><div>${await this.get_users_html()}</div></div>
+        <p style="font-size:1.5vh">You can press tab to view player in game</p><button style="width:30%" onclick="waitingRoom.leave()">start game</button>`
         document.body.append(div)
 
         document.getElementById('game').style.marginLeft = "10vw"
@@ -34,7 +35,7 @@ class WaitingRoom {
             let users = JSON.parse(await net.sessionInfo(await this.get_session_data())).users
 
             for (let el of users) {
-                output += `<p>${el}<p>`
+                output += `<p style="font-size:2vh;margin-top:1vh;">${el}<p>`
             }
 
             return output
