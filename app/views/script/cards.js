@@ -54,11 +54,16 @@ class CardsDeck {
             card.onclick = async () => {
                 if (clicked == false) {
 
-                    net.asignHero(await net.getUsername())
+                    //assigning hero in server
+                    let data = JSON.parse(await net.getUsername(document.cookie.split('=')[1]))
 
-                    this.revealCard(card)
-                    
-                    clicked = true
+                    if (await net.asignHero(data.username, hero, data.session) == 'success') {
+
+                        this.revealCard(card)
+                        clicked = true
+
+                    }
+
                 }
                 // game.start.assignHero(hero) - game starting function
 

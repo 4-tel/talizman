@@ -157,7 +157,7 @@ const databaseController = {
 
             let user = {
                 name: username,
-                attribs: { hero: null }
+                hero: null
             }
 
             session.users.push(user)
@@ -214,9 +214,13 @@ const databaseController = {
 
             for (let el of session.users) {
                 if (el.name == player) {
-                    el.hero = hero
+                    el = session.users[session.users.length - 1]
                 }
             }
+
+            session.users.pop()
+
+            session.users.push({ name: player, hero: hero })
 
             await session.save()
             resolve(true)
