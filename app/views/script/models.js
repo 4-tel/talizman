@@ -5,19 +5,22 @@ class Models {
             color: 0x00ff00,
             side: THREE.DoubleSide,
             wireframe: false,
-            map: new THREE.TextureLoader().load("textures/hill.jpg")
+            map: new THREE.TextureLoader().load("textures/hill.jpg"),
+            name: "hills"
         })
         this.second_land = new THREE.MeshStandardMaterial({
             color: 0x995544,
             side: THREE.DoubleSide,
             wireframe: false,
-            map: new THREE.TextureLoader().load("textures/desert.jpg")
+            map: new THREE.TextureLoader().load("textures/desert.jpg"),
+            name: "desert"
         })
         this.third_land = new THREE.MeshStandardMaterial({
             color: 0xff0000,
             side: THREE.DoubleSide,
             wireframe: false,
-            map: new THREE.TextureLoader().load("textures/hell.jpg")
+            map: new THREE.TextureLoader().load("textures/hell.jpg"),
+            name: "hell"
         })
         this.player_temp = new THREE.MeshStandardMaterial({
             color: 0xffffff,

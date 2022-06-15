@@ -14,7 +14,7 @@ class Temp {
                         health: 999
                     },
                     character: "neutral",
-                    starting_tile: 48,
+                    starting_tile: 17,
                     special_abilites: {
                         /// nie wiem jak xd
                     }

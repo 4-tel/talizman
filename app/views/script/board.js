@@ -3,24 +3,8 @@ class Board {
         this.instruction = instruction
         this.board = new THREE.Object3D()
         this.first_land = ["0,0", "0,1", "0,2", "0,3", "0,4", "0,5", "0,6", "1,6", "2,6", "3,6", "4,6", "5,6", "6,6", "6,5", "6,4", "6,3", "6,2", "6,1", "6,0", "5,0", "4,0", "3,0", "2,0", "1,0"]
-        this.second_land = [
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 18, 19, 20, 21, 22, 0],
-            [0, 25, 0, 0, 0, 29, 0],
-            [0, 32, 0, 0, 0, 36, 0],
-            [0, 39, 0, 0, 0, 43, 0],
-            [0, 46, 47, 48, 49, 50, 0],
-            [0, 0, 0, 0, 0, 0, 0]
-        ]
-        this.third_land = [
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 26, 27, 28, 0, 0],
-            [0, 0, 33, "FINISH", 35, 0, 0],
-            [0, 0, 40, 41, 42, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0]
-        ]
+        this.second_land = ["1,1", "1,2", "1,3", "1,4", "1,5", "2,5", "3,5", "4,5", "5,5", "5,4", "5,3", "5,2", "5,1", "4,1", "3,1", "2,1"]
+        this.third_land = ["2,2", "2,3", "2,4", "3,4", "4,4", "4,3", "4,2", "3,2"]
 
     }
 
@@ -30,6 +14,7 @@ class Board {
             //tile.name = `${i + 10 == 34 ? "FINISH" : i + 10}`
             tile.name = `${Math.floor(i / 7)},${i % 7}`
             tile.highlight = false
+            tile.land = `${this.instruction[i].material.name}`
             tile.position.set(this.instruction[i].position.x, this.instruction[i].position.y, this.instruction[i].position.z)
             this.board.add(tile)
         }
@@ -62,6 +47,7 @@ class Board {
             switch (event.which) {
                 case 1:
                     if (this.intersects.length > 0) {
+                        console.log(this.intersects[0])
                         if (this.intersects[0].object.highlight == true) {
                             game.move.playerMove(this.intersects[0].object)
                         }
