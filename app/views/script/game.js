@@ -12,7 +12,7 @@ class Game {
         document.getElementById("game").append(this.renderer.domElement);
 
         //camera
-        this.camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 10000);
+        this.camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 100000);
         this.camera.position.set(0, 4000, 2000)
         this.camera.lookAt(this.scene.position)
         this.cameraManager = new Camera(this.camera, this.scene) //custom camera managment
@@ -34,6 +34,7 @@ class Game {
         //graphics controller
         this.graphics = new Graphics(this.scene)
         this.graphics.createFloor()
+        this.graphics.createLightSource(100, 1000, 100)
 
 
         //change aspect on window resize
