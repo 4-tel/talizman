@@ -21,6 +21,7 @@ const fileServer = (req, res) => {
         extension == "svg" ? contentType = 'image/svg+xml' : null
         extension == "mp3" ? contentType = 'audio/mpeg' : null
         extension == "png" ? contentType = 'image/png' : null
+        extension == "otf" ? contentType = 'font/otf' : null
 
         // logger.log("requested url: ", url)
 
@@ -39,9 +40,6 @@ const fileServer = (req, res) => {
         })
 
     }
-
-
-
 }
 
 module.exports = fileServer

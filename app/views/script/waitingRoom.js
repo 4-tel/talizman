@@ -51,6 +51,7 @@ class WaitingRoom {
 
         document.getElementById('waitingRoom').remove()
         game.start = new StartGame("maciek")
+        game.start.init()
 
     }
 }
