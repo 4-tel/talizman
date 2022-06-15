@@ -43,7 +43,7 @@ class Board {
 
     create() {
         for (let i = 0; i < 49; i++) {
-            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, 50, this.instruction[i].height), this.instruction[i].material)
+            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, Math.floor(Math.random() * 40 + 10), this.instruction[i].height), this.instruction[i].material)
             //tile.name = `${i + 10 == 34 ? "FINISH" : i + 10}`
             tile.name = `${Math.floor(i / 7)},${i % 7}`
             tile.position.set(this.instruction[i].position.x, this.instruction[i].position.y, this.instruction[i].position.z)
