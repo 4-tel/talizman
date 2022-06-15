@@ -1,15 +1,28 @@
 class Game {
 
     constructor() {
+
+        //scene
         this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 10000);
+
+        //renderer
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
         this.renderer.setClearColor(0x333333);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById("game").append(this.renderer.domElement);
+
+        //camera
+        this.camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 10000);
         this.camera.position.set(0, 4000, 2000)
         this.camera.lookAt(this.scene.position)
+        this.cameraManager = new Camera(this.camera, this.scene) //custom camera managment
+        console.log(this.cameraManager);
 
+        //axes 
+        this.axes = new THREE.AxesHelper(10000)
+        this.scene.add(this.axes)
+
+        //create board
         this.tiles = new Models()
         this.board = new Board(this.tiles.get())
         this.board.click()
@@ -18,9 +31,6 @@ class Game {
         this.move = new Move(this.board, this.scene, this.tiles.get())
         this.render()
         // console.log(this.scene)
-
-        this.controls = new OrbitControls(this.camera, this.renderer.domElement)
-        console.log(this.controls);
 
         // document.getElementById('game').onresize = () => {
         //     this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -39,7 +49,7 @@ class Game {
         requestAnimationFrame(this.render);
         this.renderer.render(this.scene, this.camera);
         TWEEN.update();
-        // this.controls.update()
+        this.cameraManager.moveAround()
     }
 
     //temp code
