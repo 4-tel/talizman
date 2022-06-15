@@ -22,6 +22,7 @@ class Move {
                             side: THREE.DoubleSide,
                             wireframe: false,
                         })
+
                         this.getTileReverse(right).material = this.first_land = new THREE.MeshStandardMaterial({
                             color: 0xffff00,
                             side: THREE.DoubleSide,
