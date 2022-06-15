@@ -12,22 +12,22 @@ const userRouter = async (req, res) => {
 
         let databaseUsers = await databaseController.getRecords()
 
-        for (let record of databaseUsers) {
-            if (record.username == data.username) {
-                res.end("usernameTaken")
-            }
-            else if (record.email == data.email) {
-                res.end("emailTaken")
-            }
-        }
+        let status = await userController.findDuplicate(data, databaseUsers)
 
-        let output = await userController.register(data)
-
-        if (output == true) {
-            res.end("accepted")
+        if (status != 'nothing') {
+            res.end(status)
         } else {
-            res.end("fataError")
+
+            let output = await userController.register(data)
+
+            if (output == true) {
+                res.end("accepted")
+            } else {
+                res.end("fataError")
+            }
+
         }
+
     }
 
     //method GET, confirm user account
