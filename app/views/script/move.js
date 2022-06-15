@@ -15,10 +15,12 @@ class Move {
 
                         let x = parseInt((this.scene.children[0].children[j].name).slice(2))
                         let y = parseInt((this.scene.children[0].children[j].name).slice(2))
-                        console.log(this.board.first_land[x][y])
+
                         for (let v = 0; v < number; v++) {
-                            if (this.board.first_land[x - 1][y] != 0) {
-                                this.scene.children[i].position.set(this.instruction[this.board.first_land[x][y]].position.x, this.instruction[this.board.first_land[x][y]].position.z)
+                            if (this.board.first_land[x - 1][y] != 0 && x - 1 >= 0) {
+                                console.log(this.board.first_land[y][x - 1])
+                                this.scene.children[i].position.x = this.instruction[this.board.first_land[y][x - 1]].position.x
+                                this.scene.children[i].position.z = this.instruction[this.board.first_land[y][x - 1]].position.z
                             }
                         }
 
