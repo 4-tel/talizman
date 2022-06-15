@@ -19,10 +19,6 @@ class Game {
 
         this.cameraManager.rotation = true //change to false to stop rotation
 
-        //axes 
-        this.axes = new THREE.AxesHelper(10000)
-        this.scene.add(this.axes)
-
         //create board
         this.tiles = new Models()
         this.board = new Board(this.tiles.get())
@@ -30,6 +26,11 @@ class Game {
         this.scene.add(this.board.create())
         this.board.playerPlacement(this.tiles, this.scene)
         this.move = new Move(this.board, this.scene, this.tiles.get())
+
+        //axes 
+        this.axes = new THREE.AxesHelper(10000)
+        this.scene.add(this.axes)
+
 
         //graphics controller
         this.graphics = new Graphics(this.scene)
