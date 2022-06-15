@@ -55,8 +55,12 @@ class Move {
     async playerMove(tile) {
         for (let i = 1; i <= this.scene.children.length - 1; i++) {
             if (this.scene.children[i].name == await this.getUsername()) {
-                this.scene.children[i].position.x = tile.position.x
-                this.scene.children[i].position.z = tile.position.z
+                new TWEEN.Tween(this.scene.children[i].position)
+                    .to({ x: tile.position.x, y: this.scene.children[i].position.y, z: tile.position.z }, 1000)
+                    .easing(TWEEN.Easing.Linear.None)
+                    .onUpdate(() => { })
+                    .onComplete(() => { this.scene.children[i].position.y = this.scene.children[i].position.y })
+                    .start()
                 this.tilesBack()
 
             }
