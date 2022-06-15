@@ -27,9 +27,6 @@ p {
 #players {
     background-color: #ffffff20;
     margin-top: 2vh;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
     height: 70%;
     width: 80%;
 }
@@ -46,9 +43,7 @@ p {
 }
 
 #waitingRoom button {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
+    margin-left: 50%;
     transform: translate(-50%);
     padding: 0.5vh;
     font-size: 2vh;
@@ -71,4 +66,33 @@ p {
     transform: translate(-50%);
     width: 7%;
     height: 7%;
+}
+
+#curtain {
+
+    position: absolute;
+    top: 0;
+    left: 20vw;
+    width: 80vw;
+    height: 100vh;
+    background-color: #00000090;
+
+}
+
+#curtain img {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 3vh;
+    height: 3vh;
+    top: 40%;
+}
+
+#curtain p {
+    background-color: #ffffff00;
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%);
+
 }
