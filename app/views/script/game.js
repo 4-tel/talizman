@@ -29,22 +29,19 @@ class Game {
         this.scene.add(this.board.create())
         this.board.playerPlacement(this.tiles, this.scene)
         this.move = new Move(this.board, this.scene, this.tiles.get())
-        this.render()
-        // console.log(this.scene)
 
-        // document.getElementById('game').onresize = () => {
-        //     this.camera.aspect = window.innerWidth / window.innerHeight;
-        //     this.camera.updateProjectionMatrix();
-        //     this.renderer.setSize(window.innerWidth, window.innerHeight);
-        // }
 
+        //change aspect on window resize
         window.onresize = () => {
             this.camera.aspect = window.innerWidth / window.innerHeight;
             this.camera.updateProjectionMatrix();
             this.renderer.setSize(window.innerWidth, window.innerHeight);
         }
 
+        //render
+        this.render()
     }
+
     render = () => {
         requestAnimationFrame(this.render);
         this.renderer.render(this.scene, this.camera);
@@ -56,6 +53,7 @@ class Game {
     sleep = async (ms) => {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
+
     roll = async () => {
         let outcome
         for (let i = 0; i < 50; i++) {
