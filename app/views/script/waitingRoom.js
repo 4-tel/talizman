@@ -11,10 +11,9 @@ class WaitingRoom {
 
         let div = document.createElement("div")
         div.id = "waitingRoom"
-        div.innerHTML = `<h2 style="color:white">waiting for other players...</h2><hr />
-        <p>session id:<span id="session_id">${await this.get_session_data()}</span></p>
-        <div id="players"><p style="font-size:2.5vh">users in session:</p><hr /><div>${await this.get_users_html()}</div></div>
-        <img src="/textures/wait.png"><button onclick="waitingRoom.leave()">start game</button>`
+        div.innerHTML = `
+        <p>session id:</p><p id="session_id">${await this.get_session_data()}</p>
+        <div id="players"><p style="font-size:2.5vh">users in session:</p><hr /><div>${await this.get_users_html()}</div></div><button onclick="waitingRoom.leave()">start game</button>`
         document.body.append(div)
 
     }

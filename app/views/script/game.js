@@ -19,6 +19,18 @@ class Game {
         this.render()
         console.log(this.scene)
 
+        // document.getElementById('game').onresize = () => {
+        //     this.camera.aspect = window.innerWidth / window.innerHeight;
+        //     this.camera.updateProjectionMatrix();
+        //     this.renderer.setSize(window.innerWidth, window.innerHeight);
+        // }
+
+        window.onresize = () => {
+            this.camera.aspect = window.innerWidth / window.innerHeight;
+            this.camera.updateProjectionMatrix();
+            this.renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
     }
     render = () => {
         requestAnimationFrame(this.render);

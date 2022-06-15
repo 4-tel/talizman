@@ -1,33 +1,24 @@
 #waitingRoom {
-    width: 60vh;
-    height: 80vh;
+    width: 20vw;
+    height: 100vh;
     position: absolute;
-    top: 5vh;
-    left: 50%;
-    transform: translate(-50%);
+    left: 0;
     border: 2px solid black;
-    background-color: #00000090;
+    background-color: #000000;
     z-index: 5;
 }
 
-#waitingRoom h2 {
-    font-size: 3vh;
-    font-weight: lighter;
-    padding: 2vh;
-    color: white;
-    text-align: center;
-    font-size: 5vh;
-}
-
 p {
-    margin: 2vh;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
     color: #999999;
+    background-color: #99999920;
     font-size: 3vh;
     text-align: center;
 }
 
-span {
-    margin-left: 2vh;
+#session_id {
+    background-color: #000000;
     -moz-user-select: element;
     user-select: text;
     font-family: 'Times New Roman', Times, serif;
@@ -39,8 +30,8 @@ span {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    height: 50%;
-    width: 60%;
+    height: 70%;
+    width: 80%;
 }
 
 #players div {
@@ -56,7 +47,7 @@ span {
 
 #waitingRoom button {
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%);
     padding: 0.5vh;
