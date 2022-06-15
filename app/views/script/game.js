@@ -15,7 +15,7 @@ class Game {
         this.board.click()
         this.scene.add(this.board.create())
         this.board.playerPlacement(this.tiles, this.scene)
-        this.move = new Move(this.board, this.scene)
+        this.move = new Move(this.board, this.scene, this.tiles.get())
         this.render()
         // console.log(this.scene)
 
