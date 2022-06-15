@@ -17,7 +17,7 @@ class CardsDeck {
 
         let cardsUi = document.createElement("div")
         cardsUi.id = "cards"
-        cardsUi.innerHTML = `<header id="title"><h3>TIME TO PICK</h3></header><div id="deck"></div>`
+        cardsUi.innerHTML = `<header id="title"><h3 id="hightime">TIME TO PICK</h3></header><p style="margin:0" id="whoseTurn"></p><div id="deck"></div>`
         console.log(cardsUi)
         document.body.append(cardsUi)
 
@@ -37,6 +37,27 @@ class CardsDeck {
 
     //displays cards on deck
     async displayCards() {
+
+        this.index = 0
+        this.players = new Array()
+
+        for (let user of JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).users) {
+            this.players.push(user.name)
+        }
+
+        document.getElementById('whoseTurn').innerText = `${this.players[this.index]}'s time to choose`
+
+        //if your time to choose
+        if (this.players[this.index] == JSON.parse(await net.getUsername(document.cookie.split('=')[1])).username) {
+
+            document.getElementById('hightime').style.color = "#552211"
+            document.getElementById('whoseTurn').innerText = ''
+
+        } else {
+            document.getElementById('hightime').style.color = '#666666'
+        }
+
+        console.log(this.players);
 
         communication.cardsReq = true
 
@@ -60,15 +81,18 @@ class CardsDeck {
                     //assigning hero in server
                     let data = JSON.parse(await net.getUsername(document.cookie.split('=')[1]))
 
-                    if (await net.asignHero(data.username, hero, data.session) == 'success') {
+                    if (this.players[this.index] == data.username) {
+                        if (await net.asignHero(data.username, hero, data.session) == 'success') {
 
-                        this.revealCard(card, data.username)
-                        card.chosen = true
+                            user.hero = hero
+                            this.revealCard(card, data.username)
+                            card.chosen = true
 
+                        }
                     }
 
+
                 }
-                // game.start.assignHero(hero) - game starting function
 
             }
 
@@ -94,6 +118,34 @@ class CardsDeck {
         card.innerHTML = `<p style="margin:0px;font-size:2vh;background-color:#542a8750">${player} plays as: </p>
         <p style="margin:0px;font-size:2.5vh">${card.id}</p><img src="${heroes[card.id].img}" width="100%">`
         card.style.width = '15vw'
+
+        this.index++
+
+        //if everybody chosed
+        if (this.index == this.players.length) {
+
+            communication.cardsReq = false
+
+            console.log('chosen');
+
+            setTimeout(() => {
+                game.start.assignHero(user.hero) //game starting function
+            }, 1000)
+        }
+
+
+        document.getElementById('whoseTurn').innerText = `${this.players[this.index]}'s time to choose`
+
+
+        //if your time to choose
+        if (this.players[this.index] == JSON.parse(await net.getUsername(document.cookie.split('=')[1])).username) {
+
+            document.getElementById('whoseTurn').innerText = ''
+            document.getElementById('hightime').style.color = "#552211"
+
+        } else {
+            document.getElementById('hightime').style.color = '#666666'
+        }
 
     }
 }

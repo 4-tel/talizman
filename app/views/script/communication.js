@@ -48,12 +48,14 @@ class Communication {
 
                 for (let el of users) {
 
+                    console.log(el);
+
                     if (el.hero != null) {
 
                         if (document.getElementById(el.hero).chosen == false) {
 
                             document.getElementById(el.hero).chosen = true
-                            cards.revealCard(document.getElementById(el.hero), el.user)
+                            cards.revealCard(document.getElementById(el.hero), el.name)
 
                         }
                     }
