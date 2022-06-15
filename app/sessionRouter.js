@@ -133,6 +133,23 @@ const sessionRouter = async (req, res) => {
         }
     }
 
+    //method POST; change status of session
+    if (req.method == "POST" && req.url == "/session/status") {
+
+        let data = JSON.parse(await getRequestData(req))
+
+        console.log(data);
+
+        let session = await databaseController.getSession(data.id)
+
+        if (await databaseController.changeStatus(data.status, session)) {
+            res.end('success')
+        } else {
+            res.end('error')
+        }
+
+    }
+
 }
 
 module.exports = sessionRouter

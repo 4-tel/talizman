@@ -53,7 +53,7 @@ const sessionController = {
         //if non found
         output.status = "created"
         output.id = sessionController.idGenerator(8)
-        output.session = { id: output.id, users: new Array() }
+        output.session = { id: output.id, users: new Array(), status: 'await' }
         return output
 
     },

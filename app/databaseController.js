@@ -29,7 +29,8 @@ const userSchema = new mongoose.Schema({
 
 const sessionSchema = new mongoose.Schema({
     id: String,
-    users: []
+    users: [],
+    status: String
 }, { collection: 'sessions' })
 
 const userModel = mongoose.model("User", userSchema)
@@ -109,7 +110,7 @@ const databaseController = {
 
         console.log('add');
 
-        this.session = new sessionModel({ id: session.id, users: session.users })
+        this.session = new sessionModel({ id: session.id, users: session.users, status: 'await' })
         this.session.save()
 
     },
@@ -158,8 +159,23 @@ const databaseController = {
             await session.save()
             resolve(true)
         })
+    },
 
+    //change session status (await, cards, started, finished)
+    //input: string of status to change
+    //output: status of success
+    changeStatus: async (status, session) => {
 
+        return new Promise(async (resolve) => {
+
+            if (await connect() == false) {
+                resolve(false)
+            }
+
+            session.status = status
+            await session.save()
+            resolve(true)
+        })
     },
 
     //removes session

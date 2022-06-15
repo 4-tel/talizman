@@ -28,6 +28,13 @@ class Communication {
 
                 }
 
+                if (await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).status != 'await') {
+
+                    waitingRoom.leave()
+                    this.userReq = false
+
+                }
+
             }
 
         }, 500)

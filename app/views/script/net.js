@@ -216,5 +216,30 @@ class Net {
         }
     }
 
+    //changes session status
+    //input: session to change (await,cards,started,finished)
+    //output: output status
+    async changeSessionStatus(status, session_id) {
+
+        console.log('change session status');
+
+        this.data = JSON.stringify({
+            id: session_id,
+            status: status
+        })
+        this.options = {
+            method: "POST",
+            body: this.data
+        }
+
+        let response = await fetch('/session/status', this.options)
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
+
+    }
+
 
 }
