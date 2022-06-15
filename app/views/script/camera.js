@@ -15,7 +15,7 @@ class Camera {
 
     moveAround(speed) {
 
-        this.camera.position.set(3000 * Math.sin(this.value) - 290, 1500, 10000 * Math.cos(this.value) - 390)
+        this.camera.position.set(3000 * Math.sin(this.value) - 290, 1500, 4500 * Math.cos(this.value) - 390)
         this.camera.lookAt(-290, 0, -390)
 
         this.value += 0.005 * speed
