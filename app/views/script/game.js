@@ -14,7 +14,8 @@ class Game {
         this.board = new Board(this.tiles.get())
         this.board.click()
         this.scene.add(this.board.create())
-        //this.board.playerPlacement(this.tiles, this.scene)
+        this.board.playerPlacement(this.tiles, this.scene)
+        this.move = new Move(this.board, this.scene)
         this.render()
         console.log(this.scene)
 
@@ -30,13 +31,16 @@ class Game {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
     roll = async () => {
+        let outcome
         for (let i = 0; i < 50; i++) {
-            let outcome = Math.floor(Math.random() * 6) + 1
+            outcome = Math.floor(Math.random() * 6) + 1
             let display = document.getElementById("die")
             display.innerHTML = `<button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
         <p style="position: relative; left: 30%;">${outcome}</p>`
             await this.sleep(20)
         }
+        this.move.move(outcome)
+
     }
 
 }

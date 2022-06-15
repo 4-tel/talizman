@@ -2,31 +2,66 @@ class Board {
     constructor(instruction) { //players rozmieszcza graczy na pozycjach startowych
         this.instruction = instruction
         this.board = new THREE.Object3D()
-
+        this.first_land = [
+            [10, 11, 12, 13, 14, 15, 16],
+            [17, 0, 0, 0, 0, 0, 23],
+            [24, 0, 0, 0, 0, 0, 30],
+            [31, 0, 0, 0, 0, 0, 37],
+            [38, 0, 0, 0, 0, 0, 44],
+            [45, 0, 0, 0, 0, 0, 51],
+            [52, 53, 54, 55, 56, 57, 58]
+        ]
+        this.second_land = [
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 18, 19, 20, 21, 22, 0],
+            [0, 25, 0, 0, 0, 29, 0],
+            [0, 32, 0, 0, 0, 36, 0],
+            [0, 39, 0, 0, 0, 43, 0],
+            [0, 46, 47, 48, 49, 50, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+        this.third_land = [
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 26, 27, 28, 0, 0],
+            [0, 0, 33, "FINISH", 35, 0, 0],
+            [0, 0, 40, 41, 42, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+        this.players_on_board = [
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
 
     }
 
     create() {
         for (let i = 0; i < 49; i++) {
             let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, 50, this.instruction[i].height), this.instruction[i].material)
-            tile.name = `${i + 10},${this.instruction[i].orientation}`
+            //tile.name = `${i + 10 == 34 ? "FINISH" : i + 10}`
+            tile.name = `${Math.floor(i / 7)},${i % 7}`
             tile.position.set(this.instruction[i].position.x, this.instruction[i].position.y, this.instruction[i].position.z)
             this.board.add(tile)
         }
         return (this.board)
     }
-    playerPlacement = (tiles, game) => {
+    playerPlacement = async (tiles, game) => {
 
         this.players = new Temp()
 
         for (let i = 0; i < this.players.tabela.length; i++) {
 
             let player = new THREE.Mesh(new THREE.CylinderGeometry(100, 100, 100, 100), tiles.player_temp)
-            player.name = `${this.players.tabela[i].token}`//tymczasowa
-            //player.name = `${await new Net().getUsername(this.players.tabela[i].token)}`
+            //player.name = `${this.players.tabela[i].token}`//tymczasowa
+            player.name = `${await JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username}`
             player.position.set(this.instruction[this.players.tabela[i].current_hero.starting_tile].position.x, this.instruction[this.players.tabela[i].current_hero.starting_tile].position.y + 100, this.instruction[this.players.tabela[i].current_hero.starting_tile].position.z)
             game.add(player)
-
         }
 
     }
