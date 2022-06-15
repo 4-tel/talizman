@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/cards.css">
     <link rel="stylesheet" href="style/waitingRoom.css">
+    <link rel="stylesheet" href="style/cards.css">
     <script src="script/temp.js"></script>
     <script src="script/board.js"></script>
     <script src="script/game.js"></script>
@@ -21,6 +22,7 @@
     <script src="script/global.js"></script>
     <script src="script/net.js"></script>
     <script src="script/move.js"></script>
+    <script src="script/cards.js"></script>
 
 </head>
 
@@ -32,9 +34,10 @@
     <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
 
-        const game = new Game()
+        const game = new Game();
         const net = new Net();
-        const waitingRoom = new WaitingRoom()
+        const waitingRoom = new WaitingRoom();
+        const cards = new CardsDeck();
 
         waitingRoom.init()
     </script>

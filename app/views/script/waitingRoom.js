@@ -51,6 +51,7 @@ class WaitingRoom {
 
         document.getElementById('waitingRoom').remove()
         game.start = new StartGame(JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username)
+        game.start.init()
 
     }
 }

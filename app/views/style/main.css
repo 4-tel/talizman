@@ -28,6 +28,11 @@
     src: url('../fonts/Celtic.ttf');
 }
 
+@font-face {
+    font-family: Avara;
+    src: url('../fonts/Avara.otf');
+}
+
 body {
     background-color: black;
 }
