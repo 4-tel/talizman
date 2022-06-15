@@ -54,7 +54,7 @@ class Game {
         this.renderer.render(this.scene, this.camera);
         TWEEN.update();
         if (this.cameraManager.rotation == true) {
-            this.cameraManager.moveAround(1) //argument: speed
+            this.cameraManager.moveAround(2) //argument: speed
         }
     }
 
