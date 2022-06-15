@@ -19,9 +19,6 @@ class Game {
         this.render()
         // console.log(this.scene)
 
-        this.controls = new OrbitControls(this.camera, this.renderer.domElement)
-        console.log(this.controls);
-
         // document.getElementById('game').onresize = () => {
         //     this.camera.aspect = window.innerWidth / window.innerHeight;
         //     this.camera.updateProjectionMatrix();
@@ -39,7 +36,6 @@ class Game {
         requestAnimationFrame(this.render);
         this.renderer.render(this.scene, this.camera);
         TWEEN.update();
-        // this.controls.update()
     }
 
     //temp code
