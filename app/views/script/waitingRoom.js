@@ -14,7 +14,7 @@ class WaitingRoom {
         div.innerHTML = `
         <p>session id:</p><p id="session_id">${await this.get_session_data()}</p>
         <div id="players"><p style="font-size:2.5vh">users in session:</p><hr /><div id="inGameUsers">${await this.get_users_html()}</div></div>
-        <p style="font-size:1.5vh">You can press tab to view player in game</p><button style="width:30%" onclick="waitingRoom.leave()">start game</button>`
+        <p style="font-size:1.5vh">You can press tab to view player in game</p><button style="width:30%" id="leave">start game</button>`
         document.body.append(div)
 
         document.getElementById('game').style.marginLeft = "10vw"
@@ -27,6 +27,14 @@ class WaitingRoom {
         communication.request_flood()
         communication.usersReq = true
 
+        document.getElementById('leave').onclick = async () => {
+
+            let session = await this.get_session_data()
+            console.log(session);
+
+            let response = await net.changeSessionStatus('cards', session)
+
+        }
 
     }
 
