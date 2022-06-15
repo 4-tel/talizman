@@ -15,12 +15,12 @@ const layout = {
     <hr /><br />
     <div style="position:relative">
         <label for="username">Username: </label>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username" name="username" maxlength="15">
         <p style="color:#995544"></p>
     </div>
     <div style="position:relative">
         <label for="passwd">Password: </label>
-        <input type="password" id="passwd" name="passwd">
+        <input type="password" id="passwd" name="passwd" maxlength="15">
         <p style="color:#995544"></p>
     </div>
     <button id="login" onclick="handleUser.login()">login</button>
@@ -30,12 +30,12 @@ const layout = {
     <p style="color:#995544">You play as guest</p>
     <div style="position:relative">
         <label for="idJoin">Join game by id: </label>
-        <input type="text" id="idJoin" name="idJoin">
+        <input type="text" id="idJoin" name="idJoin" maxlength="12">
         <p>leave empty to join any available game</p>
     </div>
     <div style="position:relative">
         <label for="guestName">Temporary name: </label>
-        <input type="text" id="guestName" name="guestName">
+        <input type="text" id="guestName" name="guestName" maxlength="15">
         <p>leave empty for default guest name</p>
     </div><br/>
     <button id="joinGame" onclick="handleUser.joinGame()">search game</button>`,
@@ -44,7 +44,7 @@ const layout = {
     <p style="color:#995544">You play as guest</p>
     <div style="position:relative">
         <label for="idJoin">Join game by id: </label>
-        <input type="text" id="idJoin" name="idJoin">
+        <input type="text" id="idJoin" name="idJoin" maxlength="12">
         <p>leave empty to join any available game</p>
     </div>
     <button id="joinGame" onclick="handleUser.joinGame()" style="margin-top:2vh">search game</button>`
@@ -53,7 +53,7 @@ const layout = {
     <hr /><br />
     <div style="position:relative">
         <label for="username">Username: </label>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username" name="username" maxlength="15">
         <p style="color:#995544"></p>
     </div>
     <div style="position:relative">
@@ -63,12 +63,12 @@ const layout = {
     </div>
     <div style="position:relative">
         <label for="passwd">Password: </label>
-        <input type="password" id="passwd" name="passwd">
+        <input type="password" id="passwd" name="passwd" maxlength="15">
         <p style="color:#995544"></p>
     </div>
     <div style="position:relative">
         <label for="confPasswd">Confirm password: </label>
-        <input type="password" id="confPasswd" name="passwd">
+        <input type="password" id="confPasswd" name="passwd" maxlength="15">
         <p style="color:#995544"></p>
     </div>
     <button id="register" onclick="handleUser.register()">register</button>

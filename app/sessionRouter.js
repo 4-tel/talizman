@@ -54,6 +54,7 @@ const sessionRouter = async (req, res) => {
     if (req.method == "POST" && req.url == "/session/create") {
 
         let data = JSON.parse(await getRequestData(req))
+        console.log(data);
         try {
             await databaseController.addSession(data)
             res.end(JSON.stringify(''))

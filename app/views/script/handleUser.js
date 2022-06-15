@@ -139,17 +139,44 @@ class HandleUser {
         let id = await this.getSessionId()
         let username = await this.getSessionUsername(id)
 
+        console.log('data to join: ', id, ", ", username);
+
         let status = await net.joinGame(id, username)
         if (status == "success") {
             let token = JSON.parse(await net.createSessionToken(username, id))
             let expires = new Date().setTime(new Date().getTime() + (60 * 60 * 1000));
-            document.cookie = `session_token=${token};expires=${expires}`
-            document.location.href = '/game'
-        } else {
+
+            //if cookies not found
+            if (document.cookie == '' || document.cookie.split('=')[1] == '') {
+
+                //clear saved cookies
+                clearCookie()
+                document.cookie = `session_token=${token};expires=${expires}`
+                document.location.href = '/game'
+
+            }
+            //if cookies found
+            else {
+
+                if (confirm('looks like you are already in one session, do you want to leave it?')) {
+                    clearCookie()
+                    document.cookie = `session_token=${token};expires=${expires}`
+                    document.location.href = '/game'
+                } else {
+
+                    if (confirm('do you want to resume your left session?')) {
+                        document.location.href = '/game'
+                    }
+
+                }
+
+            }
+        }
+        else {
             ui.joinFail()
         }
-
     }
+
 
     //returns session id from ui or server
     async getSessionId() {
@@ -170,6 +197,14 @@ class HandleUser {
 
         //check if user is logged in
         if (user.logged) {
+
+            try {
+                JSON.parse(await net.sessionInfo(id))
+            } catch (e) {
+                console.log("thissss");
+                await net.createSession({ id: id, users: [] })
+            }
+
             return JSON.parse(await net.getUsername(user.token)).username
         } else {
 

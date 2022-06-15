@@ -120,6 +120,30 @@ const userController = {
         let decoded = jwt.verify(token, process.env.TOKEN_PASSWD)
         return decoded
 
+    },
+
+    //check for duplicates in username or email
+    //input: user to check, users from database
+    //output: status
+    async findDuplicate(data, databaseUsers) {
+
+        return new Promise(async (resolve) => {
+            for (let record of databaseUsers) {
+
+                if (record.username == data.username) {
+
+                    resolve('usernameTaken')
+                }
+                else if (record.email == data.email) {
+
+                    resolve('emailTaken')
+                }
+            }
+
+            resolve('nothing')
+
+        })
+
     }
 
 }

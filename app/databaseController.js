@@ -50,6 +50,8 @@ const databaseController = {
         this.user = new userModel({ email: user.email, username: user.username, password: user.password, statistics: [{ games_played: 0 }, { games_won: 0 }, { games_lost: 0 }] })
         this.user.save()
 
+        return 'success'
+
     },
 
     //returns all records from collection
@@ -104,6 +106,8 @@ const databaseController = {
         if (await connect() == false) {
             return 'error'
         }
+
+        console.log('add');
 
         this.session = new sessionModel({ id: session.id, users: session.users })
         this.session.save()

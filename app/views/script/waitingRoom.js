@@ -63,6 +63,7 @@ class WaitingRoom {
         document.getElementById('waitingRoom').remove()
         document.getElementById('curtain').remove()
         document.getElementById('game').style.marginLeft = "0vw"
+        communication.usersReq = false
         game.start = new StartGame(JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username)
         game.start.init()
 

@@ -11,10 +11,16 @@ const databaseRouter = async (req, res) => {
         let user = JSON.parse(await getRequestData(req))
         let status = databaseController.adduser(user)
 
+        if (status == 'success') {
+            res.end('success')
+        } else {
+            res.end('error')
+        }
+
     }
 
     //method GET, returns users collecion 
-    else if (req.method == "GET" && req.url == "/database/users") {
+    else if (req.method == "GET" && req.url == "/database/accounts") {
 
         res.end(JSON.stringify(await databaseController.getRecords(), null, 5))
 
