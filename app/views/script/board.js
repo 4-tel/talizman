@@ -21,15 +21,6 @@ class Board {
             [0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0]
         ]
-        this.players_on_board = [
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0]
-        ]
 
     }
 
@@ -71,7 +62,9 @@ class Board {
             switch (event.which) {
                 case 1:
                     if (this.intersects.length > 0) {
-                        console.log(this.intersects[0])
+                        if (this.intersects[0].object.highlight == true) {
+                            game.move.playerMove(this.intersects[0].object)
+                        }
                     }
                     break
                 case 2:
