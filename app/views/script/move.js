@@ -147,6 +147,7 @@ class Move {
             if (this.scene.children[0].children[i].highlight == true) {
                 let material = this.getMaterial(this.scene.children[0].children[i].land)
                 this.scene.children[0].children[i].highlight = false
+                this.scene.children[0].children[i].leftright = null
                 this.scene.children[0].children[i].material = material
             }
         }
