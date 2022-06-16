@@ -30,7 +30,8 @@ const userSchema = new mongoose.Schema({
 const sessionSchema = new mongoose.Schema({
     id: String,
     users: [],
-    status: String
+    status: String,
+    nowPlays: Number
 }, { collection: 'sessions' })
 
 const userModel = mongoose.model("User", userSchema)
@@ -111,7 +112,7 @@ const databaseController = {
 
         logger.log('session created');
 
-        this.session = new sessionModel({ id: session.id, users: session.users, status: 'await' })
+        this.session = new sessionModel({ id: session.id, users: session.users, status: 'await', nowPlays: 0 })
         this.session.save()
 
     },
@@ -291,7 +292,33 @@ const databaseController = {
         })
 
 
+    },
+
+    //itterate turn number
+    //input: session
+    //output: status
+    iterateTurn: async (session) => {
+        return new Promise(async (resolve) => {
+
+            if (await connect() == false) {
+                resolve(false)
+            }
+
+            session.nowPlays++
+
+            if (session.nowPlays >= session.users.length) {
+                session.nowPlays = 0
+            }
+
+            await session.save()
+            resolve(true)
+
+        })
+
+
     }
+
+
 
 }
 

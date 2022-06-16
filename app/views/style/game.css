@@ -1,4 +1,4 @@
-#greeting {
+#greeting h1 {
 
     position: absolute;
     top: 0px;
@@ -7,6 +7,20 @@
     background-color: #00000090;
     color: #cfcfcf;
     font-size: 4vh;
+
+}
+
+header p {
+
+    position: absolute;
+    top: 5.5vh;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 5;
+    width: 100%;
+    background-color: #55224460;
+    color: #cfcfcf;
+    font-size: 2.5vh;
 
 }
 

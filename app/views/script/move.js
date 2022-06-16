@@ -67,11 +67,12 @@ class Move {
 
     //movement of pawn
     //input : tile.position, player, tile.leftright, tile.land
-    async playerMove(pos, player, side, place) {
+    async playerMove(player, side, place) {
 
         return new Promise(async (resolve) => {
 
             let whereAmI = player.position
+
             if (side == "left") {
                 for (let i = 0; i < this.number; i++) {
                     console.log(whereAmI)
@@ -81,13 +82,12 @@ class Move {
                     let current_tile = this.getTile(name, where)
                     let left = current_tile - 1 >= 0 ? where[current_tile - 1] : where[where.length - Math.abs(current_tile - 1)]
                     let to = this.getTileReverse(left)
-                    console.log(to)
-                    console.log("333")
+
                     await game.sleep(100)
-                    console.log(whereAmI)
+
                     whereAmI.x = to.position.x
                     whereAmI.z = to.position.z
-                    console.log("aaaa")
+
 
                     try {
                         this.tilesBack()
