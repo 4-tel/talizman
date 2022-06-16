@@ -25,7 +25,7 @@ class Dice {
     async throwDice() {
 
         document.getElementById('dice').remove()
-        this.value = Math.floor(Math.random() * 0 + 1)
+        this.value = Math.floor(Math.random() * 0)
 
         let div = document.createElement('div')
         div.id = 'video'

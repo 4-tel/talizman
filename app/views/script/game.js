@@ -75,16 +75,19 @@ class Game {
 
     action = async (tile, player) => {
 
-        console.log('djaskdlasjkasjdlasjdkjakdjkasdjkasjdklasjdjaskljl');
-
+        console.log(tile)
+        console.log(player)
         for (let i = 0; i < tile.actions.length; i++) {
             if (tile.actions[i].name == "travel") {
                 let where = this.move.getTileReverse(tile.actions[i].destination)
-                await this.move.playerMove(where.position, player, "travel", where.land)
+                await this.move.playerMove(where.position, player.position, "travel", where.land)
                 await this.sleep(1000)
             }
             else if (tile.actions[i].name == "win") {
                 document.body.innerHTML = "<h1>YOU WIN</h1>"
+            }
+            else if (tile.actions[i].name == "talisman") {
+                player.havetalisman = true
             }
         }
     }

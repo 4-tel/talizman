@@ -626,7 +626,11 @@ class Models {
                 material: this.second_land,
                 orientation: "right",
                 name: "hills",
-                actions: ["take"]
+                actions: [
+                    {
+                        name: "talisman"
+                    }
+                ]
 
             },
             {
