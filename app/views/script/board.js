@@ -12,7 +12,12 @@ class Board {
 
     create() {
         for (let i = 0; i < 49; i++) {
-            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, Math.floor(Math.random() * 1 + 50), this.instruction[i].height), this.instruction[i].material)
+            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, Math.floor(Math.random() * 1 + 50), this.instruction[i].height), i == 4 || i == 8 ? new THREE.MeshStandardMaterial({
+                color: 0x0000ff,
+                side: THREE.DoubleSide,
+                wireframe: false,
+                name: "hills"
+            }) : this.instruction[i].material)
             tile.name = `${Math.floor(i / 7)},${i % 7}`
             tile.highlight = false
             tile.leftright = null
@@ -50,11 +55,11 @@ class Board {
             switch (event.which) {
                 case 1:
                     if (this.intersects.length > 0) {
-
+                        console.log(this.intersects[0])
                         if (this.intersects[0].object.highlight == true) {
                             for (let i = 1; i <= game.scene.children.length - 1; i++) {
                                 if (game.scene.children[i].name == await this.getUsername()) {
-                                    console.log(this.intersects[0])
+
 
                                     let leftright = this.intersects[0].object.leftright
                                     let land = this.intersects[0].object.land

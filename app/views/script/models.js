@@ -212,7 +212,12 @@ class Models {
                 material: this.second_land,
                 orientation: "up",
                 name: "hills",
-                actions: ["take"]
+                actions: [
+                    {
+                        name: "travel",
+                        destination: "0,4"
+                    }
+                ]
 
             },
             {
@@ -509,7 +514,8 @@ class Models {
                 actions: [
                     {
                         name: "travel",
-                        destination: "3,3"
+                        destination: "3,3",
+                        need: "talisman"
                     },
                     {
                         name: "win"

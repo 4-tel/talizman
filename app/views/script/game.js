@@ -80,10 +80,18 @@ class Game {
         for (let i = 0; i < tile.actions.length; i++) {
             if (tile.actions[i].name == "travel") {
                 let where = this.move.getTileReverse(tile.actions[i].destination)
-                await this.move.playerMove(where.position, player.position, "travel", where.land)
-                await this.sleep(1000)
+                if (tile.actions[i].need == "talisman") {
+                    if (player.havetalisman == true) {
+                        await this.move.playerMove(where.position, player.position, "travel", where.land)
+                        await this.sleep(1000)
+                    }
+                }
+                else {
+                    await this.move.playerMove(where.position, player.position, "travel", where.land)
+                    await this.sleep(1000)
+                }
             }
-            else if (tile.actions[i].name == "win") {
+            else if (tile.actions[i].name == "win" && player.havetalisman == true) {
                 document.body.innerHTML = "<h1>YOU WIN</h1>"
             }
             else if (tile.actions[i].name == "talisman") {
