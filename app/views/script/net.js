@@ -83,7 +83,7 @@ class Net {
     //output: username (or any decoded token)
     async getUsername(token) {
 
-        console.log('token fetch');
+        //console.log('token fetch');
 
         this.data = JSON.stringify(token)
         this.options = {
@@ -163,7 +163,7 @@ class Net {
     //output: session info
     async sessionInfo(id) {
 
-        console.log('session info');
+        //console.log('session info');
 
         let response = await fetch(`/database/sessions/${id}`, { method: "GET" })
         if (!response.ok) {
