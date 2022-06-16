@@ -22,16 +22,14 @@ class Board {
         }
         return (this.board)
     }
-    playerPlacement = async (tiles, game) => {
-
-        this.players = new Temp()
-
-        for (let i = 0; i < this.players.tabela.length; i++) {
-
+    playerPlacement = async (tiles, game, players) => {
+        console.log(players)
+        for (let i = 0; i < players.length; i++) {
+            console.log(heroes[players[i].hero])
             let player = new THREE.Mesh(new THREE.CylinderGeometry(100, 100, 100, 100), tiles.player_temp)
             //player.name = `${this.players.tabela[i].token}`//tymczasowa
             player.name = `${await JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username}`
-            player.position.set(this.instruction[this.players.tabela[i].current_hero.starting_tile].position.x, this.instruction[this.players.tabela[i].current_hero.starting_tile].position.y + 100, this.instruction[this.players.tabela[i].current_hero.starting_tile].position.z)
+            player.position.set(this.instruction[heroes[players[i].hero].starting_tile].position.x, this.instruction[heroes[players[i].hero].starting_tile].position.y + 100, this.instruction[heroes[players[i].hero].starting_tile].position.z)
             game.add(player)
         }
 

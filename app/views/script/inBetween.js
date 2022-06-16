@@ -7,7 +7,7 @@ class InBetween {
     }
 
     //compares local status with given status and updates local game
-    statusCheck(status) {
+    async statusCheck(status) {
 
         if (status != this.local_status) {
 
@@ -43,6 +43,7 @@ class InBetween {
                     console.log(error.message);
                 }
                 this.local_status = 'started'
+                game.init(await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())))
 
             }
 

@@ -25,7 +25,7 @@ const heroes = {
             health: 5
         },
         character: "neutral",
-        starting_tile: "tavern",
+        starting_tile: 7,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -41,7 +41,7 @@ const heroes = {
             health: 6
         },
         character: "neutral",
-        starting_tile: "rocks",
+        starting_tile: 6,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -56,7 +56,7 @@ const heroes = {
             health: 5
         },
         character: "neutral",
-        starting_tile: "rocks",
+        starting_tile: 4,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -71,7 +71,7 @@ const heroes = {
             health: 4
         },
         character: "good",
-        starting_tile: "chapel",
+        starting_tile: 5,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -86,7 +86,7 @@ const heroes = {
             health: 4
         },
         character: "bad",
-        starting_tile: "city",
+        starting_tile: 1,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -101,7 +101,7 @@ const heroes = {
             health: 4
         },
         character: "good",
-        starting_tile: "chapel",
+        starting_tile: 2,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -116,7 +116,7 @@ const heroes = {
             health: 4
         },
         character: "good",
-        starting_tile: "village",
+        starting_tile: 8,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -131,7 +131,7 @@ const heroes = {
             health: 4
         },
         character: "bad",
-        starting_tile: "graveyard",
+        starting_tile: 9,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -146,7 +146,7 @@ const heroes = {
             health: 4
         },
         character: "bad",
-        starting_tile: "graveyard",
+        starting_tile: 41,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -161,7 +161,7 @@ const heroes = {
             health: 4
         },
         character: "bad",
-        starting_tile: "graveyard",
+        starting_tile: 3,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -176,7 +176,7 @@ const heroes = {
             health: 4
         },
         character: "neutral",
-        starting_tile: "forest",
+        starting_tile: 33,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -191,7 +191,7 @@ const heroes = {
             health: 4
         },
         character: "good",
-        starting_tile: "tavern",
+        starting_tile: 23,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -206,7 +206,7 @@ const heroes = {
             health: 4
         },
         character: "good",
-        starting_tile: "forest",
+        starting_tile: 22,
         special_abilites: {
             /// nie wiem jak xd
         }

@@ -20,13 +20,13 @@ class Game {
         //this.cameraManager.rotation = true //change to false to stop rotation
 
         //create board
+        console.log(this.session)
         this.tiles = new Models()
         this.board = new Board(this.tiles.get())
         this.board.click()
         this.scene.add(this.board.create())
-        this.board.playerPlacement(this.tiles, this.scene)
         this.move = new Move(this.board, this.scene, this.tiles.get(), this.tiles)
-
+        this.board.playerPlacement(this.tiles, this.scene)
         //axes 
         this.axes = new THREE.AxesHelper(10000)
         // this.scene.add(this.axes)
@@ -48,7 +48,10 @@ class Game {
         //render
         this.render()
     }
-
+    async init(session) {
+        console.log(session)
+        this.board.playerPlacement(this.tiles, this.scene, session.users)
+    }
     render = () => {
         requestAnimationFrame(this.render);
         this.renderer.render(this.scene, this.camera);
@@ -58,7 +61,6 @@ class Game {
         }
     }
 
-    //temp code
     sleep = async (ms) => {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -75,5 +77,4 @@ class Game {
         this.move.move(outcome)
 
     }
-
 }
