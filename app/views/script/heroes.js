@@ -1,20 +1,20 @@
 const heroes = {
 
-    example: {
+    // example: {
 
-        name: "#######",
-        stats: {
-            strength: 999,
-            mana: 999,
-            luck: 999,
-            health: 999
-        },
-        character: "neutral",
-        starting_tile: "tavern",
-        special_abilites: {
-            /// nie wiem jak xd
-        }
-    },
+    //     name: "#######",
+    //     stats: {
+    //         strength: 999,
+    //         mana: 999,
+    //         luck: 999,
+    //         health: 999
+    //     },
+    //     character: "neutral",
+    //     starting_tile: "tavern",
+    //     special_abilites: {
+    //         /// nie wiem jak xd
+    //     }
+    // },
 
     warrior: {
         name: "Warrior",
