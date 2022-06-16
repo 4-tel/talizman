@@ -268,16 +268,18 @@ class Net {
     }
 
     //changes player's position in database
-    //input: username, position, session id
+    //input: username, position, direction, session id
     //output: status
-    async changePlayerPosition(user, position, id) {
+    async changePlayerPosition(player, data, session_id) {
+
+        console.log(player, data, session_id);
 
         console.log('change position');
 
         this.data = JSON.stringify({
-            user: user,
-            position: position,
-            id: id
+            player: player,
+            data: data,
+            session_id: session_id
         })
         this.options = {
             method: "POST",

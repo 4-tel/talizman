@@ -54,7 +54,7 @@ const sessionRouter = async (req, res) => {
     if (req.method == "POST" && req.url == "/session/create") {
 
         let data = JSON.parse(await getRequestData(req))
-        console.log(data);
+
         try {
             await databaseController.addSession(data)
             res.end(JSON.stringify(''))
@@ -154,8 +154,6 @@ const sessionRouter = async (req, res) => {
 
         let data = JSON.parse(await getRequestData(req))
 
-        console.log(data);
-
         let session = await databaseController.getSession(data.id)
 
         if (await databaseController.asignHero(data.hero, data.user, session)) {
@@ -167,14 +165,14 @@ const sessionRouter = async (req, res) => {
     }
 
     //method POST, change player's position
-    //input: {user, position, id}
+    //input: {player, data, session_id}
     if (req.method == "POST" && req.url == "/session/changeposition") {
 
         let data = JSON.parse(await getRequestData(req))
 
-        let session = await databaseController.getSession(data.id)
+        let session = await databaseController.getSession(data.session_id)
 
-        if (await databaseController.changePlayerPosition(data.user, data.position, session)) {
+        if (await databaseController.changePlayerPosition(data.player, data.data, session)) {
             res.end('success')
         } else {
             res.end('error')
@@ -186,8 +184,6 @@ const sessionRouter = async (req, res) => {
     if (req.method == "PATCH" && req.url == '/session/iterateturn') {
 
         let data = JSON.parse(await getRequestData(req))
-
-        console.log(data);
 
         let session = await databaseController.getSession(data.id)
 

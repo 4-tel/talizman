@@ -11,7 +11,10 @@ class Move {
         return JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username
     }
     move = async (number) => {
+
         this.number = number
+        game.board.number = number
+
         for (let i = 1; i <= this.scene.children.length - 1; i++) {
             if (this.scene.children[i].name == await this.getUsername()) {
                 for (let j = 0; j < this.scene.children[0].children.length; j++) {
@@ -67,17 +70,19 @@ class Move {
 
     //movement of pawn
     //input : tile.position, player, tile.leftright, tile.land
-    async playerMove(pos, player, side, place) {
+    async playerMove(pos, cos, side, place) {
+
+        let whereAmI = cos
+
+        console.log(pos, whereAmI, side, place);
+        console.log(this.number);
 
         return new Promise(async (resolve) => {
-
-            let whereAmI = player.position
 
             if (side == "left") {
                 console.log("eo")
                 for (let i = 0; i < this.number; i++) {
-                    console.log(whereAmI)
-                    console.log(player)
+
                     let name = this.getMyPosition(whereAmI)
                     let where = this.getLand(place)
                     let current_tile = this.getTile(name, where)
@@ -96,12 +101,13 @@ class Move {
                         null
                     }
                 }
+
                 resolve(this.getTileReverse(this.getMyPosition(whereAmI)))
             }
             else if (side == "right") {
+                console.log('oe');
                 for (let i = 0; i < this.number; i++) {
-                    console.log(whereAmI)
-                    console.log(player)
+                    
                     let name = this.getMyPosition(whereAmI)
                     let where = this.getLand(place)
                     let current_tile = this.getTile(name, where)
@@ -121,6 +127,7 @@ class Move {
                         null
                     }
                 }
+
                 resolve(this.getTileReverse(this.getMyPosition(whereAmI)))
             }
             else if (side == "travel") {

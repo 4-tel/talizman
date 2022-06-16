@@ -93,10 +93,41 @@ class Communication {
 
                 if (this.localTurn != turn) {
 
-                    this.localTurn = turn
-
                     let users = await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).users
 
+                    //update positions
+
+                    console.log(users);
+
+                    for (let el of users) {
+
+                        if (el.position != null) {
+
+                            for (let pawn of game.scene.children) {
+
+                                if (pawn.name == el.name) {
+
+                                    if (pawn.position.x == el.position.initial_pos.x && pawn.position.z == el.position.initial_pos.z) {
+
+                                        console.log('haloooo!');
+
+                                        game.move.number = el.position.number
+                                        game.move.playerMove('', pawn.position, el.position.leftright, el.position.land)
+
+                                    }
+                                }
+
+                            }
+
+                        }
+
+
+                    }
+
+
+                    this.localTurn = turn
+
+                    //check if your move
                     if (users[turn].name == await JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username) {
 
                         document.getElementById('whoplays').innerText = 'You!'
@@ -107,6 +138,9 @@ class Communication {
                         document.getElementById('whoplays').innerText = users[turn].name
 
                     }
+
+
+
 
 
                 }

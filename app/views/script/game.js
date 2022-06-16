@@ -26,7 +26,7 @@ class Game {
         this.board.click()
         this.scene.add(this.board.create())
         this.move = new Move(this.board, this.scene, this.tiles.get(), this.tiles)
-        this.board.playerPlacement(this.tiles, this.scene)
+        // this.board.playerPlacement(this.tiles, this.scene)
 
         //axes 
         this.axes = new THREE.AxesHelper(10000)
@@ -72,7 +72,11 @@ class Game {
     sleep = async (ms) => {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
-    async action(tile, player) {
+
+    action = async (tile, player) => {
+
+        console.log('djaskdlasjkasjdlasjdkjakdjkasdjkasjdklasjdjaskljl');
+
         for (let i = 0; i < tile.actions.length; i++) {
             if (tile.actions[i].name == "travel") {
                 let where = this.move.getTileReverse(tile.actions[i].destination)

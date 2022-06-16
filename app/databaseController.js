@@ -231,8 +231,6 @@ const databaseController = {
 
             }
 
-            console.log(session.users);
-
             session.users.pop()
 
             session.users.push({ name: player, hero: hero, position: null })
@@ -247,12 +245,9 @@ const databaseController = {
     //changes player position
     //input: player, position, session
     //output: status
-    changePlayerPosition: async (player, position, session) => {
+    changePlayerPosition: async (player, data, session) => {
 
         return new Promise(async (resolve) => {
-
-
-            console.log(player, position, session);
 
 
             if (await connect() == false) {
@@ -272,20 +267,16 @@ const databaseController = {
 
             }
 
-            console.log(session.users);
-
             session.users.pop()
 
-            console.log('users after pop', session.users);
 
             element = JSON.parse(element)
-            element.position = position
+            element.position = data
 
-            console.log('to push: ', element);
 
             session.users.push(element)
 
-            logger.log('changed ' + player + "'s position to " + position)
+            logger.log('changed ' + player + "'s position to " + data)
 
             await session.save()
             resolve(true)

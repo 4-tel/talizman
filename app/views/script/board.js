@@ -6,6 +6,8 @@ class Board {
         this.second_land = ["1,1", "1,2", "1,3", "1,4", "1,5", "2,5", "3,5", "4,5", "5,5", "5,4", "5,3", "5,2", "5,1", "4,1", "3,1", "2,1"]
         this.third_land = ["2,2", "2,3", "2,4", "3,4", "4,4", "4,3", "4,2", "3,2"]
 
+        this.number = null
+
     }
 
     create() {
@@ -52,14 +54,26 @@ class Board {
                             for (let i = 1; i <= game.scene.children.length - 1; i++) {
                                 if (game.scene.children[i].name == await this.getUsername()) {
                                     console.log(this.intersects[0])
-                                    let position = await game.move.playerMove(this.intersects[0].object.position, game.scene.children[i], this.intersects[0].object.leftright, this.intersects[0].object.land)
+
+                                    let leftright = this.intersects[0].object.leftright
+                                    let land = this.intersects[0].object.land
+                                    let initial_pos = game.scene.children[i].position
+
+                                    console.log(initial_pos);
+
+                                    let serverPack = { initial_pos: initial_pos, leftright: leftright, land: land, number: this.number }
+
+                                    //send position to server
+                                    await net.changePlayerPosition(await this.getUsername(), serverPack, await waitingRoom.get_session_data());
+
+                                    let position = await game.move.playerMove(this.intersects[0].object.position, game.scene.children[i].position, this.intersects[0].object.leftright, this.intersects[0].object.land)
+
+                                    console.log(position);
+
 
                                     //send turn iteration to server
                                     new Net().iterateSessionTurn(JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).session)
 
-
-                                    //send position to server
-                                    //net.changePlayerPosition(await this.getUsername(), position, JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).session);
 
                                     //look for any actions on new tile
                                     game.action(position, game.scene.children[i])

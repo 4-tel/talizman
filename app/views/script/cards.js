@@ -165,7 +165,7 @@ class CardsDeck {
     async leave() {
 
         document.getElementById('cards').remove()
-        game.start.greeting(user.hero)
+        // game.start.greeting(user.hero)
 
     }
 
