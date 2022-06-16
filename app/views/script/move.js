@@ -124,6 +124,7 @@ class Move {
                 resolve(this.getTileReverse(this.getMyPosition(whereAmI)))
             }
             else if (side == "travel") {
+                await game.sleep(100)
                 whereAmI.x = pos.x
                 whereAmI.y = pos.y + 50
                 whereAmI.z = pos.z
