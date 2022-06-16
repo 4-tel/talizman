@@ -17,7 +17,7 @@ class Game {
         this.camera.lookAt(this.scene.position)
         this.cameraManager = new Camera(this.camera, this.scene) //custom camera managment
 
-        //this.cameraManager.rotation = true //change to false to stop rotation
+        this.cameraManager.rotation = true //change to false to stop rotation
 
         //create board
         console.log(this.session)
@@ -57,7 +57,7 @@ class Game {
         this.renderer.render(this.scene, this.camera);
         TWEEN.update();
         if (this.cameraManager.rotation == true) {
-            this.cameraManager.moveAround(1) //argument: speed
+            this.cameraManager.moveAround(15) //argument: speed
         }
     }
 
