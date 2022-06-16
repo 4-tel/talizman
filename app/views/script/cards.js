@@ -105,7 +105,9 @@ class CardsDeck {
 
             }
 
-            document.getElementById('deck').append(card)
+            let div = document.createElement('div')
+            div.append(card)
+            document.getElementById('deck').append(div)
 
         }
 
