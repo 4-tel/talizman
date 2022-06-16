@@ -27,6 +27,7 @@ class Game {
         this.scene.add(this.board.create())
         this.move = new Move(this.board, this.scene, this.tiles.get(), this.tiles)
         this.board.playerPlacement(this.tiles, this.scene)
+
         //axes 
         this.axes = new THREE.AxesHelper(10000)
         // this.scene.add(this.axes)
@@ -70,6 +71,14 @@ class Game {
 
     sleep = async (ms) => {
         return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    async action(tile, player) {
+        for (let i = 0; i < tile.actions.length; i++) {
+            if (tile.actions[i].name == "travel") {
+                let where = this.move.getTileReverse(tile.actions[i].destination)
+                await this.move.playerMove(where.position, player, "travel", where.land)
+            }
+        }
     }
 
     // roll = async () => {

@@ -71,10 +71,6 @@ class Move {
 
         return new Promise(async (resolve) => {
 
-            let time = Math.sqrt(Math.pow(pos.x - player.position.x, 2) + Math.pow(pos.y - player.position.y, 2))
-
-            console.log(time);
-            let destination = { x: Math.floor(pos.x), y: player.position.y, z: Math.floor(pos.z) }
             let whereAmI = player.position
             if (side == "left") {
                 for (let i = 0; i < this.number; i++) {
@@ -99,6 +95,7 @@ class Move {
                         null
                     }
                 }
+                resolve(this.getTileReverse(this.getMyPosition(whereAmI)))
             }
             else if (side == "right") {
                 for (let i = 0; i < this.number; i++) {
@@ -123,6 +120,13 @@ class Move {
                         null
                     }
                 }
+                resolve(this.getTileReverse(this.getMyPosition(whereAmI)))
+            }
+            else if (side == "travel") {
+                whereAmI.x = pos.x
+                whereAmI.y = pos.y + 50
+                whereAmI.z = pos.z
+                resolve(null)
             }
 
         })

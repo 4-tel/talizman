@@ -99,7 +99,12 @@ class Models {
                 material: this.first_land,
                 orientation: "up",
                 name: "sentinel",
-                actions: ["travelToSecond"]
+                actions: [
+                    {
+                        name: "travel",
+                        destination: "1,4"
+                    }
+                ]
 
             },
             {
@@ -157,7 +162,12 @@ class Models {
                 material: this.second_land,
                 orientation: "corner",
                 name: "hills",
-                actions: ["take"]
+                actions: [
+                    {
+                        name: "travel",
+                        destination: "2,2"
+                    }
+                ]
 
 
             },
@@ -496,7 +506,12 @@ class Models {
                 material: this.third_land,
                 orientation: "right",
                 name: "hills",
-                actions: ["take"]
+                actions: [
+                    {
+                        name: "travel",
+                        destination: "3,3"
+                    }
+                ]
 
             },
             {

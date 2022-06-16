@@ -47,7 +47,7 @@ class Board {
             switch (event.which) {
                 case 1:
                     if (this.intersects.length > 0) {
-
+                        console.log(this.intersects[0])
                         if (this.intersects[0].object.highlight == true) {
                             for (let i = 1; i <= game.scene.children.length - 1; i++) {
                                 if (game.scene.children[i].name == await this.getUsername()) {
@@ -58,7 +58,8 @@ class Board {
                                     //send position to server
                                     net.changePlayerPosition(await this.getUsername(), position, JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).session);
 
-
+                                    //look for any actions on new tile
+                                    game.action(position, game.scene.children[i])
                                 }
                             }
 
@@ -89,4 +90,5 @@ class Board {
     getUsername = async () => {
         return await JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username
     }
+
 }
