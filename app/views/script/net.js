@@ -290,6 +290,28 @@ class Net {
         } else {
             return response.text()
         }
+    }
+
+
+    //iterate session turn number
+    //input: session_id
+    //output: status
+    async iterateSessionTurn(session_id) {
+
+        alert(session_id)
+
+        this.data = JSON.stringify({ id: session_id })
+        this.options = {
+            method: "PATCH",
+            body: this.data
+        }
+
+        let response = await fetch('/session/iterateturn', this.options)
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
 
     }
 

@@ -179,7 +179,23 @@ const sessionRouter = async (req, res) => {
         } else {
             res.end('error')
         }
+    }
 
+    //method PATCH, change session's turn
+    //input: session_id
+    if (req.method == "PATCH" && req.url == '/session/iterateturn') {
+
+        let data = JSON.parse(await getRequestData(req))
+
+        console.log(data);
+
+        let session = await databaseController.getSession(data.id)
+
+        if (await databaseController.iterateTurn(session)) {
+            res.end('success')
+        } else {
+            res.end('error')
+        }
     }
 
 }

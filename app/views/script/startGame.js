@@ -42,9 +42,9 @@ class StartGame {
             }
         }
 
-        let greeting = document.createElement("h1")
+        let greeting = document.createElement("header")
         greeting.id = 'greeting'
-        greeting.innerHTML = `Hello <span style="color:#663322">${data.username}</span>! You play as <span style="color:#552222;font-family:Cardinal">${hero}</span>`
+        greeting.innerHTML = `<h1>Hello <span style="color:#663322">${data.username}</span>! You play as <span style="color:#552222;font-family:Cardinal">${hero}</span></h1><p>Now plays <span id="whoplays"></span></p>`
         document.getElementById("game").appendChild(greeting)
 
     }
