@@ -11,7 +11,7 @@ const connectionParams = {
 const connect = async () => {
     mongoose.connect(url, connectionParams)
         .then(() => {
-            logger.info('Connected to the database ')
+            logger.log('Connected to the database ')
             return true
         })
         .catch((err) => {
@@ -92,6 +92,7 @@ const databaseController = {
 
         try {
             await userModel.remove({ username: username })
+            logger.info('user removed')
             return true
         } catch (err) {
             logger.error(err.message)
@@ -108,7 +109,7 @@ const databaseController = {
             return 'error'
         }
 
-        console.log('add');
+        logger.log('session created');
 
         this.session = new sessionModel({ id: session.id, users: session.users, status: 'await' })
         this.session.save()
@@ -162,6 +163,8 @@ const databaseController = {
 
             session.users.push(user)
             await session.save()
+
+            logger.log('user added to session')
             resolve(true)
         })
     },
@@ -179,6 +182,8 @@ const databaseController = {
 
             session.status = status
             await session.save()
+
+            logger.info('session status changed to ' + status)
             resolve(true)
         })
     },
@@ -194,6 +199,8 @@ const databaseController = {
 
         try {
             await sessionModel.remove({ id: id })
+
+            logger.info('session removed')
             return true
         } catch (err) {
             logger.error(err.message)
@@ -221,6 +228,8 @@ const databaseController = {
             session.users.pop()
 
             session.users.push({ name: player, hero: hero })
+
+            logger.log('assigned ' + hero + ' to ' + player)
 
             await session.save()
             resolve(true)

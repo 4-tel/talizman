@@ -46,6 +46,7 @@ const sessionController = {
 
                 output.status = "found"
                 output.id = sessions[i].id
+                logger.info('session found')
                 return output
             }
         }
@@ -54,6 +55,7 @@ const sessionController = {
         output.status = "created"
         output.id = sessionController.idGenerator(8)
         output.session = { id: output.id, users: new Array(), status: 'await' }
+        logger.info('new session created')
         return output
 
     },
@@ -90,8 +92,10 @@ const sessionController = {
                 process.env.TOKEN_PASSWD
             )
 
+            logger.log('new session token created')
             return token
         } catch (e) {
+            logger.error(e.message)
             return 'error'
         }
 
