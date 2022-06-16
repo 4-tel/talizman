@@ -59,12 +59,16 @@ class Move {
 
         return new Promise(async (resolve) => {
 
+            let time = Math.sqrt(Math.pow(pos.x - player.position.x, 2) + Math.pow(pos.y - player.position.y, 2))
+
+            console.log(time);
+            let destination = { x: Math.floor(pos.x), y: player.position.y, z: Math.floor(pos.z) }
 
             new TWEEN.Tween(player.position)
-                .to({ x: pos.x, y: player.position.y, z: pos.z }, 1000)
+                .to(destination, time * 0.6)
                 .easing(TWEEN.Easing.Linear.None)
                 .onUpdate(() => { })
-                .onComplete(() => { resolve(true) })
+                .onComplete(() => { resolve(destination) })
                 .start()
             try {
                 this.tilesBack()
@@ -73,7 +77,6 @@ class Move {
             }
 
         })
-
 
     }
 

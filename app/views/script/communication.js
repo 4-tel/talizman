@@ -65,17 +65,17 @@ class Communication {
                 console.log(users);
 
                 for (let el of users) {
-
                     for (let pawn of game.scene.children) {
 
                         console.log('user: ', el.position, ' pawn ', pawn.position);
-
                         console.log(pawn.name, el.name);
 
                         if (pawn.name == el.name) {
                             if (pawn.position != el.position && el.position != null) {
 
-                                new Move().playerMove(el.position, pawn)
+                                this.posReq = false
+                                await new Move().playerMove(el.position, pawn)
+                                this.posReq = true
 
                             }
                         }

@@ -50,11 +50,12 @@ class Board {
                         if (this.intersects[0].object.highlight == true) {
                             for (let i = 1; i <= game.scene.children.length - 1; i++) {
                                 if (game.scene.children[i].name == await this.getUsername()) {
-                                    await game.move.playerMove(this.intersects[0].object.position, game.scene.children[i])
+
+                                    let position = await game.move.playerMove(this.intersects[0].object.position, game.scene.children[i])
 
 
                                     //send position to server
-                                    net.changePlayerPosition(await this.getUsername(), game.scene.children[i].position, JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).session);
+                                    net.changePlayerPosition(await this.getUsername(), position, JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).session);
 
 
                                 }
