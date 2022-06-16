@@ -29,6 +29,7 @@ class Communication {
 
                 }
 
+                //if session status changed
                 if (await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).status != 'await') {
 
                     waitingRoom.leave()
@@ -60,6 +61,14 @@ class Communication {
                         }
                     }
                 }
+
+                if (await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).status != 'cards') {
+
+                    cards.leave()
+                    this.cardsReq = false
+
+                }
+
             }
 
 

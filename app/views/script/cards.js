@@ -45,24 +45,23 @@ class CardsDeck {
             this.players.push(user.name)
         }
 
-        document.getElementById('whoseTurn').innerText = `${this.players[this.index]}'s time to choose`
+        document.getElementById('whoseTurn').innerText = `${this.players[this.index]}'s time to pick`
 
         //if your time to choose
         if (this.players[this.index] == JSON.parse(await net.getUsername(document.cookie.split('=')[1])).username) {
 
             document.getElementById('hightime').style.color = "#552211"
-            document.getElementById('whoseTurn').innerText = ''
+            document.getElementById('whoseTurn').innerText = 'Your time to pick'
 
         } else {
             document.getElementById('hightime').style.color = '#666666'
         }
 
-        console.log(this.players);
-
+        //start server requests
         communication.cardsReq = true
 
-        let characters = Object.keys(heroes)
 
+        let characters = Object.keys(heroes)
         while (characters.length > 0) {
 
             let card = document.createElement('div')
@@ -83,6 +82,14 @@ class CardsDeck {
 
                     if (this.players[this.index] == data.username) {
                         if (await net.asignHero(data.username, hero, data.session) == 'success') {
+
+                            //if player is the last one to choose - change session status
+                            if (this.index == this.players.length - 1) {
+
+                                setTimeout(async () => {
+                                    net.changeSessionStatus('started', await waitingRoom.get_session_data(document.cookie.split('=')[1]))
+                                }, 1000)
+                            }
 
                             user.hero = hero
                             this.revealCard(card, data.username)
@@ -124,23 +131,24 @@ class CardsDeck {
         //if everybody chosed
         if (this.index == this.players.length) {
 
-            communication.cardsReq = false
-
             console.log('chosen');
 
             setTimeout(() => {
-                game.start.assignHero(user.hero) //game starting function
+
+                //HERE
+
+                // game.start.assignHero(user.hero) //game starting function
             }, 1000)
         }
 
 
-        document.getElementById('whoseTurn').innerText = `${this.players[this.index]}'s time to choose`
+        document.getElementById('whoseTurn').innerText = `${this.players[this.index]}'s time to pick`
 
 
         //if your time to choose
         if (this.players[this.index] == JSON.parse(await net.getUsername(document.cookie.split('=')[1])).username) {
 
-            document.getElementById('whoseTurn').innerText = ''
+            document.getElementById('whoseTurn').innerText = 'Your time to pick'
             document.getElementById('hightime').style.color = "#552211"
 
         } else {
@@ -148,4 +156,12 @@ class CardsDeck {
         }
 
     }
+
+    //leave cards part of the game
+    async leave() {
+
+        document.getElementById('cards').remove()
+
+    }
+
 }
