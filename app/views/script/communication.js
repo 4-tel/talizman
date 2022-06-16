@@ -5,6 +5,9 @@ class Communication {
         this.usersReq = false
         this.cardsReq = false
         this.posReq = false
+        this.turnReq = false
+
+        this.localTurn = -1
 
     }
 
@@ -81,6 +84,33 @@ class Communication {
                         }
                     }
                 }
+            }
+
+            if (this.turnReq == true) {
+
+                let turn = await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).nowPlays
+
+
+                if (this.localTurn != turn) {
+
+                    this.localTurn = turn
+
+                    let users = await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).users
+
+                    if (users[turn].name == await JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username) {
+
+                        document.getElementById('whoplays').innerText = 'You!'
+                        dice.graphicsInterface()
+
+                    } else {
+
+                        document.getElementById('whoplays').innerText = users[turn].name
+
+                    }
+
+
+                }
+
             }
 
 

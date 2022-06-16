@@ -47,12 +47,12 @@ class InBetween {
                     console.log(error.message);
                 }
                 this.local_status = 'started'
-                dice.graphicsInterface()
+                // dice.graphicsInterface()
 
                 game.init(await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())))
                 game.start.greeting()
 
-                communication.posReq = true
+                communication.turnReq = true
 
             }
 

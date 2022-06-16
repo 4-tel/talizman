@@ -298,7 +298,7 @@ class Net {
     //output: status
     async iterateSessionTurn(session_id) {
 
-        alert(session_id)
+        console.log('iterate session');
 
         this.data = JSON.stringify({ id: session_id })
         this.options = {
