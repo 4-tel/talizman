@@ -11,7 +11,6 @@ class Board {
     create() {
         for (let i = 0; i < 49; i++) {
             let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, Math.floor(Math.random() * 80 + 50), this.instruction[i].height), this.instruction[i].material)
-            //tile.name = `${i + 10 == 34 ? "FINISH" : i + 10}`
             tile.name = `${Math.floor(i / 7)},${i % 7}`
             tile.highlight = false
             tile.actions = this.instruction[i].actions
@@ -27,7 +26,6 @@ class Board {
         for (let i = 0; i < players.length; i++) {
             console.log(heroes[players[i].hero])
             let player = new THREE.Mesh(new THREE.CylinderGeometry(100, 100, 100, 100), tiles.player_temp)
-            //player.name = `${this.players.tabela[i].token}`//tymczasowa
             player.name = `${players[i].name}`
             player.position.set(this.instruction[heroes[players[i].hero].starting_tile].position.x, this.instruction[heroes[players[i].hero].starting_tile].position.y + 100, this.instruction[heroes[players[i].hero].starting_tile].position.z)
             game.add(player)
