@@ -26,6 +26,7 @@
     <script src="script/camera.js"></script>
     <script src="script/graphics.js"></script>
     <script src="script/communication.js"></script>
+    <script src="script/inBetween.js"></script>
 
 </head>
 
@@ -35,15 +36,20 @@
         <button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
     </div>
     <script>
+
         document.addEventListener('contextmenu', event => event.preventDefault());
 
         const game = new Game();
         const net = new Net();
         const waitingRoom = new WaitingRoom();
         const cards = new CardsDeck();
-        const communication = new Communication()
+        const communication = new Communication();
 
-        waitingRoom.init()
+        const inBetween = new InBetween();
+
+        communication.request_flood()
+
+        // waitingRoom.init()
     </script>
 
 </body>

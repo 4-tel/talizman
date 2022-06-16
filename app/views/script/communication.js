@@ -15,7 +15,10 @@ class Communication {
 
     async request_flood() {
 
+
         this.flood = setInterval(async () => {
+
+            inBetween.statusCheck(await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).status)
 
             //reguests user array from server (from database)
             if (this.usersReq == true) {
@@ -24,19 +27,9 @@ class Communication {
                 if (users != document.getElementById('inGameUsers').innerHTML) {
 
                     console.log('change');
-
                     document.getElementById('inGameUsers').innerHTML = users
 
                 }
-
-                //if session status changed
-                if (await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).status != 'await') {
-
-                    waitingRoom.leave()
-                    this.userReq = false
-
-                }
-
             }
 
 
@@ -61,14 +54,6 @@ class Communication {
                         }
                     }
                 }
-
-                if (await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).status != 'cards') {
-
-                    cards.leave()
-                    this.cardsReq = false
-
-                }
-
             }
 
 

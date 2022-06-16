@@ -7,12 +7,6 @@ class StartGame {
 
     }
 
-    init() {
-
-        cards.init()
-
-    }
-
 
     // choseYourChampion = (champions) => {
 
@@ -35,9 +29,11 @@ class StartGame {
     // }
 
 
+    //displays greeting header with username and choosen character
     greeting = (hero) => {
 
         let greeting = document.createElement("h1")
+        greeting.id = 'greeting'
         greeting.innerHTML = `Hello ${this.username}! You play as ${hero}`
         document.getElementById("game").appendChild(greeting)
 

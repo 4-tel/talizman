@@ -7,7 +7,7 @@ DELETE http://localhost:3000/session/empty/remove HTTP/1.1
 
 ###
 
-DELETE http://localhost:3000/session/remove/newgame HTTP/1.1
+DELETE http://localhost:3000/session/remove/a HTTP/1.1
 
 
 ###

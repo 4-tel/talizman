@@ -58,7 +58,9 @@ class CardsDeck {
         }
 
         //start server requests
-        communication.cardsReq = true
+        if (await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).status == 'cards') {
+            communication.cardsReq = true
+        }
 
 
         let characters = Object.keys(heroes)
@@ -161,6 +163,7 @@ class CardsDeck {
     async leave() {
 
         document.getElementById('cards').remove()
+        game.start.greeting(user.hero)
 
     }
 
