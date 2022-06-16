@@ -67,13 +67,14 @@ class Move {
 
     //movement of pawn
     //input : tile.position, player, tile.leftright, tile.land
-    async playerMove(player, side, place) {
+    async playerMove(pos, player, side, place) {
 
         return new Promise(async (resolve) => {
 
             let whereAmI = player.position
 
             if (side == "left") {
+                console.log("eo")
                 for (let i = 0; i < this.number; i++) {
                     console.log(whereAmI)
                     console.log(player)

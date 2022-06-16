@@ -47,19 +47,19 @@ class Board {
             switch (event.which) {
                 case 1:
                     if (this.intersects.length > 0) {
-                        console.log(this.intersects[0])
+
                         if (this.intersects[0].object.highlight == true) {
                             for (let i = 1; i <= game.scene.children.length - 1; i++) {
                                 if (game.scene.children[i].name == await this.getUsername()) {
-
-                                    let position = await game.move.playerMove(game.scene.children[i], this.intersects[0].object.leftright, this.intersects[0].object.land)
+                                    console.log(this.intersects[0])
+                                    let position = await game.move.playerMove(this.intersects[0].object.position, game.scene.children[i], this.intersects[0].object.leftright, this.intersects[0].object.land)
 
                                     //send turn iteration to server
-                                    new Net().iterateSessionTurn(JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).session)
+                                    //new Net().iterateSessionTurn(JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).session)
 
 
                                     //send position to server
-                                    // net.changePlayerPosition(await this.getUsername(), position, JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).session);
+                                    //net.changePlayerPosition(await this.getUsername(), position, JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).session);
 
                                     //look for any actions on new tile
                                     game.action(position, game.scene.children[i])
