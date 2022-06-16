@@ -17,6 +17,7 @@ const heroes = {
     // },
 
     warrior: {
+        img: '/textures/warrior.jpg',
         name: "Warrior",
         stats: {
             strength: 4,
@@ -77,7 +78,7 @@ const heroes = {
         }
     },
     assasin: {
-        img: '/textures/assasin.jpg',
+        img: '/textures/assassin.jpg',
         name: "assasin",
         stats: {
             strength: 3,
@@ -122,8 +123,8 @@ const heroes = {
         }
     },
     ghoul: {
-        img: '/textures/ghoul.jpg',
-        name: "ghoul",
+        img: '/textures/ghul.jpg',
+        name: "ghul",
         stats: {
             strength: 2,
             mana: 4,
