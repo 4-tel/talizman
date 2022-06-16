@@ -27,7 +27,7 @@ class Board {
             console.log(heroes[players[i].hero])
             let player = new THREE.Mesh(new THREE.CylinderGeometry(100, 100, 100, 100), tiles.player_temp)
             player.name = `${players[i].name}`
-            player.position.set(this.instruction[heroes[players[i].hero].starting_tile].position.x, this.instruction[heroes[players[i].hero].starting_tile].position.y + 100, this.instruction[heroes[players[i].hero].starting_tile].position.z)
+            player.position.set(this.instruction[heroes[players[i].hero].starting_tile].position.x, this.instruction[heroes[players[i].hero].starting_tile].position.y + 100 + i, this.instruction[heroes[players[i].hero].starting_tile].position.z)
             game.add(player)
         }
 
