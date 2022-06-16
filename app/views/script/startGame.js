@@ -30,21 +30,23 @@ class StartGame {
 
 
     //displays greeting header with username and choosen character
-    greeting = (hero) => {
+    async greeting() {
+
+        let data = JSON.parse(await net.getUsername(document.cookie.split('=')[1]))
+        let users = JSON.parse(await net.sessionInfo(data.session)).users
+        let hero
+
+        for (let el of users) {
+            if (el.name == data.username) {
+                hero = el.hero
+            }
+        }
 
         let greeting = document.createElement("h1")
         greeting.id = 'greeting'
-        greeting.innerHTML = `Hello ${this.username}! You play as ${hero}`
+        greeting.innerHTML = `Hello <span style="color:#663322">${data.username}</span>! You play as <span style="color:#552222;font-family:Cardinal">${hero}</span>`
         document.getElementById("game").appendChild(greeting)
 
-    }
-
-    //assign hero to player
-    assignHero = async (name) => {
-
-        document.getElementById('cards').remove()
-        let hero = heroes[name]
-        this.greeting(hero)
     }
 
 }

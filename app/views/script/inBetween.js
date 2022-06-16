@@ -36,6 +36,10 @@ class InBetween {
             //stage started
             if (status == 'started') {
 
+                game.cameraManager.rotation = false
+                game.camera.position.set(0, 4000, 2000)
+                game.camera.lookAt(game.scene.position)
+
                 try {
                     communication.cardsReq = false
                     cards.leave()
@@ -43,7 +47,11 @@ class InBetween {
                     console.log(error.message);
                 }
                 this.local_status = 'started'
+                dice.graphicsInterface()
+
                 game.init(await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())))
+                game.start.greeting()
+
                 communication.posReq = true
 
             }

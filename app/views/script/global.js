@@ -7,8 +7,7 @@ const clearCookie = () => {
 
 let user = {
     token: null,
-    logged: false,
-    hero: null
+    logged: false
 }
 
 const layout = {

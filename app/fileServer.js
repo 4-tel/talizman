@@ -23,6 +23,7 @@ const fileServer = (req, res) => {
         extension == "png" ? contentType = 'image/png' : null
         extension == "otf" ? contentType = 'font/otf' : null
         extension == "gif" ? contentType = 'image/gif' : null
+        extension == "mp4" ? contentType = 'video/mp4' : null
 
         // logger.log("requested url: ", url)
 

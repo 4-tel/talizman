@@ -17,7 +17,7 @@ class Game {
         this.camera.lookAt(this.scene.position)
         this.cameraManager = new Camera(this.camera, this.scene) //custom camera managment
 
-        this.cameraManager.rotation = true //change to false to stop rotation
+        this.cameraManager.rotation = true
 
         //create board
         console.log(this.session)
@@ -48,16 +48,23 @@ class Game {
         //render
         this.render()
     }
+
+
     async init(session) {
+
         console.log(session)
         this.board.playerPlacement(this.tiles, this.scene, session.users)
+        this.start = new StartGame()
+
     }
+
+
     render = () => {
         requestAnimationFrame(this.render);
         this.renderer.render(this.scene, this.camera);
         TWEEN.update();
         if (this.cameraManager.rotation == true) {
-            this.cameraManager.moveAround(15) //argument: speed
+            this.cameraManager.moveAround(1) //argument: speed
         }
     }
 
@@ -65,16 +72,15 @@ class Game {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    roll = async () => {
-        let outcome
-        for (let i = 0; i < 50; i++) {
-            outcome = Math.floor(Math.random() * 6) + 1
-            let display = document.getElementById("die")
-            display.innerHTML = `<button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
-        <p style="position: relative; left: 30%;">${outcome}</p>`
-            await this.sleep(20)
-        }
-        this.move.move(outcome)
+    // roll = async () => {
+    //     let outcome
+    //     for (let i = 0; i < 50; i++) {
+    //         outcome = Math.floor(Math.random() * 6) + 1
+    //         let display = document.getElementById("die")
+    //         display.innerHTML = `<button style="position: relative; left: 10%;" onclick="game.roll()">Roll!</button>
+    //     <p style="position: relative; left: 30%;">${outcome}</p>`
+    //         await this.sleep(20)
+    //     }
 
-    }
+    // }
 }
