@@ -164,6 +164,21 @@ const sessionRouter = async (req, res) => {
             res.end('error')
         }
 
+    }
+
+    //method POST, change player's position
+    //input: {user, position, id}
+    if (req.method == "POST" && req.url == "/session/changeposition") {
+
+        let data = JSON.parse(await getRequestData(req))
+
+        let session = await databaseController.getSession(data.id)
+
+        if (await databaseController.changePlayerPosition(data.user, data.position, session)) {
+            res.end('success')
+        } else {
+            res.end('error')
+        }
 
     }
 

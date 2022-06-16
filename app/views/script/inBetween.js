@@ -44,6 +44,7 @@ class InBetween {
                 }
                 this.local_status = 'started'
                 game.init(await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())))
+                communication.posReq = true
 
             }
 

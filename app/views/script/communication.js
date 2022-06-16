@@ -4,6 +4,7 @@ class Communication {
 
         this.usersReq = false
         this.cardsReq = false
+        this.posReq = false
 
     }
 
@@ -51,6 +52,32 @@ class Communication {
                             document.getElementById(el.hero).chosen = true
                             cards.revealCard(document.getElementById(el.hero), el.name)
 
+                        }
+                    }
+                }
+            }
+
+            //map position from server
+            if (this.posReq == true) {
+
+                let users = await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).users
+
+                console.log(users);
+
+                for (let el of users) {
+
+                    for (let pawn of game.scene.children) {
+
+                        console.log('user: ', el.position, ' pawn ', pawn.position);
+
+                        console.log(pawn.name, el.name);
+
+                        if (pawn.name == el.name) {
+                            if (pawn.position != el.position && el.position != null) {
+
+                                new Move().playerMove(el.position, pawn)
+
+                            }
                         }
                     }
                 }

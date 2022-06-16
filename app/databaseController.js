@@ -158,7 +158,8 @@ const databaseController = {
 
             let user = {
                 name: username,
-                hero: null
+                hero: null,
+                position: null
             }
 
             session.users.push(user)
@@ -233,13 +234,63 @@ const databaseController = {
 
             session.users.pop()
 
-            session.users.push({ name: player, hero: hero })
+            session.users.push({ name: player, hero: hero, position: null })
 
             logger.log('assigned ' + hero + ' to ' + player)
 
             await session.save()
             resolve(true)
         })
+    },
+
+    //changes player position
+    //input: player, position, session
+    //output: status
+    changePlayerPosition: async (player, position, session) => {
+
+        return new Promise(async (resolve) => {
+
+
+            console.log(player, position, session);
+
+
+            if (await connect() == false) {
+                resolve(false)
+            }
+
+            let element
+
+            for (let i = 0; i < session.users.length; i++) {
+
+                if (session.users[i].name == player) {
+
+                    element = JSON.stringify(session.users[i])
+                    session.users[i] = session.users[session.users.length - 1]
+
+                }
+
+            }
+
+            console.log(session.users);
+
+            session.users.pop()
+
+            console.log('users after pop', session.users);
+
+            element = JSON.parse(element)
+            element.position = position
+
+            console.log('to push: ', element);
+
+            session.users.push(element)
+
+            logger.log('changed ' + player + "'s position to " + position)
+
+            await session.save()
+            resolve(true)
+        })
+
+
     }
 
 }

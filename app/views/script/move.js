@@ -53,20 +53,34 @@ class Move {
             }
         }
     }
-    async playerMove(tile, player) {
-        new TWEEN.Tween(player.position)
-            .to({ x: tile.position.x, y: player.position.y, z: tile.position.z }, 1000)
-            .easing(TWEEN.Easing.Linear.None)
-            .onUpdate(() => { })
-            .onComplete(() => { player.position.y = player.position.y })
-            .start()
-        this.tilesBack()
+
+    //movement of pawn
+    async playerMove(pos, player) {
+
+        return new Promise(async (resolve) => {
+
+
+            new TWEEN.Tween(player.position)
+                .to({ x: pos.x, y: player.position.y, z: pos.z }, 1000)
+                .easing(TWEEN.Easing.Linear.None)
+                .onUpdate(() => { })
+                .onComplete(() => { resolve(true) })
+                .start()
+            try {
+                this.tilesBack()
+            } catch (e) {
+                null
+            }
+
+        })
+
 
     }
 
 
 
     tilesBack() {
+
         for (let i = 0; i < this.scene.children[0].children.length; i++) {
             if (this.scene.children[0].children[i].highlight == true) {
                 let material = this.getMaterial(this.scene.children[0].children[i])

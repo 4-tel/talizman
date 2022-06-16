@@ -267,5 +267,31 @@ class Net {
 
     }
 
+    //changes player's position in database
+    //input: username, position, session id
+    //output: status
+    async changePlayerPosition(user, position, id) {
+
+        console.log('change position');
+
+        this.data = JSON.stringify({
+            user: user,
+            position: position,
+            id: id
+        })
+        this.options = {
+            method: "POST",
+            body: this.data
+        }
+
+        let response = await fetch('/session/changeposition', this.options)
+        if (!response.ok) {
+            return response.status
+        } else {
+            return response.text()
+        }
+
+    }
+
 
 }
