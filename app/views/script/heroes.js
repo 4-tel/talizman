@@ -131,7 +131,7 @@ const heroes = {
             health: 4
         },
         character: "bad",
-        starting_tile: "cementery",
+        starting_tile: "graveyard",
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -146,7 +146,7 @@ const heroes = {
             health: 4
         },
         character: "bad",
-        starting_tile: "cementery",
+        starting_tile: "graveyard",
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -161,7 +161,7 @@ const heroes = {
             health: 4
         },
         character: "bad",
-        starting_tile: "cementery",
+        starting_tile: "graveyard",
         special_abilites: {
             /// nie wiem jak xd
         }

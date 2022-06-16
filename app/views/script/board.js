@@ -14,6 +14,8 @@ class Board {
             //tile.name = `${i + 10 == 34 ? "FINISH" : i + 10}`
             tile.name = `${Math.floor(i / 7)},${i % 7}`
             tile.highlight = false
+            tile.actions = this.instruction[i].actions
+            tile.place = this.instruction[i].name
             tile.land = `${this.instruction[i].material.name}`
             tile.position.set(this.instruction[i].position.x, this.instruction[i].position.y, this.instruction[i].position.z)
             this.board.add(tile)

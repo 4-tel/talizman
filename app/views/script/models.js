@@ -38,7 +38,11 @@ class Models {
                 height: 370,
                 width: 570,
                 material: this.first_land,
-                orientation: "corner"
+                orientation: "corner",
+                name: "village",
+                actions: [
+                    "mistic"
+                ]
 
             },
             {
@@ -50,7 +54,9 @@ class Models {
                 height: 370,
                 width: 570,
                 material: this.first_land,
-                orientation: "up"
+                orientation: "up",
+                name: "fields",
+                actions: ["take"]
 
             },
             {
@@ -62,7 +68,10 @@ class Models {
                 height: 370,
                 width: 570,
                 material: this.first_land,
-                orientation: "up"
+                orientation: "up",
+                name: "graveyard",
+                actions: []
+
 
             },
             {
@@ -74,7 +83,9 @@ class Models {
                 height: 370,
                 width: 570,
                 material: this.first_land,
-                orientation: "up"
+                orientation: "up",
+                name: "woods",
+                actions: ["take"]
 
             },
             {
@@ -86,7 +97,9 @@ class Models {
                 height: 370,
                 width: 570,
                 material: this.first_land,
-                orientation: "up"
+                orientation: "up",
+                name: "sentinel",
+                actions: ["travelToSecond"]
 
             },
             {
@@ -98,7 +111,9 @@ class Models {
                 height: 370,
                 width: 570,
                 material: this.first_land,
-                orientation: "up"
+                orientation: "up",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -110,7 +125,10 @@ class Models {
                 height: 370,
                 width: 570,
                 material: this.first_land,
-                orientation: "up"
+                orientation: "up",
+                name: "hills",
+                actions: ["take"]
+
 
             },
             {
@@ -122,7 +140,10 @@ class Models {
                 height: 370,
                 width: 470,
                 material: this.first_land,
-                orientation: "left"
+                orientation: "left",
+                name: "hills",
+                actions: ["take"]
+
 
             },
             {
@@ -134,7 +155,10 @@ class Models {
                 height: 370,
                 width: 610,
                 material: this.second_land,
-                orientation: "corner"
+                orientation: "corner",
+                name: "hills",
+                actions: ["take"]
+
 
             },
             {
@@ -146,7 +170,10 @@ class Models {
                 height: 370,
                 width: 610,
                 material: this.second_land,
-                orientation: "up"
+                orientation: "up",
+                name: "hills",
+                actions: ["take"]
+
 
             },
             {
@@ -158,7 +185,10 @@ class Models {
                 height: 370,
                 width: 610,
                 material: this.second_land,
-                orientation: "up"
+                orientation: "up",
+                name: "hills",
+                actions: ["take"]
+
 
             },
             {
@@ -170,7 +200,9 @@ class Models {
                 height: 370,
                 width: 610,
                 material: this.second_land,
-                orientation: "up"
+                orientation: "up",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -182,7 +214,9 @@ class Models {
                 height: 370,
                 width: 610,
                 material: this.second_land,
-                orientation: "corner"
+                orientation: "corner",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -194,7 +228,9 @@ class Models {
                 height: 370,
                 width: 470,
                 material: this.first_land,
-                orientation: "right"
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -206,7 +242,9 @@ class Models {
                 height: 370,
                 width: 470,
                 material: this.first_land,
-                orientation: "left"
+                orientation: "left",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -218,7 +256,9 @@ class Models {
                 height: 370,
                 width: 420,
                 material: this.second_land,
-                orientation: "left"
+                orientation: "left",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -230,7 +270,9 @@ class Models {
                 height: 370,
                 width: 736,
                 material: this.third_land,
-                orientation: "corner"
+                orientation: "corner",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -242,7 +284,9 @@ class Models {
                 height: 370,
                 width: 738,
                 material: this.third_land,
-                orientation: "up"
+                orientation: "up",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -254,7 +298,9 @@ class Models {
                 height: 370,
                 width: 736,
                 material: this.third_land,
-                orientation: "corner"
+                orientation: "corner",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -266,7 +312,9 @@ class Models {
                 height: 370,
                 width: 420,
                 material: this.second_land,
-                orientation: "right"
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -278,7 +326,9 @@ class Models {
                 height: 370,
                 width: 470,
                 material: this.first_land,
-                orientation: "right"
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -289,7 +339,10 @@ class Models {
                 },
                 height: 370,
                 width: 470,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -300,7 +353,10 @@ class Models {
                 },
                 height: 370,
                 width: 420,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -311,7 +367,10 @@ class Models {
                 },
                 height: 370,
                 width: 536,
-                material: this.third_land
+                material: this.third_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -322,7 +381,10 @@ class Models {
                 },
                 height: 370,
                 width: 1138,
-                material: this.third_land
+                material: this.third_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -333,7 +395,10 @@ class Models {
                 },
                 height: 370,
                 width: 536,
-                material: this.third_land
+                material: this.third_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -344,7 +409,10 @@ class Models {
                 },
                 height: 370,
                 width: 420,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -355,7 +423,10 @@ class Models {
                 },
                 height: 370,
                 width: 470,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -366,7 +437,10 @@ class Models {
                 },
                 height: 370,
                 width: 470,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -377,7 +451,10 @@ class Models {
                 },
                 height: 370,
                 width: 420,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -388,7 +465,10 @@ class Models {
                 },
                 height: 370,
                 width: 736,
-                material: this.third_land
+                material: this.third_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -399,7 +479,10 @@ class Models {
                 },
                 height: 370,
                 width: 738,
-                material: this.third_land
+                material: this.third_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -410,7 +493,10 @@ class Models {
                 },
                 height: 370,
                 width: 736,
-                material: this.third_land
+                material: this.third_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -421,7 +507,10 @@ class Models {
                 },
                 height: 370,
                 width: 420,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -432,7 +521,10 @@ class Models {
                 },
                 height: 370,
                 width: 470,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -443,7 +535,10 @@ class Models {
                 },
                 height: 370,
                 width: 470,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -454,7 +549,10 @@ class Models {
                 },
                 height: 370,
                 width: 610,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -465,7 +563,10 @@ class Models {
                 },
                 height: 370,
                 width: 610,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -476,7 +577,10 @@ class Models {
                 },
                 height: 370,
                 width: 610,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -487,7 +591,10 @@ class Models {
                 },
                 height: 370,
                 width: 610,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -498,7 +605,10 @@ class Models {
                 },
                 height: 370,
                 width: 610,
-                material: this.second_land
+                material: this.second_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -509,7 +619,10 @@ class Models {
                 },
                 height: 370,
                 width: 470,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -520,7 +633,10 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -531,7 +647,10 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -542,7 +661,10 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -553,7 +675,10 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -564,7 +689,10 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -575,7 +703,10 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             },
             {
@@ -586,7 +717,10 @@ class Models {
                 },
                 height: 370,
                 width: 570,
-                material: this.first_land
+                material: this.first_land,
+                orientation: "right",
+                name: "hills",
+                actions: ["take"]
 
             }
         ]
