@@ -55,7 +55,7 @@ class Board {
                                     let position = await game.move.playerMove(this.intersects[0].object.position, game.scene.children[i], this.intersects[0].object.leftright, this.intersects[0].object.land)
 
                                     //send turn iteration to server
-                                    //new Net().iterateSessionTurn(JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).session)
+                                    new Net().iterateSessionTurn(JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).session)
 
 
                                     //send position to server
