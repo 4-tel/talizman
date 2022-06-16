@@ -28,16 +28,16 @@ class Board {
             console.log(heroes[players[i].hero])
             let player = new THREE.Mesh(new THREE.CylinderGeometry(100, 100, 100, 100), tiles.player_temp)
             //player.name = `${this.players.tabela[i].token}`//tymczasowa
-            player.name = `${await JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username}`
+            player.name = `${players[i].name}`
             player.position.set(this.instruction[heroes[players[i].hero].starting_tile].position.x, this.instruction[heroes[players[i].hero].starting_tile].position.y + 100, this.instruction[heroes[players[i].hero].starting_tile].position.z)
             game.add(player)
         }
 
     }
-    click = () => {
+    click = async () => {
         this.raycaster = new THREE.Raycaster()
         this.mouseVector = new THREE.Vector2()
-        document.getElementById("game").addEventListener("mousedown", (event) => {
+        document.getElementById("game").addEventListener("mousedown", async (event) => {
 
             this.mouseVector.x = (event.clientX / window.innerWidth) * 2 - 1
             this.mouseVector.y = -(event.clientY / window.innerHeight) * 2 + 1
@@ -47,9 +47,14 @@ class Board {
             switch (event.which) {
                 case 1:
                     if (this.intersects.length > 0) {
-                        console.log(this.intersects[0])
+
                         if (this.intersects[0].object.highlight == true) {
-                            game.move.playerMove(this.intersects[0].object)
+                            for (let i = 1; i <= game.scene.children.length - 1; i++) {
+                                if (game.scene.children[i].name == await this.getUsername()) {
+                                    game.move.playerMove(this.intersects[0].object, game.scene.children[i])
+                                }
+                            }
+
                         }
                     }
                     break
@@ -73,5 +78,8 @@ class Board {
 
 
         })
+    }
+    getUsername = async () => {
+        return await JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username
     }
 }

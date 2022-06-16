@@ -6,6 +6,7 @@ class Move {
         this.tiles = tiles
     }
     getUsername = async () => {
+        console.log(JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username)
         return JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username
     }
     move = async (number) => {
@@ -52,20 +53,19 @@ class Move {
             }
         }
     }
-    async playerMove(tile) {
-        for (let i = 1; i <= this.scene.children.length - 1; i++) {
-            if (this.scene.children[i].name == await this.getUsername()) {
-                new TWEEN.Tween(this.scene.children[i].position)
-                    .to({ x: tile.position.x, y: this.scene.children[i].position.y, z: tile.position.z }, 1000)
-                    .easing(TWEEN.Easing.Linear.None)
-                    .onUpdate(() => { })
-                    .onComplete(() => { this.scene.children[i].position.y = this.scene.children[i].position.y })
-                    .start()
-                this.tilesBack()
+    async playerMove(tile, player) {
+        new TWEEN.Tween(player.position)
+            .to({ x: tile.position.x, y: player.position.y, z: tile.position.z }, 1000)
+            .easing(TWEEN.Easing.Linear.None)
+            .onUpdate(() => { })
+            .onComplete(() => { player.position.y = player.position.y })
+            .start()
+        this.tilesBack()
 
-            }
-        }
     }
+
+
+
     tilesBack() {
         for (let i = 0; i < this.scene.children[0].children.length; i++) {
             if (this.scene.children[0].children[i].highlight == true) {
