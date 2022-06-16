@@ -11,7 +11,7 @@ const connectionParams = {
 const connect = async () => {
     mongoose.connect(url, connectionParams)
         .then(() => {
-            logger.log('Connected to the database ')
+            // logger.log('Connected to the database ')
             return true
         })
         .catch((err) => {
@@ -219,11 +219,17 @@ const databaseController = {
                 resolve(false)
             }
 
-            for (let el of session.users) {
-                if (el.name == player) {
-                    el = session.users[session.users.length - 1]
+            for (let i = 0; i < session.users.length; i++) {
+
+                if (session.users[i].name == player) {
+
+                    session.users[i] = session.users[session.users.length - 1]
+
                 }
+
             }
+
+            console.log(session.users);
 
             session.users.pop()
 
@@ -234,8 +240,6 @@ const databaseController = {
             await session.save()
             resolve(true)
         })
-
-
     }
 
 }
