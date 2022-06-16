@@ -77,6 +77,10 @@ class Game {
             if (tile.actions[i].name == "travel") {
                 let where = this.move.getTileReverse(tile.actions[i].destination)
                 await this.move.playerMove(where.position, player, "travel", where.land)
+                await this.sleep(1000)
+            }
+            else if (tile.actions[i].name == "win") {
+                document.body.innerHTML = "<h1>YOU WIN</h1>"
             }
         }
     }

@@ -510,6 +510,9 @@ class Models {
                     {
                         name: "travel",
                         destination: "3,3"
+                    },
+                    {
+                        name: "win"
                     }
                 ]
 
