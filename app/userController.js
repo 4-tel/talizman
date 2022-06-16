@@ -77,6 +77,7 @@ const userController = {
         try {
             let decoded = jwt.verify(token, process.env.TOKEN_PASSWD)
 
+            logger.info('account verified')
             return { status: "success", user: decoded }
 
         } catch (err) {
@@ -101,6 +102,7 @@ const userController = {
                     },
                         process.env.TOKEN_PASSWD)
 
+                    logger.log('user logged in')
                     return { status: "success", token: token }
 
                 } else {
@@ -132,10 +134,12 @@ const userController = {
 
                 if (record.username == data.username) {
 
+                    logger.warn('username taken')
                     resolve('usernameTaken')
                 }
                 else if (record.email == data.email) {
 
+                    logger.warn('email taken')
                     resolve('emailTaken')
                 }
             }

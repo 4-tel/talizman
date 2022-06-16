@@ -14,7 +14,7 @@
 }
 
 #deck {
-    /* width: fit-content; */
+    width: 100%;
     position: absolute;
     margin: 2vh;
     left: 50%;
