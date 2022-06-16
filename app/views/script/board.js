@@ -10,9 +10,10 @@ class Board {
 
     create() {
         for (let i = 0; i < 49; i++) {
-            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, Math.floor(Math.random() * 80 + 50), this.instruction[i].height), this.instruction[i].material)
+            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, Math.floor(Math.random() * 1 + 50), this.instruction[i].height), this.instruction[i].material)
             tile.name = `${Math.floor(i / 7)},${i % 7}`
             tile.highlight = false
+            tile.leftright = null
             tile.actions = this.instruction[i].actions
             tile.place = this.instruction[i].name
             tile.land = `${this.instruction[i].material.name}`
@@ -51,7 +52,7 @@ class Board {
                             for (let i = 1; i <= game.scene.children.length - 1; i++) {
                                 if (game.scene.children[i].name == await this.getUsername()) {
 
-                                    let position = await game.move.playerMove(this.intersects[0].object.position, game.scene.children[i])
+                                    let position = await game.move.playerMove(this.intersects[0].object.position, game.scene.children[i], this.intersects[0].object.leftright, this.intersects[0].object.land)
 
 
                                     //send position to server
