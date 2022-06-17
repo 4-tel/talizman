@@ -12,7 +12,7 @@ class Board {
 
     create() {
         for (let i = 0; i < 49; i++) {
-            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, Math.floor(Math.random() * 1 + 50), this.instruction[i].height), i == 4 || i == 8 ? new THREE.MeshStandardMaterial({
+            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, Math.floor(Math.random() * 1 + 50), this.instruction[i].height), i == 4 || i == 8 || i == 11 || i == 16 ? new THREE.MeshStandardMaterial({
                 color: 0x0000ff,
                 side: THREE.DoubleSide,
                 wireframe: false,

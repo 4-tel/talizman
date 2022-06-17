@@ -287,7 +287,14 @@ class Models {
                 material: this.third_land,
                 orientation: "corner",
                 name: "hills",
-                actions: ["take"]
+                actions: [
+
+                    {
+                        name: "travel",
+                        destination: "1,1"
+                    }
+
+                ]
 
             },
             {
