@@ -31,7 +31,8 @@ const sessionSchema = new mongoose.Schema({
     id: String,
     users: [],
     status: String,
-    nowPlays: Number
+    nowPlays: Number,
+    winner: String
 }, { collection: 'sessions' })
 
 const userModel = mongoose.model("User", userSchema)
@@ -112,7 +113,7 @@ const databaseController = {
 
         logger.log('session created');
 
-        this.session = new sessionModel({ id: session.id, users: session.users, status: 'await', nowPlays: 0 })
+        this.session = new sessionModel({ id: session.id, users: session.users, status: 'await', nowPlays: 0, winner: 'nobody' })
         this.session.save()
 
     },
@@ -306,6 +307,22 @@ const databaseController = {
 
         })
 
+
+    },
+
+    //announce winner
+    //input: session, winner
+    //output: status
+    winner: async (session, winner) => {
+
+        if (await connect() == false) {
+            return false
+        }
+
+        session.winner = winner
+
+        await session.save()
+        return true
 
     }
 

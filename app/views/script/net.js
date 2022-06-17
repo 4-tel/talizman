@@ -317,5 +317,27 @@ class Net {
 
     }
 
+    //announce winner
+    //input: session_id, winner
+    //output
+    async announceWinner(session_id, winner) {
+
+        console.log('announce winner');
+
+        this.data = JSON.stringify({ id: session_id, winner: winner })
+        this.options = {
+            method: "POST",
+            body: this.data
+        }
+
+        let response = await fetch('/session/winner', this.options)
+        if (!response.ok) {
+            return response.status
+        } else {
+            return await response.text()
+        }
+
+    }
+
 
 }

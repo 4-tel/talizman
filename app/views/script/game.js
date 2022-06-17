@@ -91,9 +91,14 @@ class Game {
                     await this.sleep(1000)
                 }
             }
+
             else if (tile.actions[i].name == "win" && player.havetalisman == true) {
-                document.body.innerHTML = "<h1>YOU WIN</h1>"
+
+                net.announceWinner(await waitingRoom.get_session_data(), JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username)
+                net.changeSessionStatus('finished', await waitingRoom.get_session_data())
+
             }
+
             else if (tile.actions[i].name == "talisman") {
                 player.havetalisman = true
             }

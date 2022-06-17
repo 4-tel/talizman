@@ -6,6 +6,7 @@ class Communication {
         this.cardsReq = false
         this.posReq = false
         this.turnReq = false
+        this.winReq = false
 
         this.localTurn = -1
 
@@ -144,6 +145,21 @@ class Communication {
 
 
                 }
+
+            }
+
+            if (this.winReq == true) {
+
+                let winner = await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).winner
+
+                if (winner == JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username) {
+                    document.body.innerHTML = `<h1>You won!</h1>`
+                } else {
+
+                    document.body.innerHTML = `<h1>${winner} won!</h1>`
+                }
+
+                this.winReq = false
 
             }
 

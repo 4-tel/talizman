@@ -194,6 +194,23 @@ const sessionRouter = async (req, res) => {
         }
     }
 
+    //method POST, announce winner
+    if (req.method == "POST" && req.url == '/session/winner') {
+
+        let data = JSON.parse(await getRequestData(req))
+
+        let session = await databaseController.getSession(data.id)
+
+        if (await databaseController.winner(session, data.winner)) {
+            res.end('success')
+        } else {
+            res.end('error')
+        }
+
+
+
+    }
+
 }
 
 module.exports = sessionRouter

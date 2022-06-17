@@ -59,6 +59,8 @@ class InBetween {
             //stage finished
             if (status == 'finished') {
 
+                communication.winReq = true
+
             }
 
         }
