@@ -26,7 +26,7 @@ const heroes = {
             health: 5
         },
         character: "neutral",
-        starting_tile: 7,
+        starting_tile: 1,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -42,7 +42,7 @@ const heroes = {
             health: 6
         },
         character: "neutral",
-        starting_tile: 6,
+        starting_tile: 2,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -57,7 +57,7 @@ const heroes = {
             health: 5
         },
         character: "neutral",
-        starting_tile: 4,
+        starting_tile: 3,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -72,7 +72,7 @@ const heroes = {
             health: 4
         },
         character: "good",
-        starting_tile: 5,
+        starting_tile: 4,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -87,7 +87,7 @@ const heroes = {
             health: 4
         },
         character: "bad",
-        starting_tile: 1,
+        starting_tile: 5,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -102,7 +102,7 @@ const heroes = {
             health: 4
         },
         character: "good",
-        starting_tile: 2,
+        starting_tile: 6,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -117,7 +117,7 @@ const heroes = {
             health: 4
         },
         character: "good",
-        starting_tile: 8,
+        starting_tile: 48,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -132,7 +132,7 @@ const heroes = {
             health: 4
         },
         character: "bad",
-        starting_tile: 9,
+        starting_tile: 43,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -162,7 +162,7 @@ const heroes = {
             health: 4
         },
         character: "bad",
-        starting_tile: 3,
+        starting_tile: 7,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -177,7 +177,7 @@ const heroes = {
             health: 4
         },
         character: "neutral",
-        starting_tile: 33,
+        starting_tile: 46,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -192,7 +192,7 @@ const heroes = {
             health: 4
         },
         character: "good",
-        starting_tile: 23,
+        starting_tile: 45,
         special_abilites: {
             /// nie wiem jak xd
         }
@@ -207,7 +207,7 @@ const heroes = {
             health: 4
         },
         character: "good",
-        starting_tile: 22,
+        starting_tile: 44,
         special_abilites: {
             /// nie wiem jak xd
         }
