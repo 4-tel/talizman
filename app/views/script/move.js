@@ -31,6 +31,8 @@ class Move {
                             color: 0xffff00,
                             side: THREE.DoubleSide,
                             wireframe: false,
+                            opacity: 1,
+                            transparent: false
                         })
                         right = this.getTileReverse(right)
                         right.highlight = true
@@ -39,6 +41,8 @@ class Move {
                             color: 0xffff00,
                             side: THREE.DoubleSide,
                             wireframe: false,
+                            opacity: 1,
+                            transparent: false
                         })
                     }
                 }
@@ -107,7 +111,7 @@ class Move {
             else if (side == "right") {
                 console.log('oe');
                 for (let i = 0; i < this.number; i++) {
-                    
+
                     let name = this.getMyPosition(whereAmI)
                     let where = this.getLand(place)
                     let current_tile = this.getTile(name, where)

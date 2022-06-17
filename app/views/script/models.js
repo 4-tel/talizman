@@ -6,6 +6,8 @@ class Models {
             side: THREE.DoubleSide,
             wireframe: false,
             map: new THREE.TextureLoader().load("textures/hill.jpg"),
+            transparent: true,
+            opacity: 0,
             name: "hills"
         })
         this.second_land = new THREE.MeshStandardMaterial({
@@ -13,6 +15,8 @@ class Models {
             side: THREE.DoubleSide,
             wireframe: false,
             map: new THREE.TextureLoader().load("textures/desert.jpg"),
+            transparent: true,
+            opacity: 0,
             name: "desert"
         })
         this.third_land = new THREE.MeshStandardMaterial({
@@ -20,6 +24,8 @@ class Models {
             side: THREE.DoubleSide,
             wireframe: false,
             map: new THREE.TextureLoader().load("textures/hell.jpg"),
+            transparent: true,
+            opacity: 0,
             name: "hell"
         })
         this.player_temp = new THREE.MeshStandardMaterial({

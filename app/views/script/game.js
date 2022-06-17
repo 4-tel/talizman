@@ -25,6 +25,7 @@ class Game {
         this.board = new Board(this.tiles.get())
         this.board.click()
         this.scene.add(this.board.create())
+        this.scene.add(this.board.textures())
         this.move = new Move(this.board, this.scene, this.tiles.get(), this.tiles)
         // this.board.playerPlacement(this.tiles, this.scene)
 

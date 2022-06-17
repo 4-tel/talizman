@@ -12,12 +12,7 @@ class Board {
 
     create() {
         for (let i = 0; i < 49; i++) {
-            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, Math.floor(Math.random() * 1 + 50), this.instruction[i].height), i == 4 || i == 8 || i == 11 || i == 16 ? new THREE.MeshStandardMaterial({
-                color: 0x0000ff,
-                side: THREE.DoubleSide,
-                wireframe: false,
-                name: "hills"
-            }) : this.instruction[i].material)
+            let tile = new THREE.Mesh(new THREE.BoxGeometry(this.instruction[i].width, 50, this.instruction[i].height), this.instruction[i].material)
             tile.name = `${Math.floor(i / 7)},${i % 7}`
             tile.highlight = false
             tile.leftright = null
@@ -28,6 +23,40 @@ class Board {
             this.board.add(tile)
         }
         return (this.board)
+    }
+    textures() {
+        let all = new THREE.Object3D
+        let one = new THREE.Mesh(new THREE.BoxGeometry(4000, 2, 3000),
+            new THREE.MeshStandardMaterial({
+                color: 0xffffff,
+                //side: THREE.DoubleSide,
+                wireframe: false,
+                map: new THREE.TextureLoader().load("textures/talizmanFirstLand.png")
+            })
+        )
+        one.position.set(-290, 47, -390)
+        let two = new THREE.Mesh(new THREE.BoxGeometry(3060, 2, 2060),
+            new THREE.MeshStandardMaterial({
+                color: 0xffffff,
+                //side: THREE.DoubleSide,
+                wireframe: false,
+                map: new THREE.TextureLoader().load("textures/talizmanSecondLand.png")
+            })
+        )
+        two.position.set(-290, 97, -390)
+        let three = new THREE.Mesh(new THREE.BoxGeometry(2340, 2, 1320),
+            new THREE.MeshStandardMaterial({
+                color: 0xffffff,
+                //side: THREE.DoubleSide,
+                wireframe: false,
+                map: new THREE.TextureLoader().load("textures/talizmanThirdLand.jpg")
+            })
+        )
+        three.position.set(-290, 147, -390)
+        all.add(one)
+        all.add(two)
+        all.add(three)
+        return all
     }
     playerPlacement = async (tiles, game, players) => {
         console.log(players)
