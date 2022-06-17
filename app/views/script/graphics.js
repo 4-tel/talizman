@@ -33,7 +33,7 @@ class Graphics {
     //creates light soucre
     createLightSource(x, y, z) {
 
-        this.light = new THREE.PointLight(0xffffff, 0.5)
+        this.light = new THREE.PointLight(0xffffff, 1)
         this.light.position.set(x, y, z)
 
         this.scene.add(this.light)
