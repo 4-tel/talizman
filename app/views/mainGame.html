@@ -29,6 +29,7 @@
     <script src="script/communication.js"></script>
     <script src="script/inBetween.js"></script>
     <script src="script/diceThrow.js"></script>
+    <script src="script/playersboard.js"></script>
 
 </head>
 
@@ -47,6 +48,8 @@
         const cards = new CardsDeck();
         const communication = new Communication();
         const dice = new Dice();
+        const playersBoard = new PlayersBoard();
+        playersBoard.gui()
 
         const inBetween = new InBetween();
 

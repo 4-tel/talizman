@@ -93,7 +93,7 @@ class Game {
                 }
             }
 
-            else if (tile.actions[i].name == "win" && player.havetalisman == true) {
+            else if (tile.actions[i].name == "win" && player.havetalisman == true && player.name == JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username) {
 
                 net.announceWinner(await waitingRoom.get_session_data(), JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username)
                 net.changeSessionStatus('finished', await waitingRoom.get_session_data())

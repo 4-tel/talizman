@@ -93,8 +93,17 @@ class Communication {
 
 
                 if (this.localTurn != turn) {
+                    this.localTurn = turn
 
                     let users = await JSON.parse(await net.sessionInfo(await waitingRoom.get_session_data())).users
+
+                    //sorted array uf usernames
+                    let sorted = new Array()
+                    for (user of users) {
+                        sorted.push(user.name)
+                    }
+                    sorted.sort()
+
 
                     //update positions
 
@@ -128,17 +137,15 @@ class Communication {
                     }
 
 
-                    this.localTurn = turn
-
                     //check if your move
-                    if (users[turn].name == await JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username) {
+                    if (sorted[turn] == await JSON.parse(await new Net().getUsername(document.cookie.split("=")[1])).username) {
 
                         document.getElementById('whoplays').innerText = 'You!'
                         dice.graphicsInterface()
 
                     } else {
 
-                        document.getElementById('whoplays').innerText = users[turn].name
+                        document.getElementById('whoplays').innerText = sorted[turn]
 
                     }
 

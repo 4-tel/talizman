@@ -206,8 +206,26 @@ const sessionRouter = async (req, res) => {
         } else {
             res.end('error')
         }
+    }
 
+    //method GET, remove all sessions
+    if (req.method == "GET" && req.url == '/session/purge') {
 
+        let sessions = await databaseController.getSessions()
+
+        try {
+
+            for (let el of sessions) {
+                databaseController.removeSession(el.id)
+            }
+
+            res.end('purged all sessions')
+
+        } catch (e) {
+
+            res.end(JSON.stringify(e.message))
+
+        }
 
     }
 
