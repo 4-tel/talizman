@@ -159,8 +159,94 @@ header p {
     border-right: 0.5vw solid #4a0a0a
 }
 
-.playertile {
+
+#playerboard {
+
+    position: absolute;
+    width: 16vh;
+    top: 15vh;
+    height: 100vh;
+    left: -10vh;
+    z-index: 6;
+    overflow: visible;
+    padding: 2vh;
+
+}
+
+#playerboard div {
 
     background-color: #00000090;
+    width: 15vh;
+    height: 10vh;
+    color: white;
+    transition: all 0.3s;
+
+}
+
+#playerboard div h3 {
+
+    background-color: #66666630;
+    font-size: 1.5vh;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+#playerboard ul {
+
+    padding: 1vh;
+
+}
+
+#playerboard div:hover {
+
+    transform: translate(70%);
+
+}
+
+#action {
+
+    background-color: #e6d1b3;
+    position: absolute;
+    width: 30vh;
+    bottom: 25vh;
+    left: 50%;
+    transform: translate(-50%);
+    border: 1vh solid #4a0a0a;
+    /* background-image: linear-gradient(to right, #9d9280, #d2c9b8) */
+    background-image: url('/textures/desert.jpg');
+    /* border-radius: 20px; */
+    transition: all 0.5s;
+
+}
+
+#action p {
+
+    color: white;
+    font-size: 2vh;
+    background-color: #66666650;
+
+}
+
+
+#action h1 {
+
+    margin: 0;
+    padding: 0;
+    color: white;
+    width: 100%;
+    font-size: 4vh;
+
+}
+
+#action image {
+
+    width: 100%;
+
+}
+
+.confirm:hover {
+
+    font-style: oblique;
 
 }

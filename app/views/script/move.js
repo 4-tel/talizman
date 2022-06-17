@@ -27,13 +27,17 @@ class Move {
                         left = this.getTileReverse(left)
                         left.highlight = true
                         left.leftright = "left"
+
+
                         left.material = this.first_land = new THREE.MeshStandardMaterial({
                             color: 0xffff00,
                             side: THREE.DoubleSide,
                             wireframe: false,
-                            opacity: 1,
-                            transparent: false
+                            // opacity: 1,
+                            // transparent: false
                         })
+
+
                         right = this.getTileReverse(right)
                         right.highlight = true
                         right.leftright = "right"
@@ -41,8 +45,8 @@ class Move {
                             color: 0xffff00,
                             side: THREE.DoubleSide,
                             wireframe: false,
-                            opacity: 1,
-                            transparent: false
+                            // opacity: 1,
+                            // transparent: false
                         })
                     }
                 }
