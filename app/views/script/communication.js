@@ -113,7 +113,9 @@ class Communication {
                                         console.log('haloooo!');
 
                                         game.move.number = el.position.number
-                                        game.move.playerMove('', pawn.position, el.position.leftright, el.position.land)
+                                        let position = await game.move.playerMove('', pawn.position, el.position.leftright, el.position.land)
+
+                                        game.action(position, pawn)
 
                                     }
                                 }
