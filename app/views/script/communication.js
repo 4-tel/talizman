@@ -148,11 +148,6 @@ class Communication {
                         document.getElementById('whoplays').innerText = sorted[turn]
 
                     }
-
-
-
-
-
                 }
 
             }
